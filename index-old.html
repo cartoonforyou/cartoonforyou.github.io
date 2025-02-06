@@ -1,0 +1,723 @@
+<!Doctype html>
+<html>
+<head>
+    <!-- روابط لخطوط من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Family Guy</title>
+    <meta name="description" content="مرحبا بكم ,هذا الموقع يقدم لكم مجموعة متنوعة من برامج الكرتون والانمي الاكثر شهرة بشكل بسيط ومجاني ">
+    <meta name="author" content="ALI,OMAR ">
+    <meta name="keywords"content="انمي,كرتون,كرتون نتورك,سبيستون,mpc3,family guy,bluelook,anime,witanime,شاهد فور يو,افلام,مسلسلات,نيتفلكس,netflix,اكوام,شاهد,ايجي بيست,كرتون زمان,توب سينما">
+    <meta charset ="utf-8">
+    <meta name="viewport" content ="width=device-width ,initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Courier', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: white;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            width: 100%;
+            border: 2px solid rgb(9, 119, 9);
+            border-radius: 20px;
+            background-color:  rgb(9, 119, 9);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px;
+            flex-wrap: wrap; /* لتنسيق العناصر عند الشاشات الصغيرة */
+        }
+
+        img {
+            border-radius: 20px;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+            margin-right: 10px;
+            border: 10px groove rgb(9, 119, 9);
+        }
+
+        .season {
+            background-color:   rgb(9, 119, 9);
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 50%;
+            text-align: center;
+            font-family: 'Cairo';
+        }
+
+        .episodes {
+            display: none;
+            background-color: #333;
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: left;
+            width: 50%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .li {
+            border: 10px solid  rgb(9, 119, 9);
+            margin: 20px;
+            background-color:   rgb(9, 119, 9);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+
+        .li a {
+            display: block; /* يجعل الرابط يغطي مساحة العنصر بالكامل */
+            color: white; /* لون النص داخل الرابط */
+            text-decoration: none; /* إزالة الخط السفلي للرابط */
+            padding: 10px; /* مساحة داخلية للرابط */
+            border-radius: 30px; /* مطابقة الحدود لعنصر li */
+        }
+
+        .li:hover {
+            background-color:  rgb(9, 119, 9); /* تأثير hover على العنصر li */
+        }
+
+        .style2 {
+            color: white;
+            font-size: 15px;
+            font-family: "Cairo", sans-serif;
+            margin: 10px 10px 10px 750px;
+            padding: 10px;
+            width: 50%;
+            text-align: right;
+            border: 2px solid   rgb(9, 119, 9);
+            border-radius: 20px;
+            background-color:   rgb(9, 119, 9);
+        }
+
+        .last-item {
+            text-align: right;
+            direction: rtl;
+            margin-right: 20px;
+            padding: 10px;
+        }
+
+        p {
+            color:white;
+            font-size: 35px;
+            font-family: "Cairo", sans-serif;
+            margin: 0;
+            padding: 20px;
+            width: 32%;
+            text-align: right;
+            border: 2px solid  rgb(9, 119, 9);
+            border-radius: 20px;
+            background-color:  rgb(9, 119, 9);
+            height: 570px;
+        }
+
+        mark {
+            background-color: rgb(9, 119, 9);
+            color: white;
+        }
+
+        /* استعلامات الوسائط (media queries) لتصميم مرن */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                flex-direction: column; /* تغيير الاتجاه العمودي على الشاشات الصغيرة */
+                align-items: center;
+            }
+
+            .season {
+                width: 80%; /* تعديل عرض العنصر على الشاشات الصغيرة */
+            }
+
+            .episodes {
+                width: 80%; /* تعديل عرض العنصر على الشاشات الصغيرة */
+            }
+
+            .style2 {
+                width: 90%;
+                margin: 10px;
+                padding: 8px;
+            }
+
+            .li {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            p {
+                width: 80%;
+                font-size: 25px; /* تقليل حجم الخط على الشاشات الصغيرة */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .season {
+                width: 90%; /* تعديل عرض العنصر ليصبح أكبر على الشاشات الصغيرة جداً */
+            }
+
+            .episodes {
+                width: 90%; /* تعديل عرض العنصر ليصبح أكبر على الشاشات الصغيرة جداً */
+            }
+
+            p {
+                font-size: 20px; /* تقليل حجم الخط أكثر على الشاشات الصغيرة جداً */
+            }
+
+            .style2 {
+                width: 100%;
+                font-size: 14px; /* تقليل حجم الخط */
+                margin: 5px;
+            }
+
+            .li {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1 style="font-family: Cairo;">Family Guy</h1>
+    <div class="container">
+        <img src="images/فاملي جاي2.jpg" alt="Family Guy" width="40%">
+        <p>
+            <b> 
+            اهلا وسهلا بكم في الصفحة سوف نقوم بتزويدكم بالكرتون الشهير فاملي جاي جميع الاجزاء بالاضافة الى روابط لتحميل الحلقات 
+            </b>
+        </p>
+    </div>
+    
+    <div class="style2">
+        <dl>
+            <dt>:قصة المسلسل</dt>
+            <dd>تحاول إحدى الأسر المختلة التي تسكن في بلدة غريبة برود آيلاند، مواجهة الحياة اليومية فدائمًا ما تقع مواقف طريفة ومضحكة، لكنها تحاول التكيف مع تحديات الحياة بتصرفات حمقاء.</dd>
+        </dl>
+    </div> 
+    <div class="style2 last-item">
+        <ul>
+            <li>قسم المسلسل : مسلسلات انمي</li>
+            <li>جودة المسلسل :1080 p</li>
+            <li>موعد الصدور : 1999 </li>
+            <li>لغة المسلسل : الأنجليزية</li>
+            <li>دولة المسلسل : دولة طلوزة </li>
+        </ul>
+    </div> 
+    
+    <div class="season" onclick="toggleEpisodes('season1')">الجزء الأول</div>
+    <div id="season1" class="episodes">
+        <ul>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=1"><mark>1 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=2"><mark>2 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=3"><mark>3 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=4"><mark>4 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=5"><mark>5 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=6"><mark>6 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=7"><mark>7 الحلقة</mark></a></li>
+        </ul>
+    </div> 
+
+
+    <div class="season" onclick="toggleEpisodes('season2')">الجزء الثاني</div>
+    <div id="season2" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=8"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=9"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=10"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=11"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=12"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=13"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=14"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=15"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=16"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=17"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=18"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=19"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=20"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=21"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=22"><mark>15 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=23"><mark>16 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=24"><mark>17 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=25"><mark>18 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=26"><mark>19 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=27"><mark>20 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=28"><mark>21 الحلقة</mark></a></li>
+
+
+        </ul>
+    </div>
+    
+    <div class="season" onclick="toggleEpisodes('season3')">الجزء الثالث</div>
+    <div id="season3" class="episodes">
+        <ul>
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=29"><mark>1 الحلقة</mark></a></li>  
+             <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=30"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=31"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=32"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=33"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=34"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=35"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=36"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=37"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=38"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=39"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=40"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=41"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=42"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=43"><mark>15 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=44"><mark>16 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=45"><mark>17 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=46"><mark>18 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=47"><mark>19 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=48"><mark>20 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=49"><mark>21 الحلقة</mark></a></li>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=50"><mark>22 الحلقة</mark></a></li>
+        </ul>
+    </div>
+    <div class="season" onclick="toggleEpisodes('season4')">الجزء الرابع</div>
+    <div id="season4" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season5')">الجزء الخامس</div>
+    <div id="season5" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+    <div class="season" onclick="toggleEpisodes('season6')">الجزء السادس</div>
+    <div id="season6" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season7')">الجزء السابع</div>
+    <div id="season7" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season8')">الجزء الثامن</div>
+    <div id="season8" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season9')">الجزء التاسع</div>
+    <div id="season9" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season10')">الجزء العاشر</div>
+    <div id="season10" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season11')">الجزء الحادي عشر</div>
+    <div id="season11" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season12')">الجزء الثاني عشر</div>
+    <div id="season12" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season13')">الجزء الثالث عشر</div>
+    <div id="season13" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season14')">الجزء الرابع عشر</div>
+    <div id="season14" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season15')">الجزء الخامس عشر</div>
+    <div id="season15" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season16')">الجزء السادس عشر</div>
+    <div id="season16" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season17')">الجزء السابع عشر</div>
+    <div id="season17" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season18')">الجزء الثامن عشر</div>
+    <div id="season18" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season19')">الجزء التاسع عشر </div>
+    <div id="season19" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season20')">الجزء العشرين</div>
+    <div id="season20" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season21')">الجزء الواحد و العشرين</div>
+    <div id="season21" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+     <div class="season" onclick="toggleEpisodes('season22')">الجزء الثاني و العشرين</div>
+    <div id="season22" class="episodes">
+        <ul>
+              <li class="li"><a href="https://Aliomar2009512.github.io/videos/index2.html?episode=51"><mark>1 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>2 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>3 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>4 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>5 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>6 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>7 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>8 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>9 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>10 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>11 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>12 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>13 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>14 الحلقة</mark></a></li>
+              <li class="li"><a href="https://whomeenoaglauns.com/4/8714702"><mark>15 الحلقة</mark></a></li>
+            
+        </ul>
+    </div>
+    
+<script>
+    function toggleEpisodes(seasonId) {
+        const episodes = document.getElementById(seasonId);
+        if (episodes.style.display === "none" || episodes.style.display === "") {
+            episodes.style.display = "block";
+        } else {
+            episodes.style.display = "none";
+        }
+    }
+
+    function changeEpisode(videoId) {
+        document.getElementById('video-frame').src = `https://drive.google.com/file/d/${videoId}/preview`;
+        document.getElementById('download-link').href = `https://drive.google.com/uc?export=download&id=${videoId}`;
+    }
+</script>
+</body>
+</html>

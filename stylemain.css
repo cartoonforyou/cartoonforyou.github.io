@@ -1,0 +1,188 @@
+/* عنوان الصفحة */
+h1 {
+    color: black;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid gold;
+    border-radius: 20px;
+    background-color: black;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    color: black;
+    margin: 0;
+    
+}
+
+/* تنسيق الخلفية */
+body {
+    background-color: black;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-align: center;
+}
+
+/* تنسيق القائمة */
+.cartoon-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px; /* تحديد عرض ثابت لقائمة العناصر */
+    margin: 0 auto; /* لضمان توسيط القائمة */
+}
+
+/* تنسيق البطاقات */
+.cartoon-list li {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cartoon-list li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* تنسيق الصور */
+.cartoon-list li img {
+    width: 100%;
+    height: 300px; /* ارتفاع موحد لكل الصور */
+    object-fit: cover; /* لقص الصور بشكل جميل */
+    border-radius: 10px;
+    border: 5px solid gold;
+    margin-bottom: 10px;
+}
+
+/* تنسيق النصوص */
+.cartoon-list li h3 {
+    font-size: 16px;
+    color: gold;
+    min-height: 50px; /* ارتفاع موحد للنص */
+    line-height: 1.4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+header {
+    display: flex; /* ترتيب العناصر في خط أفقي */
+    align-items: center; /* محاذاة رأسية */
+    justify-content: center; /* توسيط المحتوى */
+    background-color: gold; /* اللون الذهبي */
+    padding: 15px 30px; /* تقليل المساحة الداخلية */
+    border-radius: 20px;
+    border: 2px solid gold;
+    gap: 15px; /* تقليل المسافة بين الصورة والعنوان */
+    width: fit-content; /* جعل العرض متناسبًا مع المحتوى بدلاً من 100% */
+    margin: 20px auto; /* توسيطه أفقيًا */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+
+header .logo {
+    width: 60px; /* حجم الشعار */
+    height: 60px;
+    border-radius: 10px; /* زوايا دائرية للشعار */
+}
+
+header h1 {
+    color: black;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    padding: 20px;
+    color: white;
+    border-top: 2px solid gold;
+}
+
+footer .logo {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* يجعل العناصر مرتبة عمودياً */
+    min-height: calc(100vh - 240px); /* لضمان التوسيط العمودي، مع خصم ارتفاع الهيدر والفوتر */
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* عنوان الصفحة كصورة */
+/* تحسين صورة العنوان */
+/* تحسين عنوان الصفحة */
+.title-image {
+    display: block;
+    width: fit-content;
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 3px solid gold;
+    background-color: gold;
+    color: black;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* تأثير عند تمرير الماوس */
+.title-image:hover {
+    transform: scale(1.05);
+}
+.header-container {
+    display: flex; /* ترتيب العناصر بجانب بعضها */
+    align-items: center; /* محاذاة وسطية */
+    justify-content: center; /* توسيط المحتوى */
+    gap: 15px; /* مسافة بين الصورة والنص */
+    background-color: black; /* إزالة الخلفية */
+    padding: 20px;
+}
+
+/* تنسيق الصورة */
+.logo {
+    width: 80px; /* زيادة حجم الصورة */
+    height: auto;
+}
+
+/* تنسيق العنوان الذهبي */
+.golden-title {
+    font-size: 50px; /* حجم الخط */
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(45deg, #FFD700, #FFC107, #FFB300); /* تدرج ذهبي */
+    -webkit-background-clip: text; /* تطبيق اللون على النص */
+    -webkit-text-fill-color: transparent; /* إخفاء لون النص الافتراضي */
+    text-shadow: 3px 3px 10px rgba(255, 215, 0, 0.6); /* ظل متوهج */
+    margin: 0;
+    padding: 5px 20px;
+}
+

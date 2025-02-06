@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BATMAN حلقات </title>
+    <style>
+        body {
+            background-color: black;
+            font-family: courier, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        a {
+            border: 10px solid   rgb(97, 6, 6);
+            border-radius: 20px;
+            background-color:   rgb(97, 6, 6);
+            margin: 20px;
+            width: 25%;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            width: fit-content;
+            border: 2px solid  rgb(97, 6, 6);
+            border-radius: 20px;
+            background-color:   rgb(97, 6, 6);
+        }
+
+        .video-container {
+            border: 5px solid   rgb(97, 6, 6);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* يمنع الفيديو من أن يتجاوز هذا العرض */
+        }
+
+        iframe {
+            display: block;
+            width: 100%; /* العرض سيكون بنسبة 100% */
+            height: 480px;
+            border: none;
+        }
+
+        mark {
+            background-color:   rgb(97, 6, 6);
+            color: black;
+        }
+        
+        /* تحسين استجابة الموقع لأحجام الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            a {
+                width: 50%;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                width: 80%;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+             .li {
+            border: 10px solid  rgb(97, 6, 6);
+            margin: 20px;
+            background-color:   rgb(97, 6, 6);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+             ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+        }
+        p{
+            background-color:  rgb(97, 6, 6);
+                border: 2px solid   rgb(97, 6, 6);
+                color:black;
+                }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: Cairo;">BATMAN مسلسل</h1>
+    <div class="video-container">
+        <iframe id="video-player" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <b>
+        <p>
+        تنبيه: لا تجعل الأنمي يُلهِيكَ عن واجباتَك الدينيَّة والدُنيويَّة، ونحنُ لا نتحمل مشاهدتك غير الأخلاقيَّة أمام الله. 
+        إذا وجدت بعض اللقطات السيئة يرجى إبلاغنا بها لإزالتها.
+       </p>
+       </b> 
+    </div>
+    <a id="download-link" href=""><mark><b>Download</b></mark></a>
+    <script>
+        // روابط الحلقات
+        const episodes = {
+            1: {
+                video: "blob:https://mega.nz/dc73c4fe-b6ee-45e0-b505-382df2cfa910",
+                download:"https://s251d3.downet.net/download/1738937877/67a4c495cebb4/Batman.The.Animated.Series.S01E01.720p.BluRay.AKWAM.mp4"
+            },
+            2: {
+                video: "https://drive.google.com/file/d/1CI8TWVpuUqpVgUH_TZUXPF9u4sM5J-Do/preview",
+                download: "https://drive.google.com/uc?export=download&id=1CI8TWVpuUqpVgUH_TZUXPF9u4sM5J-Do" 
+            },
+            3: {
+                video: "https://drive.google.com/file/d/1CLu9m7gmqfQlUP7cyFzhwu_EvwhSlDAU/preview",
+                download:  "https://drive.google.com/uc?export=download&id=1CLu9m7gmqfQlUP7cyFzhwu_EvwhSlDAU" 
+            },
+            4: {
+               video:"https://drive.google.com/file/d/1CM7gByHnTjvKvtaQ9eEhxdxOREvN_Q4X/preview",
+               download: "https://drive.google.com/uc?export=download&id=1CM7gByHnTjvKvtaQ9eEhxdxOREvN_Q4X" 
+           },
+            5: {
+               video: "https://drive.google.com/file/d/1CQhrh0CYD4ifHOovKPZEx6WmPc5diPGt/preview",
+               download:"https://drive.google.com/uc?export=download&id=1CQhrh0CYD4ifHOovKPZEx6WmPc5diPGt" 
+               },
+             6: {
+                video: "https://drive.google.com/file/d/1CVbVY313f8GCOKxDj8-e4bQ2-QSvHRAe/preview",
+                download: "https://drive.google.com/uc?export=download&id=1CVbVY313f8GCOKxDj8-e4bQ2-QSvHRAe" 
+               },
+               
+             7: {
+                 video: "https://drive.google.com/file/d/15RELEGsBdRIPnkQMMJC7qp7z9i4zad0w/preview",
+                  download: "https://drive.google.com/uc?export=download&id=15RELEGsBdRIPnkQMMJC7qp7z9i4zad0w"
+              },
+              8: {
+                 video:  "https://drive.google.com/file/d/1CetRTouqGWj5JkWQD3OpZU7nUFD4tJzn/preview",
+                 download: "https://drive.google.com/uc?export=download&id=1CetRTouqGWj5JkWQD3OpZU7nUFD4tJzn"
+              },
+              9: {
+                  video:"https://drive.google.com/file/d/1Cgkbm4QnhvZ0UY6iT9HEbzWcmwLFQQl1/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1Cgkbm4QnhvZ0UY6iT9HEbzWcmwLFQQl1"
+              },
+              10: {
+                  video: "https://drive.google.com/file/d/1CjGtHs_iT7IniRhU1b7Dkqdzlql1WzW7/preview",
+                  download:"https://drive.google.com/uc?export=download&id=1CjGtHs_iT7IniRhU1b7Dkqdzlql1WzW7"
+              },
+              11: {
+                  video:"https://drive.google.com/file/d/1Cmrnf90asBoVR6OGPD5L7n2JXA36MYVU/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1Cmrnf90asBoVR6OGPD5L7n2JXA36MYVU"
+              },
+              12: {
+                  video: "https://drive.google.com/file/d/1CnA_TnbOmKo11rs9h6bGnFghAeKlf7yA/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1CnA_TnbOmKo11rs9h6bGnFghAeKlf7yA"
+              },
+              13: {
+                  video: "https://drive.google.com/file/d/15gr0I-W7z024GWyq4YmmzV7nYRt_BYC2/preview",
+                  download:  "https://drive.google.com/uc?export=download&id=15gr0I-W7z024GWyq4YmmzV7nYRt_BYC2"
+              },
+              14: {
+                  video: "https://drive.google.com/file/d/1CoL8S8hx15TEVB0Hub-0WxWLG2WQ-luF/preview",
+                  download:"https://drive.google.com/uc?export=download&id=1CoL8S8hx15TEVB0Hub-0WxWLG2WQ-luF"
+              },
+              15: {
+                  video: "https://drive.google.com/file/d/1CuOkhwzzWh72_QINu1wY_2PE1ZBFCJdV/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1CuOkhwzzWh72_QINu1wY_2PE1ZBFCJdV"
+              },
+              16: {
+                  video: "https://drive.google.com/file/d/15iWvjV2aZIKkmtO0n2j27-RmPN0yATrb/preview",
+                  download: "https://drive.google.com/uc?export=download&id=15iWvjV2aZIKkmtO0n2j27-RmPN0yATrb"
+              },
+              17: {
+                  video: "https://drive.google.com/file/d/1CwpNiD0Lx_-ttP7um7ZBVgOX1g6fXdS9/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1CwpNiD0Lx_-ttP7um7ZBVgOX1g6fXdS9"
+              },
+              18: {
+                  video: "https://drive.google.com/file/d/1CyZ3cnziFhVgRlQz2lCcIkexdAgvMZr8/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1CyZ3cnziFhVgRlQz2lCcIkexdAgvMZr8"
+              },
+              19: {
+                  video: "https://drive.google.com/file/d/1D1PMzH__w9SeAxQUdZ6fvD_QyuqWjp9o/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1D1PMzH__w9SeAxQUdZ6fvD_QyuqWjp9o"
+              },
+              20: {
+                  video: "https://drive.google.com/file/d/1D1eE4gJvXw-rjoCorACuX_AdsYtr2Dv_/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1D1eE4gJvXw-rjoCorACuX_AdsYtr2Dv_"
+              },
+              21: {
+                  video: "https://drive.google.com/file/d/1D2-ieno9oN06F7aAF7mG1-jgePNH60ab/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1D2-ieno9oN06F7aAF7mG1-jgePNH60ab"
+              },
+              22: {
+                  video: "https://drive.google.com/file/d/160gtf-YxE5fOfbRnpJ8gM6uZnBrn_0Wy/preview",
+                  download: "https://drive.google.com/uc?export=download&id=160gtf-YxE5fOfbRnpJ8gM6uZnBrn_0Wy"
+              },
+              23: {
+                  video: "https://drive.google.com/file/d/168znBhY1Lj8fTiT9uzGyDJnGiy9dc1HK/preview",
+                  download: "https://drive.google.com/uc?export=download&id=168znBhY1Lj8fTiT9uzGyDJnGiy9dc1HK"
+              },
+              24: {
+                  video: "https://drive.google.com/file/d/163oaNTP3pClpBC6I7TigrGFiKo25jazP/preview",
+                  download: "https://drive.google.com/uc?export=download&id=163oaNTP3pClpBC6I7TigrGFiKo25jazP"
+              },
+              25: {
+                  video: "https://drive.google.com/file/d/167c0y8-rXpSh2SBlFSauS9aa4OhMKP-S/preview",
+                  download: "https://drive.google.com/uc?export=download&id=167c0y8-rXpSh2SBlFSauS9aa4OhMKP-S"
+              },
+             26: {
+                video: "https://drive.google.com/file/d/161ROeSSFv7HCb6ArJrn-14jHMAhNsHF3/preview",
+                download: "https://drive.google.com/uc?export=download&id=161ROeSSFv7HCb6ArJrn-14jHMAhNsHF3"
+            },
+            27: {
+                video: "https://drive.google.com/file/d/1D3QC387tL30ILqUle8iLMfZ3CJO7tw6W/preview",
+                download: "https://drive.google.com/uc?export=download&id=1D3QC387tL30ILqUle8iLMfZ3CJO7tw6W"
+            },
+            28: {
+                video: "https://drive.google.com/file/d/1D4J1OGhwjBZCoPXjOstV8VrUhP6czYOm/preview",
+                download: "https://drive.google.com/uc?export=download&id=1D4J1OGhwjBZCoPXjOstV8VrUhP6czYOm"
+            }
+          
+            // أضف باقي الحلقات هنا
+        };
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // محاولة قراءة الرقم باستخدام كلا المفتاحين
+        const episodeNumber = urlParams.get('episode') ;
+
+        // التحقق إذا تم العثور على رقم الحلقة
+        if (episodeNumber) {
+            console.log(`تشغيل الحلقة رقم: ${episodeNumber}`);
+            const videoElement = document.getElementById('video-player');
+            if (videoElement) {
+                const episodeData = episodes[episodeNumber] ;
+      if (episodeData) {
+    videoElement.src = episodeData.video; // استخدام الرابط المناسب
+    const downloadLink = document.getElementById('download-link');
+    downloadLink.href = episodeData.download; // تحديث رابط التنزيل
+         }      
+   else {
+    console.log('حلقة غير موجودة');
+}
+        }
+    }
+    </script>
+</body>
+</html>

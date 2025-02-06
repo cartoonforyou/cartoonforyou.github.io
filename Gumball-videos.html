@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حلقات عالم غامبول المدهش</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: courier, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        a {
+            border: 10px solid   rgb(0, 144, 247);
+            border-radius: 20px;
+            background-color:   rgb(0, 144, 247);
+            margin: 20px;
+            width: 25%;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            width: fit-content;
+            border: 2px solid  rgb(0, 144, 247);
+            border-radius: 20px;
+            background-color:   rgb(0, 144, 247);
+        }
+
+        .video-container {
+            border: 5px solid   rgb(0, 144, 247);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* يمنع الفيديو من أن يتجاوز هذا العرض */
+        }
+
+        iframe {
+            display: block;
+            width: 100%; /* العرض سيكون بنسبة 100% */
+            height: 480px;
+            border: none;
+        }
+
+        mark {
+            background-color:   rgb(0, 144, 247);
+            color: black;
+        }
+        
+        /* تحسين استجابة الموقع لأحجام الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            a {
+                width: 50%;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                width: 80%;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+             .li {
+            border: 10px solid  rgb(0, 144, 247);
+            margin: 20px;
+            background-color:   rgb(0, 144, 247);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+             ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+        }
+        p{
+            background-color:  rgb(0, 144, 247);
+                border: 2px solid   rgb(0, 144, 247);
+                color:black;
+                }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: Cairo;">حلقات غامبول</h1>
+    <div class="video-container">
+        <iframe id="video-player" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <b>
+        <p>
+        تنبيه: لا تجعل الأنمي يُلهِيكَ عن واجباتَك الدينيَّة والدُنيويَّة، ونحنُ لا نتحمل مشاهدتك غير الأخلاقيَّة أمام الله. 
+        إذا وجدت بعض اللقطات السيئة يرجى إبلاغنا بها لإزالتها.
+       </p>
+       </b> 
+    </div>
+    <a id="download-link" href=""><mark><b>Download</b></mark></a>
+    <script>
+        // روابط الحلقات
+        const episodes = {
+            1: {
+                video: "https://drive.google.com/file/d/1jNjk9kfMVqgVJRD6IlyYY1BnyAN5yGWO/preview",
+                download: "https://drive.google.com/uc?export=download&id=1jNjk9kfMVqgVJRD6IlyYY1BnyAN5yGWO"
+            },
+            2: {
+                video: "https://drive.google.com/file/d/1jPRco9rm2H-Aa3F5tmzK_vepH3kU_3yf/preview",
+                download: "https://drive.google.com/uc?export=download&id=1jPRco9rm2H-Aa3F5tmzK_vepH3kU_3yf"
+            },
+            3: {
+                video: "https://drive.google.com/file/d/1jRpDD5Qc9OiKE3tvEmcUB2dpBA08MHfe/preview",
+                download: "https://drive.google.com/uc?export=download&id=1jRpDD5Qc9OiKE3tvEmcUB2dpBA08MHfe"
+            },
+            4:{
+               video: "https://drive.google.com/file/d/1jU7Uz_Qe4JNcPTBc6ml6DN94BAyddRis/preview",
+               download: "https://drive.google.com/uc?export=download&id=1jU7Uz_Qe4JNcPTBc6ml6DN94BAyddRis"
+              },
+            5:{
+               video: "https://drive.google.com/file/d/1jZ_jh6qqDK9bVXTfSIK9Opqu_0rxcyOJ/preview",
+               download: "https://drive.google.com/uc?export=download&id=1jZ_jh6qqDK9bVXTfSIK9Opqu_0rxcyOJ"
+               },
+             6: {
+                video: "https://drive.google.com/file/d/1jb3oS2RT0_SScBR0B_HRa60_5mT8CqjE/preview",
+                download: "https://drive.google.com/uc?export=download&id=1jb3oS2RT0_SScBR0B_HRa60_5mT8CqjE"
+               },
+           7: {
+                 video: "https://drive.google.com/file/d/1jejQEd4BJAyNjP-LtuzoX-Iu2-Lpyu5b/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1jejQEd4BJAyNjP-LtuzoX-Iu2-Lpyu5b"
+              },
+            8 : {
+                video: "https://drive.google.com/file/d/1jfiwv-7AOZU2CJ4gscC5vR2ellxmRwI2/preview",
+                download: "https://drive.google.com/uc?export=download&id=1jfiwv-7AOZU2CJ4gscC5vR2ellxmRwI2"
+                },
+            9:  {
+                video: "https://drive.google.com/file/d/1jpxh5AEB3bJ00cJDI-5fSnBNumqt_hsn/preview",
+                download: "https://drive.google.com/uc?export=download&id=1jpxh5AEB3bJ00cJDI-5fSnBNumqt_hsn"
+                },
+            10: {
+                    video: "https://drive.google.com/file/d/1jqyY9lw4w8GatIcPdbuADtoYLlAicqKN/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1jqyY9lw4w8GatIcPdbuADtoYLlAicqKN"
+                }
+            // أضف باقي الحلقات هنا
+        };
+
+        const episodesPart2 = {
+               
+               
+            // أضف باقي الحلقات هنا
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // محاولة قراءة الرقم باستخدام كلا المفتاحين
+        const episodeNumber = urlParams.get('episode') || urlParams.get('episodespart2');
+
+        // التحقق إذا تم العثور على رقم الحلقة
+        if (episodeNumber) {
+            console.log(`تشغيل الحلقة رقم: ${episodeNumber}`);
+            const videoElement = document.getElementById('video-player');
+            if (videoElement) {
+                const episodeData = episodes[episodeNumber] || episodesPart2[episodeNumber];
+      if (episodeData) {
+    videoElement.src = episodeData.video; // استخدام الرابط المناسب
+    const downloadLink = document.getElementById('download-link');
+    downloadLink.href = episodeData.download; // تحديث رابط التنزيل
+         }      
+   else {
+    console.log('حلقة غير موجودة');
+}
+        }
+    }
+    </script>
+</body>
+</html>

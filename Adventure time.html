@@ -1,0 +1,291 @@
+<!Doctype html>
+<html>
+<head>
+    <!-- روابط لخطوط من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>وقت المغامرة</title>
+    <meta name="description" content="مرحبا بكم ,هذا الموقع يقدم لكم مجموعة متنوعة من برامج الكرتون والانمي الاكثر شهرة بشكل بسيط ومجاني ">
+    <meta name="author" content="ALI,OMAR ">
+    <meta name="keywords"content="انمي,كرتون,كرتون نتورك,سبيستون,mpc3,family guy,bluelook,anime,witanime,شاهد فور يو,افلام,مسلسلات,نيتفلكس,netflix,اكوام,شاهد,ايجي بيست,كرتون زمان,توب سينما">
+    <meta charset ="utf-8">
+    <meta name="viewport" content ="width=device-width ,initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            font-family: 'Courier', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            width: 100%;
+            border: 2px solid rgb(16, 156, 232);
+            border-radius: 20px;
+            background-color: rgb(16, 156, 232);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px;
+            flex-wrap: wrap; /* لتنسيق العناصر عند الشاشات الصغيرة */
+        }
+
+        img {
+            border-radius: 20px;
+            max-width: 100%;
+            height: auto;
+            width: auto;
+            margin-right: 10px;
+            border: 10px groove ;
+        }
+
+        .season {
+            background-color:  rgb(16, 156, 232);
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 50%;
+            text-align: center;
+            font-family: 'Cairo';
+        }
+
+        .episodes {
+            display: none;
+            background-color: #333;
+            color: white;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: left;
+            width: 50%;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        .li {
+            border: 10px solid  rgb(16, 156, 232);
+            margin: 20px;
+            background-color:  rgb(16, 156, 232);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+
+        .li a {
+            display: block; /* يجعل الرابط يغطي مساحة العنصر بالكامل */
+            color: white; /* لون النص داخل الرابط */
+            text-decoration: none; /* إزالة الخط السفلي للرابط */
+            padding: 10px; /* مساحة داخلية للرابط */
+            border-radius: 30px; /* مطابقة الحدود لعنصر li */
+        }
+
+        .li:hover {
+            background-color: rgb(16, 156, 232); /* تأثير hover على العنصر li */
+        }
+
+        .style2 {
+            color: black;
+            font-size: 15px;
+            font-family: "Cairo", sans-serif;
+            margin: 10px 10px 10px 750px;
+            padding: 10px;
+            width: 50%;
+            text-align: right;
+            border: 2px solid  rgb(16, 156, 232);
+            border-radius: 20px;
+            background-color:  rgb(16, 156, 232);
+        }
+
+        .last-item {
+            text-align: right;
+            direction: rtl;
+            margin-right: 20px;
+            padding: 10px;
+        }
+
+        p {
+            color: black;
+            font-size: 35px;
+            font-family: "Cairo", sans-serif;
+            margin: 0;
+            padding: 20px;
+            width: 32%;
+            text-align: right;
+            border: 2px solid rgb(16, 156, 232);
+            border-radius: 20px;
+            background-color: rgb(16, 156, 232);
+        }
+
+        mark {
+            background-color: rgb(16, 156, 232);
+            color: white;
+        }
+
+        /* استعلامات الوسائط (media queries) لتصميم مرن */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                flex-direction: column; /* تغيير الاتجاه العمودي على الشاشات الصغيرة */
+                align-items: center;
+            }
+
+            .season {
+                width: 80%; /* تعديل عرض العنصر على الشاشات الصغيرة */
+            }
+
+            .episodes {
+                width: 80%; /* تعديل عرض العنصر على الشاشات الصغيرة */
+            }
+
+            .style2 {
+                width: 90%;
+                margin: 10px;
+                padding: 8px;
+            }
+
+            .li {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            p {
+                width: 80%;
+                font-size: 25px; /* تقليل حجم الخط على الشاشات الصغيرة */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .season {
+                width: 90%; /* تعديل عرض العنصر ليصبح أكبر على الشاشات الصغيرة جداً */
+            }
+
+            .episodes {
+                width: 90%; /* تعديل عرض العنصر ليصبح أكبر على الشاشات الصغيرة جداً */
+            }
+
+            p {
+                font-size: 20px; /* تقليل حجم الخط أكثر على الشاشات الصغيرة جداً */
+            }
+
+            .style2 {
+                width: 100%;
+                font-size: 14px; /* تقليل حجم الخط */
+                margin: 5px;
+            }
+
+            .li {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Adventure Time <span style="font-family: Cairo;">مسلسل</span></h1>
+    <div class="container">
+        <img src="images/adventure-time_w4wn.jpg" alt="Adventure time" width="40%" >
+        <p>
+            <b>صلوا على من ولد يتيماً , وعاش كريماً , ومات عظيماً 
+            <br>
+            😊        أهلا بكم في الصفحة سوف نقدم لكم الكرتون الشهير وقت المغامرة <br>
+             جميع الأجزاء بالإضافة إلى روابط لتحميل الحلقات 
+            
+            </b>
+        </p>
+    </div>
+    
+    <div class="style2">
+        <dl>
+            <dt>:قصة المسلسل</dt>
+            <dd>تدور احداث المسلسل حول مغامرات صديقيين مقربين هما فين البشري وجايك الكلب, في أرض أوو مع سكانها من السكاكر، أبطالنا دائما متواجدون وسط المغامرة.
+                فين هو صبي مع قبعة رائعة ولكنه ولد سخيف وأكثر ما يريده هو أن يصبح بطل عظيم, اما جايك هو كلب حكيم بالغ السن ويتمتع بقلب كبير وحنون ويتمتع ببعض القوى العجيبة.
+                لقد بدأ وقت المغامرة والان سنسافر لأبعد مكان مع فين وجايك. </dd>
+        </dl>
+    </div> 
+    <div class="style2 last-item">
+        <ul>
+            <li>قسم المسلسل : مسلسلات انمي</li>
+            <li>جودة المسلسل :720 p</li>
+            <li>موعد الصدور : 2010 </li>
+            <li>لغة المسلسل :العربية</li>
+            <li>دولة المسلسل : دولة طلوزة </li>
+        </ul>
+    </div> 
+    
+    <div class="season" onclick="toggleEpisodes('season1')">الجزء الأول</div>
+    <div id="season1" class="episodes">
+        <ul>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=1"><mark>1 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=2"><mark>2 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=3"><mark>3 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=3"><mark>3 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=4"><mark>4 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=5"><mark>5 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=6"><mark>6 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=7"><mark>7 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=8"><mark>8 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=9"><mark>9 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=10"><mark>10 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=11"><mark>11 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=12"><mark>12 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=13"><mark>13 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=14"><mark>14 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=15"><mark>15 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=16"><mark>16 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=17"><mark>17 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=18"><mark>18 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=19"><mark>19 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=20"><mark>20 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=21"><mark>21 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=22"><mark>22 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=23"><mark>23 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=24"><mark>24 الحلقة</mark></a></li>
+             <li class="li"><a href="https://Aliomar2009512.github.io/Adventure Time videos.html?episode=25"><mark>25 الحلقة</mark></a></li>
+             
+            </ul>
+    </div> 
+
+<script>
+    function toggleEpisodes(seasonId) {
+        const episodes = document.getElementById(seasonId);
+        if (episodes.style.display === "none" || episodes.style.display === "") {
+            episodes.style.display = "block";
+        } else {
+            episodes.style.display = "none";
+        }
+    }
+
+    function changeEpisode(videoId) {
+        document.getElementById('video-frame').src = `https://drive.google.com/file/d/${videoId}/preview`;
+        document.getElementById('download-link').href = `https://drive.google.com/uc?export=download&id=${videoId}`;
+    }
+</script>
+<script src="https://alwingulla.com/88/tag.min.js" data-zone="121697" async data-cfasync="false"></script>
+</body>
+</html>

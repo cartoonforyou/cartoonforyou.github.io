@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حلقات انمي عهد الاصدقاء</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: courier, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        a {
+            border: 10px solid  rgb(93, 77, 173);
+            border-radius: 20px;
+            background-color:  rgb(93, 77, 173);
+            margin: 20px;
+            width: 25%;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            width: fit-content;
+            border: 2px solid rgb(93, 77, 173);
+            border-radius: 20px;
+            background-color:  rgb(93, 77, 173);
+        }
+
+        .video-container {
+            border: 5px solid  rgb(93, 77, 173);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* يمنع الفيديو من أن يتجاوز هذا العرض */
+        }
+
+        iframe {
+            display: block;
+            width: 100%; /* العرض سيكون بنسبة 100% */
+            height: 480px;
+            border: none;
+        }
+
+        mark {
+            background-color:  rgb(93, 77, 173);
+            color: black;
+        }
+        
+        /* تحسين استجابة الموقع لأحجام الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            a {
+                width: 50%;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                width: 80%;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+             .li {
+            border: 10px solid rgb(93, 77, 173);
+            margin: 20px;
+            background-color:  rgb(93, 77, 173);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+             ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+        }
+        p{
+            background-color: rgb(93, 77, 173);
+                border: 2px solid  rgb(93, 77, 173);
+                color:black;
+                }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: Cairo;">انمي عهد الاصدقاء</h1>
+    <div class="video-container">
+        <iframe id="video-player" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <b>
+        <p>
+        تنبيه: لا تجعل الأنمي يُلهِيكَ عن واجباتَك الدينيَّة والدُنيويَّة، ونحنُ لا نتحمل مشاهدتك غير الأخلاقيَّة أمام الله. 
+        إذا وجدت بعض اللقطات السيئة يرجى إبلاغنا بها لإزالتها.
+       </p>
+       </b> 
+    </div>
+    <a id="download-link" href=""><mark><b>Download</b></mark></a>
+    <script>
+        // روابط الحلقات
+        const episodes = {
+            1: {
+                video: "https://drive.google.com/file/d/1Dujns_Bsez4McbqGdJFb6361U7A1Wl5d/preview",
+                download:"https://drive.google.com/uc?export=download&id=1Dujns_Bsez4McbqGdJFb6361U7A1Wl5d"
+            },
+            2: {
+                video: "https://drive.google.com/file/d/1DwNu-MbZkdiK8QWG5JLuIfOEBCZ7PMJh/preview",
+                download: "https://drive.google.com/uc?export=download&id=1DwNu-MbZkdiK8QWG5JLuIfOEBCZ7PMJh" 
+            },
+            3: {
+                video: "https://drive.google.com/file/d/1DxfRvGHh-0CVfxLWSvOCIXFIgPfzBJ2Z/preview",
+                download:  "https://drive.google.com/uc?export=download&id=1DxfRvGHh-0CVfxLWSvOCIXFIgPfzBJ2Z" 
+            },
+            4: {
+               video:"https://drive.google.com/file/d/1Dy4heEXh2dmccD51k6snEU6KWFu306us/preview",
+               download: "https://drive.google.com/uc?export=download&id=1Dy4heEXh2dmccD51k6snEU6KWFu306us" 
+              },
+            5: {
+               video: "https://drive.google.com/file/d/1DyhiivBr5ktyzoXna7_CaIeN4v8qresG/preview",
+               download:"https://drive.google.com/uc?export=download&id=1DyhiivBr5ktyzoXna7_CaIeN4v8qresG" 
+               },
+            6: {
+                video: "https://drive.google.com/file/d/1Ez5eCvcq5ZFl1XZ1nwUoRVhx9SHYa25u/preview",
+                download: "https://drive.google.com/uc?export=download&id=1Ez5eCvcq5ZFl1XZ1nwUoRVhx9SHYa25u" 
+               },
+               
+             7: {
+                  video: "https://drive.google.com/file/d/1E020s6SE8TUyF4tVy6EFkuLS8wbj-mNb/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1E020s6SE8TUyF4tVy6EFkuLS8wbj-mNb"
+              },
+              8: {
+                 video:  "https://drive.google.com/file/d/1E0FepCO2p64jJAVWPgtCs5OdcXT0jeSG/preview",
+                 download: "https://drive.google.com/uc?export=download&id=1E0FepCO2p64jJAVWPgtCs5OdcXT0jeSG"
+              },
+              9: {
+                  video:"https://drive.google.com/file/d/1F-QxeqOo90ncEZub7j9Kz-QzdMzeTlyp/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1F-QxeqOo90ncEZub7j9Kz-QzdMzeTlyp"
+              },
+              10: {
+                  video: "https://drive.google.com/file/d/1F0jACEXPcmgms5o8gQwDIrKOwp3zSWz7/preview",
+                  download:"https://drive.google.com/uc?export=download&id=1F0jACEXPcmgms5o8gQwDIrKOwp3zSWz7"
+              },
+              11: {
+                  video:"https://drive.google.com/file/d/1F27Wwwu1427F105SlkSE8uVGOY7iqUGQ/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1F27Wwwu1427F105SlkSE8uVGOY7iqUGQ"
+              },
+              12: {
+                  video: "https://drive.google.com/file/d/1F4KO8zlTL7HVLQPksgz0W0Qf3I2aijeM/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1F4KO8zlTL7HVLQPksgz0W0Qf3I2aijeM"
+              },
+              13: {
+                  video: "https://drive.google.com/file/d/1F7Plw9-fUiz-u7Eakq6EwcLVwE_qO1GA/preview",
+                  download:  "https://drive.google.com/uc?export=download&id=1F7Plw9-fUiz-u7Eakq6EwcLVwE_qO1GA"
+              },
+              14: {
+                  video: "https://drive.google.com/file/d/15CH0TaSgc9OaUIDFzWBSLjQu5oQWEGeL/preview",
+                  download:"https://drive.google.com/uc?export=download&id=15CH0TaSgc9OaUIDFzWBSLjQu5oQWEGeL"
+              },
+              15: {
+                  video: "https://drive.google.com/file/d/1F7mnRVCEtSOxBBr9dkr9s9da-3hEplbS/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1F7mnRVCEtSOxBBr9dkr9s9da-3hEplbS"
+              },
+              16: {
+                  video: "https://drive.google.com/file/d/13yTV3xLNbTfmlls6v_xKN_RzRDOOa3FW/preview",
+                  download: "https://drive.google.com/uc?export=download&id=13yTV3xLNbTfmlls6v_xKN_RzRDOOa3FW"
+              },
+              17: {
+                  video: "https://drive.google.com/file/d/14-llyYkGcdM3zStc1cSuCCdB_bxPSrR7/preview",
+                  download: "https://drive.google.com/uc?export=download&id=14-llyYkGcdM3zStc1cSuCCdB_bxPSrR7"
+              },
+              18: {
+                  video: "https://drive.google.com/file/d/145edbADqjYAd760zEuOJZBjsD_2F1kFX/preview",
+                  download: "https://drive.google.com/uc?export=download&id=145edbADqjYAd760zEuOJZBjsD_2F1kFX"
+              },
+              19: {
+                  video: "https://drive.google.com/file/d/146N5ajnn6fCRrnapEDh3TyhQjUHpS3OP/preview",
+                  download: "https://drive.google.com/uc?export=download&id=146N5ajnn6fCRrnapEDh3TyhQjUHpS3OP"
+              },
+              20: {
+                  video: "https://drive.google.com/file/d/146V1HGQvZSrs8G68nMKfZwl75yhVLKvL/preview",
+                  download: "https://drive.google.com/uc?export=download&id=146V1HGQvZSrs8G68nMKfZwl75yhVLKvL"
+              },
+              21: {
+                  video: "https://drive.google.com/file/d/147FK3iI2TS1bKigF2HAwdakdlpgXfxLk/preview",
+                  download: "https://drive.google.com/uc?export=download&id=147FK3iI2TS1bKigF2HAwdakdlpgXfxLk"
+              },
+              22: {
+                  video: "https://drive.google.com/file/d/14IbtIutPXlAzU1_NtkQlv64M8RxE-BRz/preview",
+                  download: "https://drive.google.com/uc?export=download&id=14IbtIutPXlAzU1_NtkQlv64M8RxE-BRz"
+              },
+              23: {
+                  video: "https://drive.google.com/file/d/148af8upmnu-KQyFCfYI7v8eEI4VKVfoT/preview",
+                  download: "https://drive.google.com/uc?export=download&id=148af8upmnu-KQyFCfYI7v8eEI4VKVfoT"
+              }
+              
+            // أضف باقي الحلقات هنا
+        };
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // محاولة قراءة الرقم باستخدام كلا المفتاحين
+        const episodeNumber = urlParams.get('episode') ;
+
+        // التحقق إذا تم العثور على رقم الحلقة
+        if (episodeNumber) {
+            console.log(`تشغيل الحلقة رقم: ${episodeNumber}`);
+            const videoElement = document.getElementById('video-player');
+            if (videoElement) {
+                const episodeData = episodes[episodeNumber] ;
+      if (episodeData) {
+    videoElement.src = episodeData.video; // استخدام الرابط المناسب
+    const downloadLink = document.getElementById('download-link');
+    downloadLink.href = episodeData.download; // تحديث رابط التنزيل
+         }      
+   else {
+    console.log('حلقة غير موجودة');
+}
+        }
+    }
+    </script>
+</body>
+</html>

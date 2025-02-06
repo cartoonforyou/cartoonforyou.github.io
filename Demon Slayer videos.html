@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قاتل الشياطين: قطار اللانهاية</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: courier, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        a {
+            border: 10px solid   rgb(180, 44, 2);
+            border-radius: 20px;
+            background-color:   rgb(180, 44, 2);
+            margin: 20px;
+            width: 25%;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            width: fit-content;
+            border: 2px solid  rgb(180, 44, 2);
+            border-radius: 20px;
+            background-color:   rgb(180, 44, 2);
+        }
+
+        .video-container {
+            border: 5px solid   rgb(180, 44, 2);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* يمنع الفيديو من أن يتجاوز هذا العرض */
+        }
+
+        iframe {
+            display: block;
+            width: 100%; /* العرض سيكون بنسبة 100% */
+            height: 480px;
+            border: none;
+        }
+
+        mark {
+            background-color:   rgb(180, 44, 2);
+            color: black;
+        }
+        
+        /* تحسين استجابة الموقع لأحجام الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            a {
+                width: 50%;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                width: 80%;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+             .li {
+            border: 10px solid  rgb(180, 44, 2);
+            margin: 20px;
+            background-color:   rgb(180, 44, 2);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+             ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+        }
+        p{
+            background-color:  rgb(180, 44, 2);
+                border: 2px solid   rgb(180, 44, 2);
+                color:black;
+                }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: Cairo;">Demon Slayer فيلم</h1>
+    <div class="video-container">
+        <iframe id="video-player" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <b>
+        <p>
+        تنبيه: لا تجعل الأنمي يُلهِيكَ عن واجباتَك الدينيَّة والدُنيويَّة، ونحنُ لا نتحمل مشاهدتك غير الأخلاقيَّة أمام الله. 
+        إذا وجدت بعض اللقطات السيئة يرجى إبلاغنا بها لإزالتها.
+       </p>
+       </b> 
+    </div>
+    <a id="download-link" href=""><mark><b>Download</b></mark></a>
+    <script>
+        // روابط الحلقات
+        const episodes = {
+            1: {
+                video: "https://drive.google.com/file/d/1vuNDCxXLZV9qxTvKjm1bL2m15X-T1YMA/preview",
+                download:"https://drive.google.com/uc?export=download&id=1vuNDCxXLZV9qxTvKjm1bL2m15X-T1YMA"
+            }
+          
+            // أضف باقي الحلقات هنا
+        };
+
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // محاولة قراءة الرقم باستخدام كلا المفتاحين
+        const episodeNumber = urlParams.get('episode') ;
+
+        // التحقق إذا تم العثور على رقم الحلقة
+        if (episodeNumber) {
+            console.log(`تشغيل الحلقة رقم: ${episodeNumber}`);
+            const videoElement = document.getElementById('video-player');
+            if (videoElement) {
+                const episodeData = episodes[episodeNumber] ;
+      if (episodeData) {
+    videoElement.src = episodeData.video; // استخدام الرابط المناسب
+    const downloadLink = document.getElementById('download-link');
+    downloadLink.href = episodeData.download; // تحديث رابط التنزيل
+         }      
+   else {
+    console.log('حلقة غير موجودة');
+}
+        }
+    }
+    </script>
+</body>
+</html>
