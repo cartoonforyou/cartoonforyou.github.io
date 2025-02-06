@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family GUY حلقات</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: courier, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        a {
+            border: 10px solid  rgb(9, 119, 9);
+            border-radius: 20px;
+            background-color:  rgb(9, 119, 9);
+            margin: 20px;
+            width: 25%;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        h1 {
+            color: black;
+            font-size: 40px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            width: fit-content;
+            border: 2px solid rgb(9, 119, 9);
+            border-radius: 20px;
+            background-color:  rgb(9, 119, 9);
+        }
+
+        .video-container {
+            border: 5px solid  rgb(9, 119, 9);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px; /* يمنع الفيديو من أن يتجاوز هذا العرض */
+        }
+
+        iframe {
+            display: block;
+            width: 100%; /* العرض سيكون بنسبة 100% */
+            height: 480px;
+            border: none;
+        }
+
+        mark {
+            background-color:  rgb(9, 119, 9);
+            color: black;
+        }
+        
+        /* تحسين استجابة الموقع لأحجام الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            a {
+                width: 50%;
+            }
+
+            iframe {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                width: 80%;
+            }
+
+            iframe {
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+             .li {
+            border: 10px solid rgb(9, 119, 9);
+            margin: 20px;
+            background-color:  rgb(9, 119, 9);
+            border-radius: 30px;
+            border-width: 20%;
+            text-align: center;
+            font-family: 'Courier';
+        }
+             ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+        }
+        }
+        p{
+            background-color: rgb(9, 119, 9);
+                border: 2px solid  rgb(9, 119, 9);
+                color:black;
+                }
+    </style>
+</head>
+<body>
+    <h1 style="font-family: Cairo;">Family GUY</h1>
+    <div class="video-container">
+        <iframe id="video-player" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <b>
+        <p>
+        تنبيه: لا تجعل الأنمي يُلهِيكَ عن واجباتَك الدينيَّة والدُنيويَّة، ونحنُ لا نتحمل مشاهدتك غير الأخلاقيَّة أمام الله. 
+        إذا وجدت بعض اللقطات السيئة يرجى إبلاغنا بها لإزالتها.
+       </p>
+       </b> 
+    </div>
+    <a id="download-link" href=""><mark><b>Download</b></mark></a>
+    <script>
+        // روابط الحلقات
+        const episodes = {
+            1: {
+                video: "https://drive.google.com/file/d/1UFAGVIkxROyNhUnHgnBsRY6MKbjgSXnx/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UFAGVIkxROyNhUnHgnBsRY6MKbjgSXnx"
+            },
+            2: {
+                video: "https://drive.google.com/file/d/1z0BRFsOef2kGYegmYc9QnUaqyEG8fhhD/preview",
+                download: "https://drive.google.com/uc?export=download&id=1z0BRFsOef2kGYegmYc9QnUaqyEG8fhhD"
+            },
+            3: {
+                video: "https://drive.google.com/file/d/1hXUZC8GgjAzjxzVHfGeu79REUFrPS5_U/preview",
+                download: "https://drive.google.com/uc?export=download&id=1hXUZC8GgjAzjxzVHfGeu79REUFrPS5_U"
+            },
+            4: {
+               video: "https://drive.google.com/file/d/1xYTdbXo3mGhQnZeJEZ6SmLsGtm8lyOCC/preview",
+               download: "https://drive.google.com/uc?export=download&id=1xYTdbXo3mGhQnZeJEZ6SmLsGtm8lyOCC"
+          },
+            5: {
+               video: "https://drive.google.com/file/d/1jG1a9WygOxQO5T8qI9reOoW63HQDQzME/preview",
+               download: "https://drive.google.com/uc?export=download&id=1jG1a9WygOxQO5T8qI9reOoW63HQDQzME"
+               },
+             6: {
+                video: "https://drive.google.com/file/d/1noAkNLmvU5nPviGoEzkn67IYWBvUIgbi/preview",
+                download: "https://drive.google.com/uc?export=download&id=1noAkNLmvU5nPviGoEzkn67IYWBvUIgbi"
+               },
+           7: {
+                 video: "https://drive.google.com/file/d/1zVETYxHGn0SPSLMk1Yg68ecLIhSUK40m/preview",
+                  download: "https://drive.google.com/uc?export=download&id=1zVETYxHGn0SPSLMk1Yg68ecLIhSUK40m"
+              }
+            // أضف باقي الحلقات هنا
+        };
+
+        const episodesPart2 = {
+                8 : {
+                video: "https://drive.google.com/file/d/1B5nL62Ru8o-BJUY-kbeAy7OICghSe5oi/preview",
+                download: "https://drive.google.com/uc?export=download&id=1B5nL62Ru8o-BJUY-kbeAy7OICghSe5oi"
+                },
+                9: {
+                video: "https://drive.google.com/file/d/1nEqF2NaXM4mLgI5CId60ZXtJRa-u6Ue2/preview",
+                download: "https://drive.google.com/uc?export=download&id=1nEqF2NaXM4mLgI5CId60ZXtJRa-u6Ue2"
+                   },
+                10: {
+                    video: "https://drive.google.com/file/d/1z9TMPtwcRkscASP0CK6YX6Rezse5M0uY/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1z9TMPtwcRkscASP0CK6YX6Rezse5M0uY"
+                   },
+                11: {
+                    video: "https://drive.google.com/file/d/1Ol5NNKiVZZB-RzyTYxC6RM3ai7ixhqN2/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1Ol5NNKiVZZB-RzyTYxC6RM3ai7ixhqN2"
+                },
+                12: {
+                    video: "https://drive.google.com/file/d/1ro5W9mX3tbLTIysrVU2zjnp2JKiYoYo5/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1ro5W9mX3tbLTIysrVU2zjnp2JKiYoYo5"
+                },
+                13: {
+                    video: "https://drive.google.com/file/d/1SM22_OPe9WuGUJP9ylcD9r7jJ9MdeJj_/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1SM22_OPe9WuGUJP9ylcD9r7jJ9MdeJj_"
+                },
+                14: {
+                    video: "https://drive.google.com/file/d/19yC8aM1ZtKD6VNmkcqvZIy_7Tbyb8Gry/preview",
+                    download: "https://drive.google.com/uc?export=download&id=19yC8aM1ZtKD6VNmkcqvZIy_7Tbyb8Gry"
+                },
+                15: {
+                    video: "https://drive.google.com/file/d/1pw0fc3qs7hUs4NPlrDOY6JhVvUG4-CpK/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1pw0fc3qs7hUs4NPlrDOY6JhVvUG4-CpK"
+                },
+                16: {
+                    video: "https://drive.google.com/file/d/1oxEzjmfkfwMI5unY6loc49L4II9ouLC9/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1oxEzjmfkfwMI5unY6loc49L4II9ouLC9"
+                },
+                17: {
+                    video: "https://drive.google.com/file/d/17JnCu6ILoKJwdYsMoBGlEwhrXYQCovjO/preview",
+                    download: "https://drive.google.com/uc?export=download&id=17JnCu6ILoKJwdYsMoBGlEwhrXYQCovjO"
+                },
+                18: {
+                    video: "https://drive.google.com/file/d/1LugqIuUe9DK3udt35HUtvM67uyybum4S/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1LugqIuUe9DK3udt35HUtvM67uyybum4S"
+                },
+                19: {
+                    video: "https://drive.google.com/file/d/1F0JxjPP97QzmxqAuO-yrQiYKOMnbF2j8/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1F0JxjPP97QzmxqAuO-yrQiYKOMnbF2j8"
+                },
+                20: {
+                    video: "https://drive.google.com/file/d/1kCC6stbuAtDwV8LKheUuCHPMaLooIQPD/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1kCC6stbuAtDwV8LKheUuCHPMaLooIQPD"
+                },
+                21: {
+                    video: "https://drive.google.com/file/d/1Nt3q43ZRofYw1KONSaguWZyVHuxD5eRd/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1Nt3q43ZRofYw1KONSaguWZyVHuxD5eRd"
+                },
+                22: {
+                    video: "https://drive.google.com/file/d/1CEtOadknr5eLFfxVisyQ43KhMTHtWEuQ/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1CEtOadknr5eLFfxVisyQ43KhMTHtWEuQ"
+                },
+                23: {
+                    video: "https://drive.google.com/file/d/1qUuLDnt-bwyp7z4dYBhMYEfFIwLkKvfF/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1qUuLDnt-bwyp7z4dYBhMYEfFIwLkKvfF"
+                },
+                24: {
+                    video: "https://drive.google.com/file/d/1cifrzwfVjytId2BKg1hql1_sFc4naxix/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1cifrzwfVjytId2BKg1hql1_sFc4naxix"
+                },
+                25: {
+                    video: "https://drive.google.com/file/d/1O7HYuJZ9hXllFEn2u1ZxRYkO45Gx6Bd7/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1O7HYuJZ9hXllFEn2u1ZxRYkO45Gx6Bd7"
+                },
+                26: {
+                    video: "https://drive.google.com/file/d/1PED747I5Div6pvyRhxiiGAOYRoQoCxrh/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1PED747I5Div6pvyRhxiiGAOYRoQoCxrh"
+                },
+                27: {
+                    video: "https://drive.google.com/file/d/10rE84ttT5TAEDJYFNJrOvb1-U1_JtdhB/preview",
+                    download: "https://drive.google.com/uc?export=download&id=10rE84ttT5TAEDJYFNJrOvb1-U1_JtdhB"
+                },
+                28: {
+                    video: "https://drive.google.com/file/d/1pyB7W8AFZKVTYndcAgYOKy-pVyNvVzsu/preview",
+                    download: "https://drive.google.com/uc?export=download&id=1pyB7W8AFZKVTYndcAgYOKy-pVyNvVzsu"
+                }
+            // أضف باقي الحلقات هنا
+        };
+         const episodesPart3 = {
+                29 : {
+                video: "https://drive.google.com/file/d/1UtKecjDTg9KMnNCQO4n1vwSc4HNaa0L3/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UtKecjDTg9KMnNCQO4n1vwSc4HNaa0L3"
+                },
+                 30 : {
+                video: "https://drive.google.com/file/d/1UpotKTMbxA3GCfW5Et_TyX3dax23Pftd/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UpotKTMbxA3GCfW5Et_TyX3dax23Pftd"
+                },
+                 31 : {
+                video: "https://drive.google.com/file/d/1UrWbajjAGQigfAThcsx203JTy6H-L3BP/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UrWbajjAGQigfAThcsx203JTy6H-L3BP"
+                },
+                 32 : {
+                video: "https://drive.google.com/file/d/1Uepp26K7dRu0i6TsJvmSUNXWT6i0LB2P/preview",
+                download: "https://drive.google.com/uc?export=download&id=1Uepp26K7dRu0i6TsJvmSUNXWT6i0LB2P"
+                },
+                33 : {
+                video: "https://drive.google.com/file/d/1UmQpz-LjoVEPV5Qdf-l0iK2BH-7SY-j9/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UmQpz-LjoVEPV5Qdf-l0iK2BH-7SY-j9"
+                },
+                 34 : {
+                video: "https://drive.google.com/file/d/1UjP8FO32zpC1hfowSrtGe75SOZs1FnHN/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UjP8FO32zpC1hfowSrtGe75SOZs1FnHN"
+                },
+                35 : {
+                video: "https://drive.google.com/file/d/1U_FmUUs697J0pBqvObTMGXImzdxo9Wb7/preview",
+                download: "https://drive.google.com/uc?export=download&id=1U_FmUUs697J0pBqvObTMGXImzdxo9Wb7"
+                },
+                36 : {
+                video: "https://drive.google.com/file/d/1UZbg4DAvThmMHquahANl_wXs8-g90NFB/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UZbg4DAvThmMHquahANl_wXs8-g90NFB"
+                },
+                37 : {
+                video: "https://drive.google.com/file/d/1UcBmkQFcRAGTJMwK5iu_HtnTtWCWtrAD/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UcBmkQFcRAGTJMwK5iu_HtnTtWCWtrAD"
+                },
+                38 : {
+                video: "https://drive.google.com/file/d/1UYpxEVeh0-bemivp27bYz1Y67oxyFv2r/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UYpxEVeh0-bemivp27bYz1Y67oxyFv2r"
+                },
+                39 : {
+                video: "https://drive.google.com/file/d/1UWVyCRUs3Q3_qXqiDSEyYjYWsFIAr4z_/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UWVyCRUs3Q3_qXqiDSEyYjYWsFIAr4z_"
+                },
+                40 : {
+                video: "https://drive.google.com/file/d/1UXhNLA6w3aD0ezz4ROG3PrdARIwyqMz8/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UXhNLA6w3aD0ezz4ROG3PrdARIwyqMz8"
+                },
+                41 : {
+                video: "https://drive.google.com/file/d/1UVfZ1s_MY4M842GCoX5n0V_gIOF2sQZk/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UVfZ1s_MY4M842GCoX5n0V_gIOF2sQZk"
+                },
+                 42 : {
+                video: "https://drive.google.com/file/d/1UTJIvpTAQoOAHBgf4BDn5jJkxDFlhTn3/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UTJIvpTAQoOAHBgf4BDn5jJkxDFlhTn3"
+                },
+                43 : {
+                video: "https://drive.google.com/file/d/1UTy61mR1KAnT0Vs1S2BFIo2HVrFJKvv6/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UTy61mR1KAnT0Vs1S2BFIo2HVrFJKvv6"
+                },
+                44 : {
+                video: "https://drive.google.com/file/d/1URsGz6VZ8bpd3zu6D2Dd1aj-IlGpfF8x/preview",
+                download: "https://drive.google.com/uc?export=download&id=1URsGz6VZ8bpd3zu6D2Dd1aj-IlGpfF8x"
+                },
+                45 : {
+                video: "https://drive.google.com/file/d/1UDitXNwPhI1IAuGCTN9GWvvpdCrqjZnh/preview",
+                download: "https://drive.google.com/uc?export=download&id=1UDitXNwPhI1IAuGCTN9GWvvpdCrqjZnh"
+                },
+                46 : {
+                video: "https://drive.google.com/file/d/1U5zmrX9qUGEZLXyY3ySvh8ZmTmVqVmAW/preview",
+                download: "https://drive.google.com/uc?export=download&id=1U5zmrX9qUGEZLXyY3ySvh8ZmTmVqVmAW"
+                },
+                47 : {
+                video: "https://drive.google.com/file/d/1U12ZRoEqvgNhMLsfckrJwCkZujGrdT4N/preview",
+                download: "https://drive.google.com/uc?export=download&id=1U12ZRoEqvgNhMLsfckrJwCkZujGrdT4N"
+                },
+                48 : {
+                video: "https://drive.google.com/file/d/1U-RUocmJ3sZgc5OnLzErUwdKOHbiIMV4/preview",
+                download: "https://drive.google.com/uc?export=download&id=1U-RUocmJ3sZgc5OnLzErUwdKOHbiIMV4"
+                },
+                49 : {
+                video: "https://drive.google.com/file/d/1TtQQMqtD_eQzu-w2UIuFsKUvVVk78F6H/preview",
+                download: "https://drive.google.com/uc?export=download&id=1TtQQMqtD_eQzu-w2UIuFsKUvVVk78F6H"
+                },
+                50 : {
+                video: "https://drive.google.com/file/d/1TrdsVZZ3ygsz_fAztlzmDQ62nMJU2iE5/preview",
+                download: "https://drive.google.com/uc?export=download&id=1TrdsVZZ3ygsz_fAztlzmDQ62nMJU2iE5"
+                },
+            // أضف باقي الحلقات هنا
+        };
+        const episodesPart4 = {
+                51 : {
+                video: "https://www.mp4upload.com/embed-v6bhye8p9kn2.html",
+                download: "https://fdewsdc.sbs/d/yx5o6mel9203"
+                }
+                
+            // أضف باقي الحلقات هنا
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // محاولة قراءة الرقم باستخدام كلا المفتاحين
+        const episodeNumber = urlParams.get('episode') || urlParams.get('episodespart2') || urlParams.get('episodespart3')||urlParams.get('episodespart4');
+
+        // التحقق إذا تم العثور على رقم الحلقة
+        if (episodeNumber) {
+            console.log(`تشغيل الحلقة رقم: ${episodeNumber}`);
+            const videoElement = document.getElementById('video-player');
+            if (videoElement) {
+                const episodeData = episodes[episodeNumber] || episodesPart2[episodeNumber] || episodesPart3[episodeNumber] || episodesPart4[episodeNumber];
+      if (episodeData) {
+    videoElement.src = episodeData.video; // استخدام الرابط المناسب
+    const downloadLink = document.getElementById('download-link');
+    downloadLink.href = episodeData.download; // تحديث رابط التنزيل
+         }      
+   else {
+    console.log('حلقة غير موجودة');
+}
+        }
+    }
+    </script>
+</body>
+</html>
