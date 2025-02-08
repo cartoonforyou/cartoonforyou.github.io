@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
 // إضافة إعلان في الفوتر (Footer)
 document.addEventListener("DOMContentLoaded", function() {
     let footerAd = document.createElement("script");
-    footerAd.src = "https://kulroakonsu.net/88/tag.min.js";
+    contentAd.innerHTML = `<script>(function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)}catch(e){}})('groleegni.net',8914632,document.createElement('script'))</script>`;
     footerAd.setAttribute("data-zone", "130231");
     footerAd.setAttribute("async", "true");
-
+    
     let footer = document.querySelector("footer");
     if (footer) {
         footer.appendChild(footerAd);
