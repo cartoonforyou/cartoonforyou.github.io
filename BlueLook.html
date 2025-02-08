@@ -237,20 +237,39 @@
         </ul>
     </div> 
     <div class="season" onclick="toggleEpisodes('season1')">الجزء الأول</div>
-    <div id="season1" class="episodes">
-        <ul>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=1"><mark>1 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=2"><mark>2 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=3"><mark>3 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=4"><mark>4 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=5"><mark>5 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=6"><mark>6 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=7"><mark>7 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=8"><mark>8 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=9"><mark>9 الحلقة</mark></a></li>
-             <li class="li"><a href="https://cartoonforyou.github.io/BlueLook2down.html?episode=10"><mark>10 الحلقة</mark></a></li>
-        </ul>
-    </div> 
+<div id="season1" class="episodes">
+    <ul>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=1')"><mark>1 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=2')"><mark>2 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=3')"><mark>3 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=4')"><mark>4 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=5')"><mark>5 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=6')"><mark>6 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=7')"><mark>7 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=8')"><mark>8 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=9')"><mark>9 الحلقة</mark></a></li>
+        <li class="li"><a href="#" onclick="showAd(event, 'https://cartoonforyou.github.io/BlueLook2down.html?episode=10')"><mark>10 الحلقة</mark></a></li>
+    </ul>
+</div>
+
+<!-- عنصر الإعلان -->
+<div id="ad-container" style="display: none; text-align: center; margin-top: 10px;">
+    <p>سيتم توجيهك إلى الحلقة بعد 5 ثوانٍ...</p>
+    <iframe src="https://poawooptugroo.com/4/8914575" width="300" height="250"></iframe>
+</div>
+
+<script>
+function showAd(event, episodeUrl) {
+    event.preventDefault(); // منع الانتقال الفوري إلى الحلقة
+    document.getElementById('ad-container').style.display = 'block';
+
+    // الانتظار لمدة 5 ثوانٍ ثم الانتقال إلى الحلقة
+    setTimeout(function() {
+        window.location.href = episodeUrl;
+    }, 5000);
+}
+</script>
+
 
 
     <div class="season" onclick="toggleEpisodes('season2')">الجزء الثاني</div>
