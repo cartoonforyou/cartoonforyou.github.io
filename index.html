@@ -247,10 +247,6 @@
             gap: 6px;
         }
 
-        .category-btn i {
-            font-size: 12px;
-        }
-
         .category-btn:hover, .category-btn.active {
             background: var(--gold);
             color: #000;
@@ -258,7 +254,7 @@
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
 
-        /* ========== HERO SLIDER / CAROUSEL ========== */
+        /* ========== IMPROVED HERO SLIDER ========== */
         .hero-section {
             margin: 20px auto 30px;
             max-width: 1400px;
@@ -274,11 +270,11 @@
 
         .section-badge i {
             color: var(--gold);
-            font-size: 22px;
+            font-size: 24px;
         }
 
         .section-badge h3 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             background: var(--gradient-gold);
             -webkit-background-clip: text;
@@ -289,8 +285,9 @@
         .slider-container {
             position: relative;
             overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            background: #000;
         }
 
         .slider {
@@ -302,46 +299,61 @@
             min-width: 100%;
             position: relative;
             cursor: pointer;
+            aspect-ratio: 16 / 9;
         }
 
         .slide img {
             width: 100%;
-            height: 350px;
+            height: 100%;
             object-fit: cover;
-            border-radius: 20px;
+            object-position: center top;
+            display: block;
         }
 
+        /* Slide Info Overlay */
         .slide-info {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            padding: 40px 30px 20px;
-            border-radius: 20px;
-        }
-
-        .slide-info h2 {
-            font-size: 28px;
-            color: var(--gold);
-            margin-bottom: 8px;
-        }
-
-        .slide-info p {
-            font-size: 14px;
-            color: white;
-            opacity: 0.9;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+            padding: 50px 40px 30px;
+            border-radius: 0 0 24px 24px;
         }
 
         .slide-badge {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background: var(--gold);
             color: #000;
-            padding: 4px 12px;
-            border-radius: 20px;
+            padding: 5px 15px;
+            border-radius: 30px;
             font-size: 12px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+        }
+
+        .slide-info h2 {
+            font-size: 32px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .slide-info p {
+            font-size: 16px;
+            color: white;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .slide-info p i {
+            color: var(--gold);
         }
 
         /* Slider Buttons */
@@ -351,40 +363,44 @@
             transform: translateY(-50%);
             background: rgba(0,0,0,0.6);
             color: var(--gold);
-            border: none;
-            width: 45px;
-            height: 45px;
+            border: 2px solid var(--gold);
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 22px;
             transition: var(--transition);
             z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .slider-btn:hover {
             background: var(--gold);
             color: #000;
+            transform: translateY(-50%) scale(1.1);
         }
 
         .slider-prev {
-            left: 15px;
+            left: 20px;
         }
 
         .slider-next {
-            right: 15px;
+            right: 20px;
         }
 
         /* Dots */
         .slider-dots {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .dot {
-            width: 10px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: rgba(255, 215, 0, 0.4);
             cursor: pointer;
@@ -393,7 +409,7 @@
 
         .dot.active {
             background: var(--gold);
-            width: 25px;
+            width: 30px;
             border-radius: 10px;
         }
 
@@ -413,9 +429,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 12px;
+            font-size: 13px;
             background: rgba(255, 215, 0, 0.1);
-            padding: 5px 15px;
+            padding: 5px 18px;
             border-radius: 50px;
         }
 
@@ -463,7 +479,6 @@
             border-radius: 50px;
         }
 
-        /* Filters */
         .filters-row {
             display: flex;
             gap: 10px;
@@ -482,7 +497,7 @@
             font-size: 13px;
         }
 
-        /* Cards Grid - 2 items per row on mobile */
+        /* Cards Grid */
         .cartoon-list {
             list-style: none;
             display: grid;
@@ -490,7 +505,6 @@
             gap: 15px;
         }
 
-        /* For mobile: exactly 2 columns */
         @media (max-width: 480px) {
             .cartoon-list {
                 grid-template-columns: repeat(2, 1fr);
@@ -507,6 +521,7 @@
             transition: var(--transition);
             border: 1px solid rgba(255, 215, 0, 0.2);
             cursor: pointer;
+            position: relative;
         }
 
         .cartoon-list li:hover {
@@ -563,11 +578,10 @@
             border-radius: 50px;
         }
 
-        /* New Badge */
         .new-badge {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 8px;
+            right: 8px;
             background: var(--gold);
             color: #000;
             padding: 3px 10px;
@@ -575,10 +589,9 @@
             font-size: 10px;
             font-weight: bold;
             z-index: 5;
-        }
-
-        .cartoon-list li {
-            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .no-results {
@@ -661,6 +674,54 @@
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
+
+        /* Responsive Slider */
+        @media (max-width: 768px) {
+            .slide-info {
+                padding: 30px 20px 20px;
+            }
+            .slide-info h2 {
+                font-size: 22px;
+            }
+            .slide-info p {
+                font-size: 12px;
+            }
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .slider-prev {
+                left: 10px;
+            }
+            .slider-next {
+                right: 10px;
+            }
+            .section-badge h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide-info {
+                padding: 20px 15px 15px;
+            }
+            .slide-info h2 {
+                font-size: 18px;
+            }
+            .slide-info p {
+                font-size: 10px;
+            }
+            .slide-badge {
+                font-size: 10px;
+                padding: 3px 10px;
+            }
+            .slider-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -705,7 +766,7 @@
     </div>
 </div>
 
-<!-- Hero Slider Section -->
+<!-- Hero Slider Section - Improved -->
 <div class="hero-section">
     <div class="section-badge">
         <i class="fas fa-fire"></i>
@@ -767,29 +828,28 @@
 <script>
     // ========== DATA ==========
     const cartoons = [
-        { name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", link: "https://cartoonforyou.github.io/BlueLook.html", img: "images/blue.jpg", isNew: true, year: "2024" },
-        { name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", link: "https://cartoonforyou.github.io/Demon%20Slayer.html", img: "images/قاتل.jpg", isNew: true, year: "2024" },
-        { name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Gumball.html", img: "images/g.jpg", isNew: false, year: "2023" },
-        { name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/batman.html", img: "images/Batman.jpg", isNew: false, year: "2022" },
-        { name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/index-old.html", img: "images/fg.jpg", isNew: false, year: "2023" },
-        { name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Samurai%20Jack.html", img: "images/sj.jpg", isNew: false, year: "2022" },
-        { name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Adventure%20time.html", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023" },
-        { name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", link: "https://cartoonforyou.github.io/les%20miserables.html", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021" },
-        { name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", link: "https://cartoonforyou.github.io/the%20era%20of%20friends.html", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022" }
+        { name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", link: "https://cartoonforyou.github.io/BlueLook.html", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم" },
+        { name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", link: "https://cartoonforyou.github.io/Demon%20Slayer.html", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين" },
+        { name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Gumball.html", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة" },
+        { name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/batman.html", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام" },
+        { name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/index-old.html", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار" },
+        { name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Samurai%20Jack.html", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي في المستقبل" },
+        { name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Adventure%20time.html", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك" },
+        { name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", link: "https://cartoonforyou.github.io/les%20miserables.html", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة" },
+        { name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", link: "https://cartoonforyou.github.io/the%20era%20of%20friends.html", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء" }
     ];
 
-    // New items for slider (first 5 or all new ones)
+    // Slider items (first 5 for better display)
     const sliderItems = cartoons.filter(c => c.isNew).length > 0 ? cartoons.filter(c => c.isNew) : cartoons.slice(0, 5);
 
     let currentType = "all";
     let currentSearch = "";
     let currentSort = "default";
     
-    // Slider variables
     let currentSlide = 0;
     let autoSlideInterval;
 
-    // ========== DOM Elements ==========
+    // DOM Elements
     const cartoonList = document.getElementById('cartoonList');
     const searchInput = document.getElementById('searchInput');
     const clearSearch = document.getElementById('clearSearch');
@@ -806,10 +866,8 @@
     const sliderNext = document.getElementById('sliderNext');
 
     // Update last update time
-    const now = new Date();
-    document.getElementById('lastUpdate').innerText = now.toLocaleDateString('ar-EG');
+    document.getElementById('lastUpdate').innerText = new Date().toLocaleDateString('ar-EG');
 
-    // ========== Helper Functions ==========
     function showToast(message) {
         toast.innerText = message;
         toast.classList.add('show');
@@ -834,20 +892,20 @@
         return type === 'movie' ? '🎬 فيلم' : '📺 مسلسل';
     }
 
-    // ========== SLIDER FUNCTIONS ==========
+    // Build Slider
     function buildSlider() {
         slider.innerHTML = sliderItems.map((item, index) => `
             <div class="slide" data-index="${index}" data-link="${item.link}">
                 <img src="${item.img}" alt="${item.name}" onerror="this.src='images/placeholder.jpg'">
                 <div class="slide-info">
-                    <span class="slide-badge">✨ جديد</span>
+                    <span class="slide-badge"><i class="fas fa-star"></i> جديد ${item.year}</span>
                     <h2>${item.name}</h2>
                     <p><i class="fas fa-tag"></i> ${getCategoryName(item.category)} • ${getTypeIcon(item.type)}</p>
+                    <p><i class="fas fa-info-circle"></i> ${item.description || 'شاهد الآن بجودة عالية'}</p>
                 </div>
             </div>
         `).join('');
         
-        // Add click event to slides
         document.querySelectorAll('.slide').forEach(slide => {
             slide.addEventListener('click', () => {
                 const link = slide.dataset.link;
@@ -855,16 +913,13 @@
             });
         });
         
-        // Build dots
         sliderDots.innerHTML = sliderItems.map((_, index) => `
             <div class="dot ${index === 0 ? 'active' : ''}" data-dot-index="${index}"></div>
         `).join('');
         
-        // Add dot click events
         document.querySelectorAll('.dot').forEach(dot => {
             dot.addEventListener('click', () => {
-                const index = parseInt(dot.dataset.dotIndex);
-                goToSlide(index);
+                goToSlide(parseInt(dot.dataset.dotIndex));
                 resetAutoSlide();
             });
         });
@@ -876,35 +931,16 @@
         currentSlide = index;
         slider.style.transform = `translateX(-${currentSlide * 100}%)`;
         
-        // Update active dot
         document.querySelectorAll('.dot').forEach((dot, i) => {
-            if (i === currentSlide) dot.classList.add('active');
-            else dot.classList.remove('active');
+            dot.classList.toggle('active', i === currentSlide);
         });
     }
 
-    function nextSlide() {
-        goToSlide(currentSlide + 1);
-    }
-
-    function prevSlide() {
-        goToSlide(currentSlide - 1);
-    }
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-    }
-
-    function resetAutoSlide() {
-        clearInterval(autoSlideInterval);
-        startAutoSlide();
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
+    function nextSlide() { goToSlide(currentSlide + 1); }
+    function prevSlide() { goToSlide(currentSlide - 1); }
+    function startAutoSlide() { autoSlideInterval = setInterval(nextSlide, 5000); }
+    function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
+    function stopAutoSlide() { clearInterval(autoSlideInterval); }
 
     function filterAndSort() {
         let filtered = [...cartoons];
@@ -929,18 +965,11 @@
         
         renderCartoons(filtered);
         resultCountSpan.innerText = `عرض ${filtered.length} من ${cartoons.length} عنوان`;
-        return filtered.length;
     }
 
     function renderCartoons(items) {
         if (items.length === 0) {
-            cartoonList.innerHTML = `
-                <div class="no-results">
-                    <i class="fas fa-tv-slash"></i>
-                    <h3>لا توجد نتائج</h3>
-                    <p>لم نعثر على محتوى مطابق لبحثك</p>
-                </div>
-            `;
+            cartoonList.innerHTML = `<div class="no-results"><i class="fas fa-tv-slash"></i><h3>لا توجد نتائج</h3><p>لم نعثر على محتوى مطابق لبحثك</p></div>`;
             return;
         }
         
@@ -951,14 +980,12 @@
                     <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='images/placeholder.jpg'">
                 </a>
                 <h3>${item.name}</h3>
-                <div class="card-category">
-                    ${getCategoryIcon(item.category)} ${getCategoryName(item.category)} • ${getTypeIcon(item.type)}
-                </div>
+                <div class="card-category">${getCategoryIcon(item.category)} ${getCategoryName(item.category)} • ${getTypeIcon(item.type)}</div>
             </li>
         `).join('');
     }
 
-    // ========== Event Listeners ==========
+    // Event Listeners
     searchInput.addEventListener('input', (e) => {
         currentSearch = e.target.value;
         clearSearch.style.display = currentSearch ? 'flex' : 'none';
@@ -989,23 +1016,13 @@
         showToast('📊 تم تغيير الترتيب');
     });
     
-    // Slider controls
-    sliderPrev.addEventListener('click', () => {
-        prevSlide();
-        resetAutoSlide();
-    });
+    sliderPrev.addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
+    sliderNext.addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
     
-    sliderNext.addEventListener('click', () => {
-        nextSlide();
-        resetAutoSlide();
-    });
-    
-    // Pause auto-slide on hover
     const sliderContainer = document.querySelector('.slider-container');
     sliderContainer.addEventListener('mouseenter', stopAutoSlide);
     sliderContainer.addEventListener('mouseleave', startAutoSlide);
     
-    // Dark Mode Toggle
     darkModeToggle.addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
         const icon = darkModeToggle.querySelector('i');
@@ -1036,7 +1053,6 @@
         showToast('⬆️ تم العودة للأعلى');
     });
     
-    // Initialize
     window.addEventListener('load', () => {
         document.body.classList.add('loaded');
         updateStats();
