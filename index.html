@@ -7,13 +7,13 @@
     <!-- SEO Meta Tags -->
     <title>كرتون فور يو | Cartoon for You - أكبر منصة كرتون وأنمي مجانية</title>
     <meta name="description" content="كرتون فور يو - منصة مجانية تعرض أشهر برامج الكرتون والأنمي مثل قاتل الشياطين، ساموراي جاك، عالم غامبول، وقت المغامرة بجودة عالية">
-    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة">
+    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة, باتمان, فاملي غاي">
     <meta name="author" content="Cartoon For You">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
     <meta property="og:title" content="كرتون فور يو | Cartoon for You">
-    <meta property="og:description" content="منصة مجانية للكرتون والأنمي - تصفح واستمتع">
+    <meta property="og:description" content="منصة مجانية للكرتون والأنمي - تصفح واستمتع بأحدث المسلسلات والأفلام">
     <meta property="og:image" content="images/cartoon_for_you_gold.webp">
     <meta property="og:url" content="https://cartoonforyou.github.io/">
     <meta property="og:type" content="website">
@@ -26,7 +26,7 @@
     
     <link rel="icon" type="image/webp" href="images/ic.webp">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
@@ -37,23 +37,25 @@
         }
 
         :root {
-            --bg-primary: #000000;
-            --bg-secondary: #0a0a0a;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
             --bg-card: #1a1a1a;
             --text-primary: #ffffff;
-            --text-secondary: #cccccc;
+            --text-secondary: #aaaaaa;
             --gold: #FFD700;
             --gold-dark: #DAA520;
-            --shadow: rgba(255, 215, 0, 0.2);
+            --gold-light: #FFE44D;
+            --shadow: rgba(255, 215, 0, 0.25);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
         }
 
         body.light-mode {
-            --bg-primary: #f5f5f5;
+            --bg-primary: #f8f9fa;
             --bg-secondary: #ffffff;
             --bg-card: #ffffff;
             --text-primary: #1a1a1a;
-            --text-secondary: #555555;
+            --text-secondary: #666666;
             --shadow: rgba(0, 0, 0, 0.1);
         }
 
@@ -66,24 +68,34 @@
             display: flex;
             flex-direction: column;
             opacity: 0;
-            transition: opacity 0.5s ease, background-color 0.3s, color 0.3s;
+            transition: opacity 0.6s ease, background-color 0.3s, color 0.3s;
         }
 
         body.loaded {
             opacity: 1;
         }
 
+        /* Animated Gradient Border */
+        @keyframes borderGlow {
+            0% { border-color: var(--gold); box-shadow: 0 0 5px var(--gold); }
+            50% { border-color: var(--gold-light); box-shadow: 0 0 20px var(--gold); }
+            100% { border-color: var(--gold); box-shadow: 0 0 5px var(--gold); }
+        }
+
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, #000000, #0a0a0a);
-            padding: 15px 20px;
+            padding: 20px 25px;
             border-bottom: 2px solid var(--gold);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
 
         body.light-mode header {
             background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            border-bottom-color: var(--gold);
         }
 
         .header-container {
@@ -91,63 +103,116 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        /* Professional Logo Area */
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
-            background: rgba(255, 215, 0, 0.1);
-            padding: 8px 20px;
-            border-radius: 50px;
+            gap: 15px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.05));
+            padding: 10px 25px;
+            border-radius: 60px;
             border: 1px solid var(--gold);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .logo-area:hover::before {
+            left: 100%;
+        }
+
+        .logo-area:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.3);
         }
 
         .logo {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
             object-fit: cover;
+            border: 2px solid var(--gold);
+            transition: var(--transition);
+        }
+
+        .logo-area:hover .logo {
+            transform: rotate(5deg);
+        }
+
+        /* Professional Title */
+        .site-title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .golden-title {
-            font-size: 22px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #FFD700, #FFA000);
+            font-size: 26px;
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
         }
 
+        .title-sub {
+            font-size: 10px;
+            color: var(--gold);
+            opacity: 0.8;
+            letter-spacing: 2px;
+            margin-top: -3px;
+        }
+
+        /* Search Bar */
         .search-wrapper {
             flex: 1;
-            max-width: 400px;
+            max-width: 450px;
         }
 
         .search-container {
             display: flex;
             background: var(--bg-card);
             border-radius: 50px;
-            border: 1px solid var(--gold);
+            border: 2px solid var(--gold);
             overflow: hidden;
             transition: var(--transition);
         }
 
         .search-container:focus-within {
-            box-shadow: 0 0 15px var(--shadow);
+            box-shadow: 0 0 20px var(--shadow);
+            transform: scale(1.02);
+            animation: borderGlow 1.5s infinite;
         }
 
         .search-icon {
-            padding: 12px 15px;
+            padding: 14px 18px;
             color: var(--gold);
+            font-size: 18px;
         }
 
         #searchInput {
             flex: 1;
-            padding: 12px 0;
+            padding: 14px 0;
             border: none;
             background: transparent;
             color: var(--text-primary);
@@ -158,19 +223,23 @@
 
         #searchInput::placeholder {
             color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .clear-search {
-            padding: 12px 15px;
+            padding: 14px 18px;
             cursor: pointer;
             color: var(--text-secondary);
             display: none;
+            transition: var(--transition);
         }
 
         .clear-search:hover {
             color: var(--gold);
+            transform: scale(1.1);
         }
 
+        /* Header Actions */
         .header-actions {
             display: flex;
             gap: 12px;
@@ -179,31 +248,35 @@
 
         .icon-btn {
             background: var(--bg-card);
-            border: 1px solid var(--gold);
+            border: 2px solid var(--gold);
             border-radius: 50%;
-            width: 42px;
-            height: 42px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             color: var(--gold);
             transition: var(--transition);
+            font-size: 18px;
         }
 
         .icon-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
             background: var(--gold);
             color: #000;
+            box-shadow: 0 0 15px var(--gold);
         }
 
+        /* Categories Section */
         .categories-section {
             background: var(--bg-secondary);
-            padding: 15px 20px;
+            padding: 18px 20px;
             border-bottom: 1px solid rgba(255, 215, 0, 0.2);
             position: sticky;
-            top: 92px;
+            top: 97px;
             z-index: 999;
+            backdrop-filter: blur(5px);
         }
 
         .categories-wrapper {
@@ -216,42 +289,52 @@
         }
 
         .category-btn {
-            padding: 10px 30px;
+            padding: 10px 28px;
             border-radius: 50px;
             background: transparent;
-            border: 1px solid var(--gold);
+            border: 2px solid var(--gold);
             color: var(--text-primary);
             cursor: pointer;
             font-family: 'Cairo', sans-serif;
             transition: var(--transition);
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
+        .category-btn i {
+            font-size: 16px;
+        }
+
         .category-btn:hover, .category-btn.active {
             background: var(--gold);
             color: #000;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
         }
 
+        /* Stats Bar */
         .stats-bar {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 15px;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+            gap: 40px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), transparent);
             flex-wrap: wrap;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
         }
 
         .stat-item {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             font-size: 14px;
+            font-weight: 500;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 6px 18px;
+            border-radius: 50px;
         }
 
         .stat-item i {
@@ -259,9 +342,10 @@
             font-size: 18px;
         }
 
+        /* Main Content */
         main {
             flex: 1;
-            padding: 30px 20px;
+            padding: 40px 25px;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
@@ -271,63 +355,104 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
             gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed rgba(255, 215, 0, 0.3);
         }
 
         .section-title {
-            font-size: 28px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--gradient-gold);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title i {
+            background: none;
+            -webkit-text-fill-color: var(--gold);
         }
 
         .result-count {
             color: var(--text-secondary);
+            font-weight: 500;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 6px 15px;
+            border-radius: 50px;
         }
 
+        /* Filters */
         .filters-row {
             display: flex;
-            gap: 12px;
-            margin-bottom: 25px;
+            gap: 15px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
 
         .sort-select {
-            padding: 8px 15px;
-            border-radius: 25px;
+            padding: 10px 20px;
+            border-radius: 50px;
             background: var(--bg-card);
-            border: 1px solid var(--gold);
+            border: 2px solid var(--gold);
             color: var(--text-primary);
             font-family: 'Cairo', sans-serif;
             cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
+        .sort-select:hover {
+            border-color: var(--gold-light);
+            transform: scale(1.02);
+        }
+
+        /* Cards Grid */
         .cartoon-list {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 220px));
+            grid-template-columns: repeat(auto-fill, minmax(190px, 220px));
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
         }
 
         .cartoon-list li {
             background: var(--bg-card);
-            border-radius: 16px;
-            padding: 12px;
+            border-radius: 20px;
+            padding: 15px;
             text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transition: var(--transition);
             border: 1px solid rgba(255, 215, 0, 0.2);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cartoon-list li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transition: left 0.4s;
+        }
+
+        .cartoon-list li:hover::before {
+            left: 100%;
         }
 
         .cartoon-list li:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px var(--shadow);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px var(--shadow);
             border-color: var(--gold);
         }
 
@@ -338,47 +463,59 @@
 
         .cartoon-list li img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
-            border-radius: 12px;
-            border: 2px solid var(--gold);
+            border-radius: 15px;
+            border: 3px solid var(--gold);
             transition: var(--transition);
         }
 
         .cartoon-list li:hover img {
-            transform: scale(1.02);
+            transform: scale(1.03);
+            border-color: var(--gold-light);
         }
 
         .cartoon-list li h3 {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--gold);
-            margin: 12px 0 5px;
-            font-weight: 700;
+            margin: 14px 0 6px;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
         }
 
         .card-category {
             font-size: 11px;
             color: var(--text-secondary);
             margin-top: 5px;
-            display: inline-block;
-            padding: 3px 10px;
-            background: rgba(255, 215, 0, 0.1);
-            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 12px;
+            background: rgba(255, 215, 0, 0.12);
+            border-radius: 50px;
+            font-weight: 500;
         }
 
+        /* No Results */
         .no-results {
             text-align: center;
-            padding: 50px;
+            padding: 60px;
             color: var(--text-secondary);
             grid-column: 1 / -1;
         }
 
         .no-results i {
-            font-size: 60px;
+            font-size: 70px;
             color: var(--gold);
             margin-bottom: 20px;
         }
 
+        .no-results h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -396,7 +533,8 @@
             visibility: hidden;
             transition: var(--transition);
             z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+            font-size: 20px;
         }
 
         .back-to-top.show {
@@ -405,14 +543,16 @@
         }
 
         .back-to-top:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) translateY(-5px);
+            background: var(--gold-dark);
         }
 
+        /* Footer */
         footer {
             background: var(--bg-secondary);
-            padding: 30px 20px;
-            border-top: 2px solid var(--gold);
-            margin-top: 50px;
+            padding: 35px 25px;
+            border-top: 3px solid var(--gold);
+            margin-top: 60px;
         }
 
         .footer-content {
@@ -428,15 +568,25 @@
         .footer-logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .footer-logo img {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
         }
 
+        .footer-logo span {
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Toast */
         .toast {
             position: fixed;
             bottom: 100px;
@@ -444,19 +594,21 @@
             transform: translateX(-50%) translateY(100px);
             background: var(--gold);
             color: #000;
-            padding: 12px 25px;
+            padding: 12px 28px;
             border-radius: 50px;
             font-weight: bold;
             z-index: 2000;
             transition: transform 0.3s;
             white-space: nowrap;
             font-size: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
         }
 
         .toast.show {
             transform: translateX(-50%) translateY(0);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -466,27 +618,35 @@
                 width: 100%;
             }
             .categories-section {
-                top: 130px;
+                top: 140px;
             }
             .golden-title {
-                font-size: 16px;
+                font-size: 18px;
+            }
+            .title-sub {
+                font-size: 8px;
             }
             .logo {
-                width: 40px;
-                height: 40px;
+                width: 45px;
+                height: 45px;
             }
             .cartoon-list {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 170px));
-                gap: 15px;
+                gap: 18px;
             }
             .category-btn {
-                padding: 8px 20px;
-                font-size: 14px;
+                padding: 7px 18px;
+                font-size: 13px;
             }
-            .toast {
-                white-space: nowrap;
-                font-size: 12px;
-                padding: 8px 16px;
+            .section-title {
+                font-size: 24px;
+            }
+            .stats-bar {
+                gap: 15px;
+            }
+            .stat-item {
+                font-size: 11px;
+                padding: 4px 12px;
             }
         }
     </style>
@@ -497,13 +657,16 @@
     <div class="header-container">
         <div class="logo-area">
             <img src="images/cartoon_for_you_gold.webp" alt="شعار كرتون فور يو" class="logo">
-            <h1 class="golden-title">كرتون فور يو | Cartoon For You</h1>
+            <div class="site-title">
+                <h1 class="golden-title">كرتون فور يو</h1>
+                <span class="title-sub">CARTOON FOR YOU</span>
+            </div>
         </div>
         
         <div class="search-wrapper">
             <div class="search-container">
                 <span class="search-icon"><i class="fas fa-search"></i></span>
-                <input type="text" id="searchInput" placeholder="ابحث عن مسلسل أو فيلم...">
+                <input type="text" id="searchInput" placeholder="ابحث عن فيلم أو مسلسل...">
                 <span class="clear-search" id="clearSearch"><i class="fas fa-times"></i></span>
             </div>
         </div>
@@ -532,13 +695,16 @@
 
 <div class="stats-bar">
     <div class="stat-item"><i class="fas fa-film"></i> <span id="totalCount">0</span> عنوان</div>
+    <div class="stat-item"><i class="fas fa-star"></i> <span id="animeCount">0</span> أنمي</div>
     <div class="stat-item"><i class="fas fa-calendar"></i> <span id="lastUpdate"></span></div>
 </div>
 
 <main>
     <div class="section-header">
-        <h2 class="section-title"><i class="fas fa-tv"></i> المكتبة</h2>
-        <div class="result-count" id="resultCount">عرض 9 من 9</div>
+        <h2 class="section-title">
+            <i class="fas fa-fire"></i> المكتبة
+        </h2>
+        <div class="result-count" id="resultCount"></div>
     </div>
     
     <div class="filters-row">
@@ -571,18 +737,17 @@
 <div id="toast" class="toast"></div>
 
 <script>
-    // ========== DATA ==========
-    // ملاحظة: تم تصنيف المحتوى إلى أفلام ومسلسلات
+    // ========== DATA with Clean Names ==========
     const cartoons = [
-        { name: "انمي BLUE LOOK", nameAr: "بلو لوك", type: "series", link: "https://cartoonforyou.github.io/BlueLook.html", img: "images/blue.jpg" },
-        { name: "انمي قاتل الشياطين", nameAr: "Demon Slayer", type: "series", link: "https://cartoonforyou.github.io/Demon%20Slayer.html", img: "images/قاتل.jpg" },
-        { name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", link: "https://cartoonforyou.github.io/Gumball.html", img: "images/g.jpg" },
-        { name: "مسلسل Batman", nameAr: "باتمان", type: "series", link: "https://cartoonforyou.github.io/batman.html", img: "images/Batman.jpg" },
-        { name: "مسلسل Family Guy", nameAr: "فاملي غاي", type: "series", link: "https://cartoonforyou.github.io/index-old.html", img: "images/fg.jpg" },
-        { name: "مسلسل ساموراي جاك", nameAr: "Samurai Jack", type: "series", link: "https://cartoonforyou.github.io/Samurai%20Jack.html", img: "images/sj.jpg" },
-        { name: "مسلسل وقت المغامرة", nameAr: "Adventure Time", type: "series", link: "https://cartoonforyou.github.io/Adventure%20time.html", img: "images/وقت%20المغامرة.jpg" },
-        { name: "مسلسل البؤساء", nameAr: "Les Misérables", type: "series", link: "https://cartoonforyou.github.io/les%20miserables.html", img: "images/مسلسل%20البؤساء.jpg" },
-        { name: "مسلسل عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", link: "https://cartoonforyou.github.io/the%20era%20of%20friends.html", img: "images/عهد%20الاصدقاء.jpg" }
+        { name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", link: "https://cartoonforyou.github.io/BlueLook.html", img: "images/blue.jpg" },
+        { name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", link: "https://cartoonforyou.github.io/Demon%20Slayer.html", img: "images/قاتل.jpg" },
+        { name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Gumball.html", img: "images/g.jpg" },
+        { name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/batman.html", img: "images/Batman.jpg" },
+        { name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/index-old.html", img: "images/fg.jpg" },
+        { name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Samurai%20Jack.html", img: "images/sj.jpg" },
+        { name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", link: "https://cartoonforyou.github.io/Adventure%20time.html", img: "images/وقت%20المغامرة.jpg" },
+        { name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", link: "https://cartoonforyou.github.io/les%20miserables.html", img: "images/مسلسل%20البؤساء.jpg" },
+        { name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", link: "https://cartoonforyou.github.io/the%20era%20of%20friends.html", img: "images/عهد%20الاصدقاء.jpg" }
     ];
 
     let currentType = "all";
@@ -597,6 +762,7 @@
     const backToTop = document.getElementById('backToTop');
     const resultCountSpan = document.getElementById('resultCount');
     const totalCountSpan = document.getElementById('totalCount');
+    const animeCountSpan = document.getElementById('animeCount');
     const sortSelect = document.getElementById('sortSelect');
     const toast = document.getElementById('toast');
 
@@ -613,9 +779,19 @@
 
     function updateStats() {
         totalCountSpan.innerText = cartoons.length;
+        const animeCount = cartoons.filter(c => c.category === 'anime').length;
+        animeCountSpan.innerText = animeCount;
     }
 
-    function getTypeArabic(type) {
+    function getCategoryIcon(category) {
+        return category === 'anime' ? '🇯🇵' : '🇺🇸';
+    }
+
+    function getCategoryName(category) {
+        return category === 'anime' ? 'أنمي' : 'كرتون';
+    }
+
+    function getTypeIcon(type) {
         return type === 'movie' ? '🎬 فيلم' : '📺 مسلسل';
     }
 
@@ -654,7 +830,7 @@
                 <div class="no-results">
                     <i class="fas fa-tv-slash"></i>
                     <h3>لا توجد نتائج</h3>
-                    <p>لم نعثر على محتوى مطابق لبحثك</p>
+                    <p>لم نعثر على محتوى مطابق لبحثك "${currentSearch}"</p>
                 </div>
             `;
             return;
@@ -666,7 +842,9 @@
                     <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='images/placeholder.jpg'">
                 </a>
                 <h3>${item.name}</h3>
-                <span class="card-category"><i class="fas ${item.type === 'movie' ? 'fa-film' : 'fa-tv'}"></i> ${getTypeArabic(item.type)}</span>
+                <div class="card-category">
+                    ${getCategoryIcon(item.category)} ${getCategoryName(item.category)} • ${getTypeIcon(item.type)}
+                </div>
             </li>
         `).join('');
     }
