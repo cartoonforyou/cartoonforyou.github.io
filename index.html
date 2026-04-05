@@ -5,219 +5,335 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- SEO Meta Tags -->
-    <title>كرتون فور يو | Cartoon for You - منصة الكرتون والأنمي المجانية</title>
-    <meta name="description" content="كرتون فور يو - منصة مجانية تعرض أشهر برامج الكرتون والأنمي، مثل قاتل الشياطين، ساموراي جاك، وعالم غامبول المدهش بجودة عالية وبشكل مجاني.">
-    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, برامج كرتون, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة, عهد الأصدقاء, البؤساء, family guy, blue look, adventure time, شاهد فور يو, Shahid4u, Anime Slayer, with anime, اكوام">
+    <title>كرتون فور يو | Cartoon for You - أكبر منصة كرتون وأنمي مجانية</title>
+    <meta name="description" content="كرتون فور يو - منصة مجانية تعرض أشهر برامج الكرتون والأنمي مثل قاتل الشياطين، ساموراي جاك، عالم غامبول، وقت المغامرة بجودة عالية">
+    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة">
     <meta name="author" content="Cartoon For You">
     <meta name="robots" content="index, follow">
-    <meta name="revisit-after" content="7 days">
     
-    <!-- Open Graph Meta Tags (Facebook, WhatsApp, Telegram) -->
+    <!-- Open Graph -->
     <meta property="og:title" content="كرتون فور يو | Cartoon for You">
-    <meta property="og:description" content="منصة مجانية تعرض أشهر برامج الكرتون والأنمي بجودة عالية">
-    <meta property="og:image" content="https://cartoonforyou.github.io/images/cartoon_for_you_gold.webp">
+    <meta property="og:description" content="منصة مجانية للكرتون والأنمي - تصفح واستمتع">
+    <meta property="og:image" content="images/cartoon_for_you_gold.webp">
     <meta property="og:url" content="https://cartoonforyou.github.io/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="كرتون فور يو">
-    <meta property="og:locale" content="ar_AR">
     
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="كرتون فور يو | Cartoon for You">
-    <meta name="twitter:description" content="منصة مجانية تعرض أشهر برامج الكرتون والأنمي بجودة عالية">
-    <meta name="twitter:image" content="https://cartoonforyou.github.io/images/cartoon_for_you_gold.webp">
+    <meta name="twitter:description" content="منصة مجانية للكرتون والأنمي">
+    <meta name="twitter:image" content="images/cartoon_for_you_gold.webp">
     
-    <!-- Favicon -->
     <link rel="icon" type="image/webp" href="images/ic.webp">
-    <link rel="apple-touch-icon" href="images/ic.webp">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Structured Data (Schema.org) for SEO -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "كرتون فور يو | Cartoon for You",
-        "url": "https://cartoonforyou.github.io/",
-        "description": "منصة مجانية تعرض أشهر برامج الكرتون والأنمي",
-        "inLanguage": "ar",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://cartoonforyou.github.io/?search={search_term}",
-            "query-input": "required name=search_term"
-        }
-    }
-    </script>
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "كرتون فور يو",
-        "url": "https://cartoonforyou.github.io/",
-        "logo": "https://cartoonforyou.github.io/images/cartoon_for_you_gold.webp",
-        "sameAs": []
-    }
-    </script>
-
     <style>
-        /* ========== RESET & BASE ========== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --gold: #FFD700;
+            --gold-dark: #DAA520;
+            --shadow: rgba(255, 215, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.light-mode {
+            --bg-primary: #f5f5f5;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555555;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            background-color: #000000;
+            background-color: var(--bg-primary);
             font-family: 'Cairo', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #ffffff;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            color: var(--text-primary);
+            transition: var(--transition);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.5s ease, background-color 0.3s, color 0.3s;
         }
 
         body.loaded {
             opacity: 1;
         }
 
-        /* ========== TYPOGRAPHY ========== */
-        h1, h2, h3 {
-            font-family: 'Poppins', sans-serif;
+        header {
+            background: linear-gradient(135deg, #000000, #0a0a0a);
+            padding: 15px 20px;
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        /* ========== HEADER STYLES ========== */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #000000;
-            padding: 20px 30px;
-            width: 100%;
-            border-bottom: 2px solid #FFD700;
+        body.light-mode header {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
         }
 
         .header-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
             gap: 15px;
-            background-color: transparent;
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: 2px solid #FFD700;
-            width: fit-content;
+            max-width: 1400px;
             margin: 0 auto;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-            transition: box-shadow 0.3s ease;
         }
 
-        .header-container:hover {
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--gold);
         }
 
         .logo {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 12px;
             object-fit: cover;
         }
 
         .golden-title {
-            font-size: 32px;
+            font-size: 22px;
             font-weight: bold;
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #FFD700, #FFC107, #FFB300, #FFA000);
+            background: linear-gradient(135deg, #FFD700, #FFA000);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.4);
-            margin: 0;
-            padding: 5px 15px;
-            letter-spacing: 1px;
         }
 
-        /* ========== MAIN CONTENT ========== */
-        main {
+        .search-wrapper {
             flex: 1;
+            max-width: 400px;
+        }
+
+        .search-container {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 50px;
+            border: 1px solid var(--gold);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .search-container:focus-within {
+            box-shadow: 0 0 15px var(--shadow);
+        }
+
+        .search-icon {
+            padding: 12px 15px;
+            color: var(--gold);
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 12px 0;
+            border: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+            outline: none;
+        }
+
+        #searchInput::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .clear-search {
+            padding: 12px 15px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .clear-search:hover {
+            color: var(--gold);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .icon-btn:hover {
+            transform: scale(1.1);
+            background: var(--gold);
+            color: #000;
+        }
+
+        .categories-section {
+            background: var(--bg-secondary);
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            position: sticky;
+            top: 92px;
+            z-index: 999;
+        }
+
+        .categories-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 10px 30px;
+            border-radius: 50px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--text-primary);
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: var(--transition);
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: var(--gold);
+            color: #000;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .stats-bar {
             display: flex;
             justify-content: center;
+            gap: 30px;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), transparent);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
             align-items: center;
-            flex-direction: column;
-            padding: 40px 20px;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .stat-item i {
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        main {
+            flex: 1;
+            padding: 30px 20px;
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
 
-        /* Page Title as Image Style */
-        .page-title {
-            display: block;
-            font-size: 36px;
-            font-family: "Poppins", sans-serif;
-            text-align: center;
-            margin: 0 auto 40px auto;
-            padding: 12px 30px;
-            border-radius: 15px;
-            border: 3px solid #FFD700;
-            background: linear-gradient(135deg, #FFD700, #FFC107);
-            color: #000000;
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: fit-content;
-            font-weight: bold;
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .page-title:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        .section-title {
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* ========== CARDS GRID ========== */
+        .result-count {
+            color: var(--text-secondary);
+        }
+
+        .filters-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .sort-select {
+            padding: 8px 15px;
+            border-radius: 25px;
+            background: var(--bg-card);
+            border: 1px solid var(--gold);
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            cursor: pointer;
+        }
+
         .cartoon-list {
             list-style: none;
-            padding: 0;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 200px));
+            grid-template-columns: repeat(auto-fill, minmax(180px, 220px));
             justify-content: center;
             gap: 25px;
-            max-width: 1300px;
-            margin: 0 auto;
-            width: 100%;
         }
 
-        /* Card Styles */
         .cartoon-list li {
-            background: linear-gradient(145deg, #1a1a1a, #222222);
+            background: var(--bg-card);
             border-radius: 16px;
             padding: 12px;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
             border: 1px solid rgba(255, 215, 0, 0.2);
+            cursor: pointer;
         }
 
         .cartoon-list li:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.25);
-            border-color: rgba(255, 215, 0, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px var(--shadow);
+            border-color: var(--gold);
         }
 
-        /* Image Styles */
         .cartoon-list li a {
-            display: block;
             text-decoration: none;
+            display: block;
         }
 
         .cartoon-list li img {
@@ -225,285 +341,411 @@
             height: 200px;
             object-fit: cover;
             border-radius: 12px;
-            border: 3px solid #FFD700;
-            margin-bottom: 12px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 2px solid var(--gold);
+            transition: var(--transition);
         }
 
         .cartoon-list li:hover img {
             transform: scale(1.02);
-            border-color: #FFC107;
         }
 
-        /* Title Styles */
         .cartoon-list li h3 {
             font-size: 15px;
+            color: var(--gold);
+            margin: 12px 0 5px;
             font-weight: 700;
-            color: #FFD700;
-            min-height: 55px;
-            line-height: 1.4;
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+
+        .card-category {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            display: inline-block;
+            padding: 3px 10px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        .no-results {
             text-align: center;
-            font-family: 'Cairo', sans-serif;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 8px;
-            padding: 8px 5px;
-            transition: color 0.3s ease;
+            padding: 50px;
+            color: var(--text-secondary);
+            grid-column: 1 / -1;
         }
 
-        .cartoon-list li:hover h3 {
-            color: #FFC107;
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        .no-results i {
+            font-size: 60px;
+            color: var(--gold);
+            margin-bottom: 20px;
         }
 
-        /* ========== FOOTER ========== */
-        footer {
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
-            background-color: #000000;
-            padding: 25px 20px;
-            color: #ffffff;
-            border-top: 2px solid #FFD700;
-            margin-top: auto;
-            flex-wrap: wrap;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
-        footer .logo {
-            width: 45px;
-            height: 45px;
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: var(--bg-secondary);
+            padding: 30px 20px;
+            border-top: 2px solid var(--gold);
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo img {
+            width: 40px;
+            height: 40px;
             border-radius: 10px;
         }
 
-        footer p {
+        .toast {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--gold);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            z-index: 2000;
+            transition: transform 0.3s;
+            white-space: nowrap;
             font-size: 14px;
-            color: #cccccc;
         }
 
-        footer b {
-            color: #FFD700;
-            font-weight: 600;
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
         }
 
-        /* ========== RESPONSIVE DESIGN ========== */
-        @media screen and (max-width: 768px) {
-            .golden-title {
-                font-size: 22px;
-            }
-            
-            .logo {
-                width: 45px;
-                height: 45px;
-            }
-            
+        @media (max-width: 768px) {
             .header-container {
-                gap: 10px;
-                padding: 8px 15px;
+                flex-direction: column;
             }
-            
-            .page-title {
-                font-size: 24px;
-                padding: 8px 20px;
-                margin-bottom: 30px;
+            .search-wrapper {
+                max-width: 100%;
+                width: 100%;
             }
-            
+            .categories-section {
+                top: 130px;
+            }
+            .golden-title {
+                font-size: 16px;
+            }
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
             .cartoon-list {
-                grid-template-columns: repeat(auto-fill, minmax(140px, 160px));
+                grid-template-columns: repeat(auto-fill, minmax(150px, 170px));
                 gap: 15px;
             }
-            
-            .cartoon-list li img {
-                height: 160px;
+            .category-btn {
+                padding: 8px 20px;
+                font-size: 14px;
             }
-            
-            .cartoon-list li h3 {
-                font-size: 13px;
-                min-height: 50px;
-            }
-            
-            footer {
-                padding: 15px;
-            }
-            
-            footer .logo {
-                width: 35px;
-                height: 35px;
-            }
-            
-            footer p {
-                font-size: 11px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .golden-title {
-                font-size: 18px;
-            }
-            
-            .header-container {
-                padding: 5px 12px;
-            }
-            
-            .cartoon-list {
-                grid-template-columns: repeat(auto-fill, minmax(130px, 145px));
-                gap: 12px;
-            }
-            
-            .cartoon-list li img {
-                height: 140px;
-            }
-            
-            .cartoon-list li h3 {
+            .toast {
+                white-space: nowrap;
                 font-size: 12px;
-                min-height: 45px;
+                padding: 8px 16px;
             }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Loading animation for images */
-        img {
-            background-color: #1a1a1a;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #FFD700;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FFC107;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <img src="images/cartoon_for_you_gold.webp" alt="شعار كرتون فور يو - Cartoon for You Logo" class="logo" loading="eager">
+<header>
+    <div class="header-container">
+        <div class="logo-area">
+            <img src="images/cartoon_for_you_gold.webp" alt="شعار كرتون فور يو" class="logo">
             <h1 class="golden-title">كرتون فور يو | Cartoon For You</h1>
         </div>
-    </header>
-
-    <main>
-        <div class="page-title" aria-label="قائمة المسلسلات والأنميات">🎬 قائمة المسلسلات والأنميات 🎬</div>
         
-        <ul class="cartoon-list">
-            <li>
-                <a href="https://cartoonforyou.github.io/BlueLook.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/blue.jpg" alt="مشاهدة انمي BLUE LOOK بجودة عالية - Blue Lock Anime" loading="lazy">
-                </a>
-                <h3>انمي BLUE LOOK</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/Demon%20Slayer.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/قاتل.jpg" alt="مشاهدة انمي قاتل الشياطين بجودة عالية - Demon Slayer" loading="lazy">
-                </a>
-                <h3>انمي قاتل الشياطين</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/Gumball.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/g.jpg" alt="مشاهدة عالم غامبول المدهش بجودة عالية - The Amazing World of Gumball" loading="lazy">
-                </a>
-                <h3>عالم غامبول المدهش</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/batman.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/Batman.jpg" alt="مشاهدة مسلسل باتمان بجودة عالية - Batman Series" loading="lazy">
-                </a>
-                <h3>مسلسل Batman</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/index-old.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/fg.jpg" alt="مشاهدة مسلسل Family Guy بجودة عالية" loading="lazy">
-                </a>
-                <h3>مسلسل Family Guy</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/Samurai%20Jack.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/sj.jpg" alt="مشاهدة مسلسل ساموراي جاك بجودة عالية - Samurai Jack" loading="lazy">
-                </a>
-                <h3>مسلسل ساموراي جاك</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/Adventure%20time.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/وقت%20المغامرة.jpg" alt="مشاهدة مسلسل وقت المغامرة بجودة عالية - Adventure Time" loading="lazy">
-                </a>
-                <h3>مسلسل وقت المغامرة</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/les%20miserables.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/مسلسل%20البؤساء.jpg" alt="مشاهدة مسلسل البؤساء بجودة عالية - Les Misérables" loading="lazy">
-                </a>
-                <h3>مسلسل البؤساء</h3>
-            </li>
-            <li>
-                <a href="https://cartoonforyou.github.io/the%20era%20of%20friends.html" target="_blank" rel="noopener noreferrer">
-                    <img src="images/عهد%20الاصدقاء.jpg" alt="مشاهدة مسلسل عهد الأصدقاء بجودة عالية" loading="lazy">
-                </a>
-                <h3>مسلسل عهد الأصدقاء</h3>
-            </li>
-        </ul>
-    </main>
+        <div class="search-wrapper">
+            <div class="search-container">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+                <input type="text" id="searchInput" placeholder="ابحث عن مسلسل أو فيلم...">
+                <span class="clear-search" id="clearSearch"><i class="fas fa-times"></i></span>
+            </div>
+        </div>
+        
+        <div class="header-actions">
+            <div class="icon-btn" id="darkModeToggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </div>
+</header>
 
-    <footer>
-        <img src="images/cartoon_for_you_gold.webp" alt="شعار كرتون فور يو - Cartoon for You Logo" class="logo" loading="lazy">
-        <p><b>© 2025 كرتون فور يو - جميع الحقوق محفوظة | Cartoon for You</b></p>
-    </footer>
+<div class="categories-section">
+    <div class="categories-wrapper">
+        <button class="category-btn active" data-category="all">
+            <i class="fas fa-th-large"></i> الجميع
+        </button>
+        <button class="category-btn" data-category="movie">
+            <i class="fas fa-film"></i> 🎬 أفلام
+        </button>
+        <button class="category-btn" data-category="series">
+            <i class="fas fa-tv"></i> 📺 مسلسلات
+        </button>
+    </div>
+</div>
 
-    <script>
-        // Page load fade-in effect
-        (function() {
-            // Add loaded class when page is fully loaded
-            window.addEventListener("load", function() {
-                document.body.classList.add("loaded");
-            });
-            
-            // Fallback: if load event already fired
-            if (document.readyState === "complete") {
-                document.body.classList.add("loaded");
-            }
-            
-            // Optional: Add animation for cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: "0px 0px -20px 0px"
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform = "translateY(0)";
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            // Animate cards on scroll
-            document.querySelectorAll('.cartoon-list li').forEach((card, index) => {
-                card.style.opacity = "0";
-                card.style.transform = "translateY(20px)";
-                card.style.transition = `opacity 0.4s ease ${index * 0.05}s, transform 0.4s ease ${index * 0.05}s`;
-                observer.observe(card);
-            });
-        })();
-    </script>
+<div class="stats-bar">
+    <div class="stat-item"><i class="fas fa-film"></i> <span id="totalCount">0</span> عنوان</div>
+    <div class="stat-item"><i class="fas fa-calendar"></i> <span id="lastUpdate"></span></div>
+</div>
+
+<main>
+    <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-tv"></i> المكتبة</h2>
+        <div class="result-count" id="resultCount">عرض 9 من 9</div>
+    </div>
+    
+    <div class="filters-row">
+        <select id="sortSelect" class="sort-select">
+            <option value="default">🔽 الترتيب الافتراضي</option>
+            <option value="name-asc">📖 أ-ي (حسب الاسم)</option>
+            <option value="name-desc">📖 ي-أ (حسب الاسم)</option>
+        </select>
+    </div>
+    
+    <ul class="cartoon-list" id="cartoonList"></ul>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src="images/cartoon_for_you_gold.webp" alt="logo">
+            <span>كرتون فور يو</span>
+        </div>
+        <p>© 2025 كرتون فور يو - جميع الحقوق محفوظة</p>
+        <div>
+            <i class="fas fa-heart" style="color: #FFD700;"></i> شكراً لمشاهدتك
+        </div>
+    </div>
+</footer>
+
+<div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+</div>
+<div id="toast" class="toast"></div>
+
+<script>
+    // ========== DATA ==========
+    // ملاحظة: تم تصنيف المحتوى إلى أفلام ومسلسلات
+    const cartoons = [
+        { name: "انمي BLUE LOOK", nameAr: "بلو لوك", type: "series", link: "https://cartoonforyou.github.io/BlueLook.html", img: "images/blue.jpg" },
+        { name: "انمي قاتل الشياطين", nameAr: "Demon Slayer", type: "series", link: "https://cartoonforyou.github.io/Demon%20Slayer.html", img: "images/قاتل.jpg" },
+        { name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", link: "https://cartoonforyou.github.io/Gumball.html", img: "images/g.jpg" },
+        { name: "مسلسل Batman", nameAr: "باتمان", type: "series", link: "https://cartoonforyou.github.io/batman.html", img: "images/Batman.jpg" },
+        { name: "مسلسل Family Guy", nameAr: "فاملي غاي", type: "series", link: "https://cartoonforyou.github.io/index-old.html", img: "images/fg.jpg" },
+        { name: "مسلسل ساموراي جاك", nameAr: "Samurai Jack", type: "series", link: "https://cartoonforyou.github.io/Samurai%20Jack.html", img: "images/sj.jpg" },
+        { name: "مسلسل وقت المغامرة", nameAr: "Adventure Time", type: "series", link: "https://cartoonforyou.github.io/Adventure%20time.html", img: "images/وقت%20المغامرة.jpg" },
+        { name: "مسلسل البؤساء", nameAr: "Les Misérables", type: "series", link: "https://cartoonforyou.github.io/les%20miserables.html", img: "images/مسلسل%20البؤساء.jpg" },
+        { name: "مسلسل عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", link: "https://cartoonforyou.github.io/the%20era%20of%20friends.html", img: "images/عهد%20الاصدقاء.jpg" }
+    ];
+
+    let currentType = "all";
+    let currentSearch = "";
+    let currentSort = "default";
+
+    // ========== DOM Elements ==========
+    const cartoonList = document.getElementById('cartoonList');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearch = document.getElementById('clearSearch');
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const backToTop = document.getElementById('backToTop');
+    const resultCountSpan = document.getElementById('resultCount');
+    const totalCountSpan = document.getElementById('totalCount');
+    const sortSelect = document.getElementById('sortSelect');
+    const toast = document.getElementById('toast');
+
+    // Update last update time
+    const now = new Date();
+    document.getElementById('lastUpdate').innerText = now.toLocaleDateString('ar-EG');
+
+    // ========== Helper Functions ==========
+    function showToast(message) {
+        toast.innerText = message;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+    }
+
+    function updateStats() {
+        totalCountSpan.innerText = cartoons.length;
+    }
+
+    function getTypeArabic(type) {
+        return type === 'movie' ? '🎬 فيلم' : '📺 مسلسل';
+    }
+
+    function filterAndSort() {
+        let filtered = [...cartoons];
+        
+        // Filter by type (movie/series)
+        if (currentType !== "all") {
+            filtered = filtered.filter(c => c.type === currentType);
+        }
+        
+        // Filter by search
+        if (currentSearch) {
+            const searchLower = currentSearch.toLowerCase();
+            filtered = filtered.filter(c => 
+                c.name.toLowerCase().includes(searchLower) || 
+                c.nameAr.toLowerCase().includes(searchLower)
+            );
+        }
+        
+        // Sort
+        if (currentSort === "name-asc") {
+            filtered.sort((a, b) => a.name.localeCompare(b.name, 'ar'));
+        } else if (currentSort === "name-desc") {
+            filtered.sort((a, b) => b.name.localeCompare(a.name, 'ar'));
+        }
+        
+        renderCartoons(filtered);
+        resultCountSpan.innerText = `عرض ${filtered.length} من ${cartoons.length} عنوان`;
+        return filtered.length;
+    }
+
+    function renderCartoons(items) {
+        if (items.length === 0) {
+            cartoonList.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-tv-slash"></i>
+                    <h3>لا توجد نتائج</h3>
+                    <p>لم نعثر على محتوى مطابق لبحثك</p>
+                </div>
+            `;
+            return;
+        }
+        
+        cartoonList.innerHTML = items.map((item) => `
+            <li>
+                <a href="${item.link}" target="_blank" rel="noopener noreferrer">
+                    <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='images/placeholder.jpg'">
+                </a>
+                <h3>${item.name}</h3>
+                <span class="card-category"><i class="fas ${item.type === 'movie' ? 'fa-film' : 'fa-tv'}"></i> ${getTypeArabic(item.type)}</span>
+            </li>
+        `).join('');
+    }
+
+    // ========== Event Listeners ==========
+    searchInput.addEventListener('input', (e) => {
+        currentSearch = e.target.value;
+        clearSearch.style.display = currentSearch ? 'flex' : 'none';
+        filterAndSort();
+    });
+    
+    clearSearch.addEventListener('click', () => {
+        searchInput.value = '';
+        currentSearch = '';
+        clearSearch.style.display = 'none';
+        filterAndSort();
+        showToast('🔍 تم مسح البحث');
+    });
+    
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentType = btn.dataset.category;
+            filterAndSort();
+            const btnText = btn.innerText.trim();
+            showToast(`📁 عرض: ${btnText}`);
+        });
+    });
+    
+    sortSelect.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        filterAndSort();
+        showToast('📊 تم تغيير الترتيب');
+    });
+    
+    // Dark Mode Toggle
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const icon = darkModeToggle.querySelector('i');
+        if (document.body.classList.contains('light-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            showToast('☀️ الوضع النهاري');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            showToast('🌙 الوضع الليلي');
+        }
+        localStorage.setItem('darkMode', document.body.classList.contains('light-mode'));
+    });
+    
+    // Load dark mode preference
+    if (localStorage.getItem('darkMode') === 'true') {
+        document.body.classList.add('light-mode');
+        darkModeToggle.querySelector('i').classList.remove('fa-moon');
+        darkModeToggle.querySelector('i').classList.add('fa-sun');
+    }
+    
+    // Back to Top
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+    
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        showToast('⬆️ تم العودة للأعلى');
+    });
+    
+    // Page load animation
+    window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+        updateStats();
+        filterAndSort();
+    });
+</script>
 </body>
 </html>
