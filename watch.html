@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>كرتون فور يو - مشاهدة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #0a0a0a;
+            font-family: 'Cairo', sans-serif;
+            color: #fff;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #000, #111);
+            padding: 15px 20px;
+            border-bottom: 2px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header a { color: #FFD700; text-decoration: none; font-size: 18px; display: inline-flex; align-items: center; gap: 8px; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #FFD700; object-fit: cover; }
+        .site-title h1 { font-size: 18px; background: linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Video Player */
+        .video-container {
+            background: #000;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 2px solid #FFD700;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        .video-wrapper iframe, .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Info Section */
+        .info-section {
+            background: #111;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .info-section h1 { color: #FFD700; font-size: 28px; margin-bottom: 10px; }
+        .info-section .meta { display: flex; gap: 15px; flex-wrap: wrap; margin: 15px 0; color: #aaa; font-size: 14px; }
+        .info-section .meta span { background: #1a1a1a; padding: 5px 12px; border-radius: 20px; }
+        .description { line-height: 1.6; color: #ccc; }
+        
+        /* Episodes */
+        .episodes-section { background: #111; border-radius: 16px; padding: 20px; margin: 20px 0; }
+        .episodes-section h3 { color: #FFD700; margin-bottom: 15px; font-size: 20px; }
+        .episodes-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .episode-btn {
+            background: #1a1a1a;
+            border: 1px solid #FFD700;
+            color: #FFD700;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .episode-btn:hover, .episode-btn.active { background: #FFD700; color: #000; }
+        
+        /* Back Button */
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #FFD700;
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        footer { background: #111; padding: 20px; text-align: center; border-top: 1px solid #FFD700; margin-top: 40px; font-size: 12px; }
+        
+        @media (max-width: 768px) {
+            .info-section h1 { font-size: 22px; }
+            .episode-btn { padding: 6px 14px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+        <div class="logo-area">
+            <img src="images/cartoon_for_you_gold.webp" alt="logo" class="logo">
+            <div class="site-title"><h1>كرتون فور يو</h1></div>
+        </div>
+        <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+    </div>
+</div>
+
+<div class="container">
+    <a href="index.html" class="back-home"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
+
+    <!-- Video Player -->
+    <div class="video-container">
+        <div class="video-wrapper" id="videoWrapper">
+            <div id="videoPlaceholder" style="display: flex; align-items: center; justify-content: center; height: 100%; background: #000; color: #FFD700; flex-direction: column; gap: 15px;">
+                <i class="fas fa-play-circle" style="font-size: 60px;"></i>
+                <p>اختر حلقة من القائمة أدناه للمشاهدة</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section" id="infoSection">
+        <h1 id="showTitle">...</h1>
+        <div class="meta">
+            <span id="showCategory"><i class="fas fa-tag"></i> ...</span>
+            <span id="showYear"><i class="fas fa-calendar"></i> ...</span>
+        </div>
+        <div class="description" id="showDescription">...</div>
+    </div>
+
+    <!-- Episodes Section -->
+    <div class="episodes-section">
+        <h3><i class="fas fa-list"></i> قائمة الحلقات</h3>
+        <div class="episodes-grid" id="episodesGrid"></div>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 كرتون فور يو - جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+    // نفس بيانات المسلسلات الموجودة في index.html
+    const cartoons = [
+        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
+        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين. قصة تانجيرو كامادو الذي يسعى لإنقاذ أخته نيزوكو." },
+        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
+        { id: 3, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام. سلسلة كرتونية كلاسيكية." },
+        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين ومغامراتهم الطريفة." },
+        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل. قصة انتقام من الشرير أكو." },
+        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي." },
+        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو الشهيرة." },
+        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء في رحلة حياتية." }
+    ];
+
+    function getCategoryName(c) { return c === 'anime' ? 'أنمي' : 'كرتون'; }
+    function getTypeIcon(t) { return t === 'movie' ? '🎬 فيلم' : '📺 مسلسل'; }
+
+    // Get ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const showId = parseInt(urlParams.get('id'));
+    const show = cartoons.find(c => c.id === showId);
+
+    if (show) {
+        document.title = `${show.name} - كرتون فور يو`;
+        document.getElementById('showTitle').innerText = show.name;
+        document.getElementById('showCategory').innerHTML = `<i class="fas fa-tag"></i> ${getCategoryName(show.category)} • ${getTypeIcon(show.type)}`;
+        document.getElementById('showYear').innerHTML = `<i class="fas fa-calendar"></i> ${show.year}`;
+        document.getElementById('showDescription').innerText = show.description;
+        
+        // Generate 12 episodes
+        const episodesGrid = document.getElementById('episodesGrid');
+        
+        for (let i = 1; i <= 12; i++) {
+            const btn = document.createElement('button');
+            btn.className = 'episode-btn';
+            btn.innerHTML = `<i class="fas fa-play"></i> الحلقة ${i}`;
+            btn.onclick = () => {
+                document.querySelectorAll('.episode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const videoWrapper = document.getElementById('videoWrapper');
+                // 👇 هنا ضع رابط الحلقة عندما تحصل عليه
+                videoWrapper.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #000; color: #FFD700; flex-direction: column; gap: 15px;">
+                        <i class="fas fa-video" style="font-size: 60px;"></i>
+                        <p>سيتم إضافة رابط الحلقة ${i} لمسلسل ${show.name} قريباً</p>
+                        <small style="color: #FFD700;">يمكنك وضع رابط الفيديو (يوتيوب أو غيره) هنا</small>
+                    </div>
+                `;
+            };
+            episodesGrid.appendChild(btn);
+        }
+        
+        if (episodesGrid.children[0]) episodesGrid.children[0].click();
+    } else {
+        window.location.href = 'index.html';
+    }
+</script>
+</body>
+</html>
