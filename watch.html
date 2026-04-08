@@ -15,7 +15,6 @@
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
-        /* Header */
         .header {
             background: linear-gradient(135deg, #000, #111);
             padding: 15px 20px;
@@ -29,7 +28,6 @@
         .logo { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #FFD700; object-fit: cover; }
         .site-title h1 { font-size: 18px; background: linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Video Player */
         .video-container {
             background: #000;
             border-radius: 20px;
@@ -50,7 +48,6 @@
             height: 100%;
         }
         
-        /* Info Section */
         .info-section {
             background: #111;
             border-radius: 16px;
@@ -62,10 +59,9 @@
         .info-section .meta span { background: #1a1a1a; padding: 5px 12px; border-radius: 20px; }
         .description { line-height: 1.6; color: #ccc; }
         
-        /* Episodes */
         .episodes-section { background: #111; border-radius: 16px; padding: 20px; margin: 20px 0; }
         .episodes-section h3 { color: #FFD700; margin-bottom: 15px; font-size: 20px; }
-        .episodes-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .episodes-grid { display: flex; flex-wrap: wrap; gap: 12px; max-height: 300px; overflow-y: auto; padding: 5px; }
         .episode-btn {
             background: #1a1a1a;
             border: 1px solid #FFD700;
@@ -77,7 +73,6 @@
         }
         .episode-btn:hover, .episode-btn.active { background: #FFD700; color: #000; }
         
-        /* Back Button */
         .back-home {
             display: inline-flex;
             align-items: center;
@@ -89,6 +84,12 @@
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 15px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #FFD700;
         }
         
         footer { background: #111; padding: 20px; text-align: center; border-top: 1px solid #FFD700; margin-top: 40px; font-size: 12px; }
@@ -114,7 +115,6 @@
 <div class="container">
     <a href="index.html" class="back-home"><i class="fas fa-arrow-right"></i> العودة للرئيسية</a>
 
-    <!-- Video Player -->
     <div class="video-container">
         <div class="video-wrapper" id="videoWrapper">
             <div id="videoPlaceholder" style="display: flex; align-items: center; justify-content: center; height: 100%; background: #000; color: #FFD700; flex-direction: column; gap: 15px;">
@@ -124,7 +124,6 @@
         </div>
     </div>
 
-    <!-- Info Section -->
     <div class="info-section" id="infoSection">
         <h1 id="showTitle">...</h1>
         <div class="meta">
@@ -134,7 +133,6 @@
         <div class="description" id="showDescription">...</div>
     </div>
 
-    <!-- Episodes Section -->
     <div class="episodes-section">
         <h3><i class="fas fa-list"></i> قائمة الحلقات</h3>
         <div class="episodes-grid" id="episodesGrid"></div>
@@ -146,23 +144,220 @@
 </footer>
 
 <script>
-    // نفس بيانات المسلسلات الموجودة في index.html
+    // ========== بيانات المسلسلات مع المعرفات ==========
     const cartoons = [
-        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
-        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين. قصة تانجيرو كامادو الذي يسعى لإنقاذ أخته نيزوكو." },
-        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
-        { id: 3, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام. سلسلة كرتونية كلاسيكية." },
-        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين ومغامراتهم الطريفة." },
-        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل. قصة انتقام من الشرير أكو." },
-        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي." },
-        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو الشهيرة." },
-        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء في رحلة حياتية." }
+        { id: 0, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: true, year: "2024", description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي." },
+        { id: 1, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
+        { id: 2, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين (فيلم)" },
+        { id: 3, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
+        { id: 4, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل." },
+        { id: 5, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام." },
+        { id: 6, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين." },
+        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو." },
+        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء." }
     ];
+
+    // ========== روابط الحلقات لكل مسلسل ==========
+    
+    // 0: وقت المغامرة (25 حلقة)
+    const adventureTimeEpisodes = {
+        1: "https://drive.google.com/file/d/14UVi5UrSvR5bXBz_ZYLNZfldbFFZdTv6/preview",
+        2: "https://drive.google.com/file/d/14VMuLvlcJ79XerzNr5A8efTTKCc4n_ud/preview",
+        3: "https://drive.google.com/file/d/14XY7c68dzSdPxBnh_G2r94-szjNqK0so/preview",
+        4: "https://drive.google.com/file/d/14YLlNHFchaBSk_v578jEB349E4aW7HNz/preview",
+        5: "https://drive.google.com/file/d/14Yhe9NNZRkdgonkcQ_XyE3emAAl6YDWw/preview",
+        6: "https://drive.google.com/file/d/14_b6yT6VjmDDJ0EAwUCdeGyE6PNedZBZ/preview",
+        7: "https://drive.google.com/file/d/14_bKTh4m6PL9iFH1Xk3x6-np7I0S7yuU/preview",
+        8: "https://drive.google.com/file/d/14iooNQm_tSyKcJEaB5aFmLHZrEr1tSYH/preview",
+        9: "https://drive.google.com/file/d/14aYeF-zNIUaPoKwZFTmevit0ePm4pnzY/preview",
+        10: "https://drive.google.com/file/d/14f5O6bx81JZ59EvyqRW0NNLITp744VWD/preview",
+        11: "https://drive.google.com/file/d/14d4VpdI_w1C1Tp-_jQHvvoI9dFPHABzq/preview",
+        12: "https://drive.google.com/file/d/14tnUuQQrotqn6P5rQpclhWg9w9IgQIRa/preview",
+        13: "https://drive.google.com/file/d/14mL3qC3V4G0QoY0kkCkUAmN8kmybEl0W/preview",
+        14: "https://drive.google.com/file/d/14prEdZ3SDM20VebmxheFVshvS4zx7_RA/preview",
+        15: "https://drive.google.com/file/d/14r2JJ1Lnpfb7XFKGUKxmhqL_2OzGDi9r/preview",
+        16: "https://drive.google.com/file/d/14pQAE2tHNmXkzVOsWYN9wzUn7ShsjZvX/preview",
+        17: "https://drive.google.com/file/d/14twNZenH7u5uLIMYh-jpWyx13sA-6h9w/preview",
+        18: "https://drive.google.com/file/d/14uxteDU2oSGp3HoWFNhm7NqEDJS9eAZr/preview",
+        19: "https://drive.google.com/file/d/14w7rLNMJuOLVBk4YvFIWr8YdgSJ4ae6n/preview",
+        20: "https://drive.google.com/file/d/14yXM9KZvp9Q5vn_AKpCUKA4mp19B-o6L/preview",
+        21: "https://drive.google.com/file/d/14yuIH4wzPX8ckNBRCslUWOIPU8xg_XXC/preview",
+        22: "https://drive.google.com/file/d/15-QZ7FVJjQPQ6TvUDkU8rwhmUdqp6SZo/preview",
+        23: "https://drive.google.com/file/d/150pAaW28fd249rJZDayWRXMyqffrXCjd/preview",
+        24: "https://drive.google.com/file/d/152K79n0fw414TUmr5vD-EJ6Vi-ZvfSud/preview",
+        25: "https://drive.google.com/file/d/153kyeokvaINdNz6ELIR4BTs-GLYjqEpY/preview"
+    };
+
+    // 1: BLUE LOCK (10 حلقات)
+    const blueLockEpisodes = {
+        1: "https://drive.google.com/file/d/1Z0i4k17YaQBmNVPqZyt_B89WUQlJ7-lk/preview",
+        2: "https://drive.google.com/file/d/1Z3QNfTL6k9hF33IQ5DD-zOundzaEcckM/preview",
+        3: "https://drive.google.com/file/d/1ZF58gxRM3Ut10X_N3H588cVkp9kGEDM5/preview",
+        4: "https://drive.google.com/file/d/1ZGKpV-xCSVrAltd9zs8dAajumczOI34q/preview",
+        5: "https://drive.google.com/file/d/1ZRUiRLcinM7i_Urv2ZF7Obr1qKVFinWW/preview",
+        6: "https://drive.google.com/file/d/1ZfwpVES1UH2empWni2FpsHOGMrPKp0fN/preview",
+        7: "https://drive.google.com/file/d/1Zaom19IKplLUb6wUa6MeCoKjbwJzhnBU/preview",
+        8: "https://drive.google.com/file/d/1Zexp3fsrmUr-IY95mAbnbygMS8UiOJAZ/preview",
+        9: "https://drive.google.com/file/d/1Zjm39DMfWk1MNOdeC5txwgVxtsvc6KjF/preview",
+        10: "https://drive.google.com/file/d/1Zj24AG79V6i9g2aaLV6baYk8zh-DOqh0/preview"
+    };
+
+    // 2: قاتل الشياطين (فيلم - حلقة واحدة)
+    const demonSlayerEpisodes = {
+        1: "https://drive.google.com/file/d/1oJB4jI5baYYfjmoiu4xMVR1i2c3v6Ms6/preview"
+    };
+
+    // 3: عالم غامبول (10 حلقات)
+    const gumballEpisodes = {
+        1: "https://drive.google.com/file/d/1jNjk9kfMVqgVJRD6IlyYY1BnyAN5yGWO/preview",
+        2: "https://drive.google.com/file/d/1jPRco9rm2H-Aa3F5tmzK_vepH3kU_3yf/preview",
+        3: "https://drive.google.com/file/d/1jRpDD5Qc9OiKE3tvEmcUB2dpBA08MHfe/preview",
+        4: "https://drive.google.com/file/d/1jU7Uz_Qe4JNcPTBc6ml6DN94BAyddRis/preview",
+        5: "https://drive.google.com/file/d/1jZ_jh6qqDK9bVXTfSIK9Opqu_0rxcyOJ/preview",
+        6: "https://drive.google.com/file/d/1jb3oS2RT0_SScBR0B_HRa60_5mT8CqjE/preview",
+        7: "https://drive.google.com/file/d/1jejQEd4BJAyNjP-LtuzoX-Iu2-Lpyu5b/preview",
+        8: "https://drive.google.com/file/d/1jfiwv-7AOZU2CJ4gscC5vR2ellxmRwI2/preview",
+        9: "https://drive.google.com/file/d/1jpxh5AEB3bJ00cJDI-5fSnBNumqt_hsn/preview",
+        10: "https://drive.google.com/file/d/1jqyY9lw4w8GatIcPdbuADtoYLlAicqKN/preview"
+    };
+
+    // 4: ساموراي جاك (13 حلقة)
+    const samuraiJackEpisodes = {
+        1: "https://drive.google.com/file/d/1De21MqXf5V5Exey3hpVmS4HQnGSyc9Sb/preview",
+        2: "https://drive.google.com/file/d/1Df8jSckAHe8v6YNRvK5FeF61_tChMwX0/preview",
+        3: "https://drive.google.com/file/d/1DfHEfEnlofQ1kHT36Jg4ZVS6G7tVuPq9/preview",
+        4: "https://drive.google.com/file/d/1DfMO5RsOySdxF9lVLXv5gWLQxKL1k9T_/preview",
+        5: "https://drive.google.com/file/d/1Dhz2vNN97CqSEqm3Ji0wd1Dhz2vNN97CqSEqm3Ji0wdWVS4JEegintWVS4JEegint/preview",
+        6: "https://drive.google.com/file/d/1DitVuzuJ0-8waCWbVL65FXxDckSN2kBA/preview",
+        7: "https://drive.google.com/file/d/1DitVuzuJ0-1DmtBrw3JuiDkAll-37h47HdE19W00cPU/preview",
+        8: "https://drive.google.com/file/d/1DnjD4FEtY-EEwv6DLkWSmRP9EUc6IWAh/preview",
+        9: "https://drive.google.com/file/d/1DnjD4FEtY-1Do40Jq4BS5oACZ2kaqpiwrofq8BWBM1D/preview",
+        10: "https://drive.google.com/file/d/1DogrzspyiLUapZVxNmZ9OzXabSSX8Tv_/preview",
+        11: "https://drive.google.com/file/d/1Dozq4WFvKmzQlVZ6QcC2AJBrdNg1iXnf/preview",
+        12: "https://drive.google.com/file/d/1DpaScUQH9gKSHhTnEjdkwCuxzGSkrFBX/preview",
+        13: "https://drive.google.com/file/d/1DnjD4FEtY-1DqXZ5hQoSuLQVFEYeuNfG0cZLZiCe3oE/preview"
+    };
+
+    // 5: باتمان (27 حلقة)
+    const batmanEpisodes = {
+        1: "https://drive.google.com/file/d/19WEbgPUkZivHVhgTE022Oa3D7zegmrhH/preview",
+        2: "https://drive.google.com/file/d/16ucC0P4EYv3uchIWBKhmO1qu9ovT61SB/preview",
+        3: "https://drive.google.com/file/d/16rGOCLtTC5NDnosdUJGWa_YpWWB249yo/preview",
+        4: "https://drive.google.com/file/d/179mf-TIKtjtn_PKxqf5RKeEagRKHp9UI/preview",
+        5: "https://drive.google.com/file/d/174vdK1n7PGQVpBVvXzoKjLCBt_C1-B8W/preview",
+        6: "https://drive.google.com/file/d/170GojB807WJiUqJ26nlNRfLXkCGLNpls/preview",
+        7: "https://drive.google.com/file/d/17B9tNxTzru-jcA3vBDof5Wkw77reS-by/preview",
+        8: "https://drive.google.com/file/d/17JJBdFWHeRl44gx-ZD80Sq0LUP0kUlMK/preview",
+        9: "https://drive.google.com/file/d/19dzI7WOU9j2ErD7nJwf9YktEP5EA7m9R/preview",
+        10: "https://drive.google.com/file/d/17RBmYQqazj6ns6vPXR_JsVtAojgXypps/preview",
+        11: "https://drive.google.com/file/d/18cFAt0goi_wBtb89G9BbiEjjtBQSKaaB/preview",
+        12: "https://drive.google.com/file/d/197sTWkyrPE3DWuov7qfvABBkwerVeJ4G/preview",
+        13: "https://drive.google.com/file/d/17Uck2v8cFxnVAsWOxTPAkdV65v2WW83X/preview",
+        14: "https://drive.google.com/file/d/17gaOXq0NuRz_m7otQ2qfFARO1ZM18V7u/preview",
+        15: "https://drive.google.com/file/d/17oKqpKE78Qhlyms2OpkynsBMqiNgczKr/preview",
+        16: "https://drive.google.com/file/d/17rfxzujAQQuyjvfVmp2UCxSc8yRcgZtP/preview",
+        17: "https://drive.google.com/file/d/17zl0GgPA8aMPaDrjVOIWAEQIKVKX6sO_/preview",
+        18: "https://drive.google.com/file/d/17gLVVkhkz5kR5__giZzLcN6Oa2A6L4mD/preview",
+        19: "https://drive.google.com/file/d/17tzjImgCAg6YEmgW1EsW-Ivx3L2PJTV3/preview",
+        20: "https://drive.google.com/file/d/18-6ZVaGzljFHqV8NMI2MjvJa7QmzdiiC/preview",
+        21: "https://drive.google.com/file/d/18bihqvFvSBJfCtDR9QW3BZA2_DdWz7PU/preview",
+        22: "https://drive.google.com/file/d/18G2wuYM9Z7okzft0g1ovWdBX43f26fPg/preview",
+        23: "https://drive.google.com/file/d/1882N3w26lQUhyRct26QpsBNrjCFhhu4n/preview",
+        24: "https://drive.google.com/file/d/18GQfaNma4KzfVCO1DG_q_ntb9ZNJfKXv/preview",
+        25: "https://drive.google.com/file/d/18QkqStbbI6dWUANYdBkjQaGOIIQav2CH/preview",
+        26: "https://drive.google.com/file/d/18VfY0ysUf5bUyiScAoFmRy2DMb0lBdt5/preview",
+        27: "https://drive.google.com/file/d/18bs7qhUSmnS8a34lhM-sFbJXoRhI4m0U/preview"
+    };
+
+    // 6: فاملي غاي - روابط خارجية (poawooptugroo)
+    // سيتم استخدام روابط مباشرة
+
+    // 7: البؤساء (52 حلقة)
+    const miserablesEpisodes = {
+        1: "https://drive.google.com/file/d/1CWN3-ajQcbqzEpHPxFdmEdesqfhzBTUi/preview",
+        2: "https://drive.google.com/file/d/1CI8TWVpuUqpVgUH_TZUXPF9u4sM5J-Do/preview",
+        3: "https://drive.google.com/file/d/1CLu9m7gmqfQlUP7cyFzhwu_EvwhSlDAU/preview",
+        4: "https://drive.google.com/file/d/1CM7gByHnTjvKvtaQ9eEhxdxOREvN_Q4X/preview",
+        5: "https://drive.google.com/file/d/1CQhrh0CYD4ifHOovKPZEx6WmPc5diPGt/preview",
+        6: "https://drive.google.com/file/d/1CVbVY313f8GCOKxDj8-e4bQ2-QSvHRAe/preview",
+        7: "https://drive.google.com/file/d/15RELEGsBdRIPnkQMMJC7qp7z9i4zad0w/preview",
+        8: "https://drive.google.com/file/d/1CetRTouqGWj5JkWQD3OpZU7nUFD4tJzn/preview",
+        9: "https://drive.google.com/file/d/1Cgkbm4QnhvZ0UY6iT9HEbzWcmwLFQQl1/preview",
+        10: "https://drive.google.com/file/d/1CjGtHs_iT7IniRhU1b7Dkqdzlql1WzW7/preview",
+        11: "https://drive.google.com/file/d/1Cmrnf90asBoVR6OGPD5L7n2JXA36MYVU/preview",
+        12: "https://drive.google.com/file/d/1CnA_TnbOmKo11rs9h6bGnFghAeKlf7yA/preview",
+        13: "https://drive.google.com/file/d/15gr0I-W7z024GWyq4YmmzV7nYRt_BYC2/preview",
+        14: "https://drive.google.com/file/d/1CoL8S8hx15TEVB0Hub-0WxWLG2WQ-luF/preview",
+        15: "https://drive.google.com/file/d/1CuOkhwzzWh72_QINu1wY_2PE1ZBFCJdV/preview",
+        16: "https://drive.google.com/file/d/15iWvjV2aZIKkmtO0n2j27-RmPN0yATrb/preview",
+        17: "https://drive.google.com/file/d/1CwpNiD0Lx_-ttP7um7ZBVgOX1g6fXdS9/preview",
+        18: "https://drive.google.com/file/d/1CyZ3cnziFhVgRlQz2lCcIkexdAgvMZr8/preview",
+        19: "https://drive.google.com/file/d/1D1PMzH__w9SeAxQUdZ6fvD_QyuqWjp9o/preview",
+        20: "https://drive.google.com/file/d/1D1eE4gJvXw-rjoCorACuX_AdsYtr2Dv_/preview",
+        21: "https://drive.google.com/file/d/1D2-ieno9oN06F7aAF7mG1-jgePNH60ab/preview",
+        22: "https://drive.google.com/file/d/160gtf-YxE5fOfbRnpJ8gM6uZnBrn_0Wy/preview",
+        23: "https://drive.google.com/file/d/168znBhY1Lj8fTiT9uzGyDJnGiy9dc1HK/preview",
+        24: "https://drive.google.com/file/d/163oaNTP3pClpBC6I7TigrGFiKo25jazP/preview",
+        25: "https://drive.google.com/file/d/167c0y8-rXpSh2SBlFSauS9aa4OhMKP-S/preview",
+        26: "https://drive.google.com/file/d/161ROeSSFv7HCb6ArJrn-14jHMAhNsHF3/preview",
+        27: "https://drive.google.com/file/d/1D3QC387tL30ILqUle8iLMfZ3CJO7tw6W/preview",
+        28: "https://drive.google.com/file/d/1D4J1OGhwjBZCoPXjOstV8VrUhP6czYOm/preview",
+        29: "https://drive.google.com/file/d/1D53EqVNm6Pe9t2tzPuLozNKxPjeoQSOv/preview",
+        30: "https://drive.google.com/file/d/16CH_JZ6Ldi0lP0OJCyTSuSyzPMsaDixN/preview",
+        31: "https://drive.google.com/file/d/16C5AGOWUM6HWLWJ0JDGHD4IIGYRND_p1/preview",
+        32: "https://drive.google.com/file/d/16CRbx4RlLkJeO_5fYcHaTiLcHcsgLPdd/preview",
+        33: "https://drive.google.com/file/d/16DQHp5e3rucDX7uxBBWrPxA9raUrEzUr/preview",
+        34: "https://drive.google.com/file/d/16DdA1a6SecUR53FXXPMjWCAwvoqn5T5C/preview",
+        35: "https://drive.google.com/file/d/16CYiyGyrL6VzoU2Q9A71MmwU_Q4VA25w/preview",
+        36: "https://drive.google.com/file/d/16GRbYI9Ix4VCXbTdSDUaCifDO3uCIff4/preview",
+        37: "https://drive.google.com/file/d/16F_2zc_HKJbgQqQEiqzb1GPFiatB8JAY/preview",
+        38: "https://drive.google.com/file/d/16Hcit0aGI8aXUbUzKkG9vasshXbPX8aG/preview",
+        39: "https://drive.google.com/file/d/16cTmFm717vhJR0XqjTzRVnwcsOq0L1re/preview",
+        40: "https://drive.google.com/file/d/16Nih5OU3U7cB5c5xKuXNZBtlhHrtwZyW/preview",
+        41: "https://drive.google.com/file/d/16TAkdKqXOafNyGRMOPXdtIDip_qx-T3q/preview",
+        42: "https://drive.google.com/file/d/16rf3HayQiN-2IDlZ_khDGx8_f_3jI3j2/preview",
+        43: "https://drive.google.com/file/d/16VISo2oKyNvInPQQiKQGO9dUKj_iyk_u/preview",
+        44: "https://drive.google.com/file/d/16UZkSU_uwEoR7o-lfPPqhfHOhLVdIoxb/preview",
+        45: "https://drive.google.com/file/d/16f59ezS6zmuhdz53xtMMuN9vOPruzvyV/preview",
+        46: "https://drive.google.com/file/d/16t69Djd5Qy9MpTzT9kSehPAcr7xh1R9g/preview",
+        47: "https://drive.google.com/file/d/16jzBUfKvcM78EYhXwMmVY89zeto2QKWL/preview",
+        48: "https://drive.google.com/file/d/16lLkLouZvirsTQUizI13IwyFo4muwU2h/preview",
+        49: "https://drive.google.com/file/d/16p6hVKRjJU5I5KJy_muV4RBanZqeeKvj/preview",
+        50: "https://drive.google.com/file/d/16tLziwEaJBPQ6zJQ5pVCxptqaoPOtK8J/preview",
+        51: "https://drive.google.com/file/d/16lpc-M0Rrx8KZJ8p82OAcGZTIbyExYMf/preview",
+        52: "https://drive.google.com/file/d/16mz3tgQmFMMS79gfqPhny8fL_KJ4wGjI/preview"
+    };
+
+    // 8: عهد الأصدقاء (23 حلقة)
+    const friendsEpisodes = {
+        1: "https://drive.google.com/file/d/1Dujns_Bsez4McbqGdJFb6361U7A1Wl5d/preview",
+        2: "https://drive.google.com/file/d/1DwNu-MbZkdiK8QWG5JLuIfOEBCZ7PMJh/preview",
+        3: "https://drive.google.com/file/d/1DxfRvGHh-0CVfxLWSvOCIXFIgPfzBJ2Z/preview",
+        4: "https://drive.google.com/file/d/1Dy4heEXh2dmccD51k6snEU6KWFu306us/preview",
+        5: "https://drive.google.com/file/d/1DyhiivBr5ktyzoXna7_CaIeN4v8qresG/preview",
+        6: "https://drive.google.com/file/d/1Ez5eCvcq5ZFl1XZ1nwUoRVhx9SHYa25u/preview",
+        7: "https://drive.google.com/file/d/1E020s6SE8TUyF4tVy6EFkuLS8wbj-mNb/preview",
+        8: "https://drive.google.com/file/d/1E0FepCO2p64jJAVWPgtCs5OdcXT0jeSG/preview",
+        9: "https://drive.google.com/file/d/1F-QxeqOo90ncEZub7j9Kz-QzdMzeTlyp/preview",
+        10: "https://drive.google.com/file/d/1F0jACEXPcmgms5o8gQwDIrKOwp3zSWz7/preview",
+        11: "https://drive.google.com/file/d/1F27Wwwu1427F105SlkSE8uVGOY7iqUGQ/preview",
+        12: "https://drive.google.com/file/d/1F4KO8zlTL7HVLQPksgz0W0Qf3I2aijeM/preview",
+        13: "https://drive.google.com/file/d/1F7Plw9-fUiz-u7Eakq6EwcLVwE_qO1GA/preview",
+        14: "https://drive.google.com/file/d/15CH0TaSgc9OaUIDFzWBSLjQu5oQWEGeL/preview",
+        15: "https://drive.google.com/file/d/1F7mnRVCEtSOxBBr9dkr9s9da-3hEplbS/preview",
+        16: "https://drive.google.com/file/d/13yTV3xLNbTfmlls6v_xKN_RzRDOOa3FW/preview",
+        17: "https://drive.google.com/file/d/14-llyYkGcdM3zStc1cSuCCdB_bxPSrR7/preview",
+        18: "https://drive.google.com/file/d/145edbADqjYAd760zEuOJZBjsD_2F1kFX/preview",
+        19: "https://drive.google.com/file/d/146N5ajnn6fCRrnapEDh3TyhQjUHpS3OP/preview",
+        20: "https://drive.google.com/file/d/146V1HGQvZSrs8G68nMKfZwl75yhVLKvL/preview",
+        21: "https://drive.google.com/file/d/147FK3iI2TS1bKigF2HAwdakdlpgXfxLk/preview",
+        22: "https://drive.google.com/file/d/14IbtIutPXlAzU1_NtkQlv64M8RxE-BRz/preview",
+        23: "https://drive.google.com/file/d/148af8upmnu-KQyFCfYI7v8eEI4VKVfoT/preview"
+    };
 
     function getCategoryName(c) { return c === 'anime' ? 'أنمي' : 'كرتون'; }
     function getTypeIcon(t) { return t === 'movie' ? '🎬 فيلم' : '📺 مسلسل'; }
 
-    // Get ID from URL
     const urlParams = new URLSearchParams(window.location.search);
     const showId = parseInt(urlParams.get('id'));
     const show = cartoons.find(c => c.id === showId);
@@ -174,31 +369,64 @@
         document.getElementById('showYear').innerHTML = `<i class="fas fa-calendar"></i> ${show.year}`;
         document.getElementById('showDescription').innerText = show.description;
         
-        // Generate 12 episodes
         const episodesGrid = document.getElementById('episodesGrid');
+        let episodesData = {};
         
-        for (let i = 1; i <= 12; i++) {
-            const btn = document.createElement('button');
-            btn.className = 'episode-btn';
-            btn.innerHTML = `<i class="fas fa-play"></i> الحلقة ${i}`;
-            btn.onclick = () => {
-                document.querySelectorAll('.episode-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                const videoWrapper = document.getElementById('videoWrapper');
-                // 👇 هنا ضع رابط الحلقة عندما تحصل عليه
-                videoWrapper.innerHTML = `
-                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #000; color: #FFD700; flex-direction: column; gap: 15px;">
-                        <i class="fas fa-video" style="font-size: 60px;"></i>
-                        <p>سيتم إضافة رابط الحلقة ${i} لمسلسل ${show.name} قريباً</p>
-                        <small style="color: #FFD700;">يمكنك وضع رابط الفيديو (يوتيوب أو غيره) هنا</small>
-                    </div>
-                `;
-            };
-            episodesGrid.appendChild(btn);
+        // اختيار روابط المسلسل حسب المعرف
+        switch(showId) {
+            case 0: episodesData = adventureTimeEpisodes; break;
+            case 1: episodesData = blueLockEpisodes; break;
+            case 2: episodesData = demonSlayerEpisodes; break;
+            case 3: episodesData = gumballEpisodes; break;
+            case 4: episodesData = samuraiJackEpisodes; break;
+            case 5: episodesData = batmanEpisodes; break;
+            case 7: episodesData = miserablesEpisodes; break;
+            case 8: episodesData = friendsEpisodes; break;
+            case 6: // فاملي غاي - روابط خارجية
+                for (let i = 1; i <= 20; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'episode-btn';
+                    btn.innerHTML = `<i class="fas fa-play"></i> الحلقة ${i}`;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.episode-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const videoWrapper = document.getElementById('videoWrapper');
+                        videoWrapper.innerHTML = `
+                            <iframe src="https://poawooptugroo.com/4/8923201" 
+                                    frameborder="0" 
+                                    allowfullscreen>
+                            </iframe>
+                        `;
+                    };
+                    episodesGrid.appendChild(btn);
+                }
+                break;
+            default: episodesData = {};
         }
         
-        if (episodesGrid.children[0]) episodesGrid.children[0].click();
+        // إذا كان المسلسل له روابط من Google Drive
+        if (Object.keys(episodesData).length > 0) {
+            const maxEpisode = Math.max(...Object.keys(episodesData).map(Number));
+            for (let i = 1; i <= maxEpisode; i++) {
+                if (episodesData[i]) {
+                    const btn = document.createElement('button');
+                    btn.className = 'episode-btn';
+                    btn.innerHTML = `<i class="fas fa-play"></i> الحلقة ${i}`;
+                    btn.onclick = () => {
+                        document.querySelectorAll('.episode-btn').forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        const videoWrapper = document.getElementById('videoWrapper');
+                        videoWrapper.innerHTML = `<iframe src="${episodesData[i]}" frameborder="0" allowfullscreen></iframe>`;
+                    };
+                    episodesGrid.appendChild(btn);
+                }
+            }
+        }
+        
+        // تشغيل أول حلقة تلقائياً
+        if (episodesGrid.children[0]) {
+            episodesGrid.children[0].click();
+        }
     } else {
         window.location.href = 'index.html';
     }
