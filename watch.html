@@ -8,11 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #0a0a0a;
-            font-family: 'Cairo', sans-serif;
-            color: #fff;
-        }
+        body { background: #0a0a0a; font-family: 'Cairo', sans-serif; color: #fff; }
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
         
         .header {
@@ -28,32 +24,11 @@
         .logo { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #FFD700; object-fit: cover; }
         .site-title h1 { font-size: 18px; background: linear-gradient(135deg, #FFD700, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
         
-        .video-container {
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 20px 0;
-            border: 2px solid #FFD700;
-        }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-        .video-wrapper iframe, .video-wrapper video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        .video-container { background: #000; border-radius: 20px; overflow: hidden; margin: 20px 0; border: 2px solid #FFD700; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-wrapper iframe, .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         
-        .info-section {
-            background: #111;
-            border-radius: 16px;
-            padding: 20px;
-            margin: 20px 0;
-        }
+        .info-section { background: #111; border-radius: 16px; padding: 20px; margin: 20px 0; }
         .info-section h1 { color: #FFD700; font-size: 28px; margin-bottom: 10px; }
         .info-section .meta { display: flex; gap: 15px; flex-wrap: wrap; margin: 15px 0; color: #aaa; font-size: 14px; }
         .info-section .meta span { background: #1a1a1a; padding: 5px 12px; border-radius: 20px; }
@@ -62,35 +37,10 @@
         .episodes-section { background: #111; border-radius: 16px; padding: 20px; margin: 20px 0; }
         .episodes-section h3 { color: #FFD700; margin-bottom: 15px; font-size: 20px; }
         .episodes-grid { display: flex; flex-wrap: wrap; gap: 12px; max-height: 300px; overflow-y: auto; padding: 5px; }
-        .episode-btn {
-            background: #1a1a1a;
-            border: 1px solid #FFD700;
-            color: #FFD700;
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+        .episode-btn { background: #1a1a1a; border: 1px solid #FFD700; color: #FFD700; padding: 10px 20px; border-radius: 30px; cursor: pointer; transition: 0.3s; }
         .episode-btn:hover, .episode-btn.active { background: #FFD700; color: #000; }
         
-        .back-home {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #FFD700;
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 50px;
-            color: #FFD700;
-        }
+        .back-home { display: inline-flex; align-items: center; gap: 8px; background: #FFD700; color: #000; padding: 10px 20px; border-radius: 40px; text-decoration: none; font-weight: bold; margin-bottom: 15px; }
         
         footer { background: #111; padding: 20px; text-align: center; border-top: 1px solid #FFD700; margin-top: 40px; font-size: 12px; }
         
@@ -144,51 +94,22 @@
 </footer>
 
 <script>
-    // ========== بيانات المسلسلات مع المعرفات ==========
+    // ========== بيانات المسلسلات حسب ترتيب index.html ==========
     const cartoons = [
-        { id: 0, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: true, year: "2024", description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي." },
-        { id: 1, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
-        { id: 2, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين (فيلم)" },
-        { id: 3, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
-        { id: 4, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل." },
-        { id: 5, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام." },
-        { id: 6, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين." },
-        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو." },
-        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء." }
+        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
+        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "movie", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين (فيلم)" },
+        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
+        { id: 3, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام. سلسلة كرتونية كلاسيكية." },
+        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين ومغامراتهم الطريفة." },
+        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل. قصة انتقام من الشرير أكو." },
+        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي." },
+        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو الشهيرة." },
+        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء في رحلة حياتية." }
     ];
 
-    // ========== روابط الحلقات لكل مسلسل ==========
-    
-    // 0: وقت المغامرة (25 حلقة)
-    const adventureTimeEpisodes = {
-        1: "https://drive.google.com/file/d/14UVi5UrSvR5bXBz_ZYLNZfldbFFZdTv6/preview",
-        2: "https://drive.google.com/file/d/14VMuLvlcJ79XerzNr5A8efTTKCc4n_ud/preview",
-        3: "https://drive.google.com/file/d/14XY7c68dzSdPxBnh_G2r94-szjNqK0so/preview",
-        4: "https://drive.google.com/file/d/14YLlNHFchaBSk_v578jEB349E4aW7HNz/preview",
-        5: "https://drive.google.com/file/d/14Yhe9NNZRkdgonkcQ_XyE3emAAl6YDWw/preview",
-        6: "https://drive.google.com/file/d/14_b6yT6VjmDDJ0EAwUCdeGyE6PNedZBZ/preview",
-        7: "https://drive.google.com/file/d/14_bKTh4m6PL9iFH1Xk3x6-np7I0S7yuU/preview",
-        8: "https://drive.google.com/file/d/14iooNQm_tSyKcJEaB5aFmLHZrEr1tSYH/preview",
-        9: "https://drive.google.com/file/d/14aYeF-zNIUaPoKwZFTmevit0ePm4pnzY/preview",
-        10: "https://drive.google.com/file/d/14f5O6bx81JZ59EvyqRW0NNLITp744VWD/preview",
-        11: "https://drive.google.com/file/d/14d4VpdI_w1C1Tp-_jQHvvoI9dFPHABzq/preview",
-        12: "https://drive.google.com/file/d/14tnUuQQrotqn6P5rQpclhWg9w9IgQIRa/preview",
-        13: "https://drive.google.com/file/d/14mL3qC3V4G0QoY0kkCkUAmN8kmybEl0W/preview",
-        14: "https://drive.google.com/file/d/14prEdZ3SDM20VebmxheFVshvS4zx7_RA/preview",
-        15: "https://drive.google.com/file/d/14r2JJ1Lnpfb7XFKGUKxmhqL_2OzGDi9r/preview",
-        16: "https://drive.google.com/file/d/14pQAE2tHNmXkzVOsWYN9wzUn7ShsjZvX/preview",
-        17: "https://drive.google.com/file/d/14twNZenH7u5uLIMYh-jpWyx13sA-6h9w/preview",
-        18: "https://drive.google.com/file/d/14uxteDU2oSGp3HoWFNhm7NqEDJS9eAZr/preview",
-        19: "https://drive.google.com/file/d/14w7rLNMJuOLVBk4YvFIWr8YdgSJ4ae6n/preview",
-        20: "https://drive.google.com/file/d/14yXM9KZvp9Q5vn_AKpCUKA4mp19B-o6L/preview",
-        21: "https://drive.google.com/file/d/14yuIH4wzPX8ckNBRCslUWOIPU8xg_XXC/preview",
-        22: "https://drive.google.com/file/d/15-QZ7FVJjQPQ6TvUDkU8rwhmUdqp6SZo/preview",
-        23: "https://drive.google.com/file/d/150pAaW28fd249rJZDayWRXMyqffrXCjd/preview",
-        24: "https://drive.google.com/file/d/152K79n0fw414TUmr5vD-EJ6Vi-ZvfSud/preview",
-        25: "https://drive.google.com/file/d/153kyeokvaINdNz6ELIR4BTs-GLYjqEpY/preview"
-    };
+    // ========== روابط الحلقات حسب معرف المسلسل (id) ==========
 
-    // 1: BLUE LOCK (10 حلقات)
+    // id 0: BLUE LOCK (10 حلقات)
     const blueLockEpisodes = {
         1: "https://drive.google.com/file/d/1Z0i4k17YaQBmNVPqZyt_B89WUQlJ7-lk/preview",
         2: "https://drive.google.com/file/d/1Z3QNfTL6k9hF33IQ5DD-zOundzaEcckM/preview",
@@ -202,12 +123,12 @@
         10: "https://drive.google.com/file/d/1Zj24AG79V6i9g2aaLV6baYk8zh-DOqh0/preview"
     };
 
-    // 2: قاتل الشياطين (فيلم - حلقة واحدة)
+    // id 1: قاتل الشياطين (فيلم - حلقة واحدة)
     const demonSlayerEpisodes = {
         1: "https://drive.google.com/file/d/1oJB4jI5baYYfjmoiu4xMVR1i2c3v6Ms6/preview"
     };
 
-    // 3: عالم غامبول (10 حلقات)
+    // id 2: عالم غامبول المدهش (10 حلقات)
     const gumballEpisodes = {
         1: "https://drive.google.com/file/d/1jNjk9kfMVqgVJRD6IlyYY1BnyAN5yGWO/preview",
         2: "https://drive.google.com/file/d/1jPRco9rm2H-Aa3F5tmzK_vepH3kU_3yf/preview",
@@ -221,24 +142,7 @@
         10: "https://drive.google.com/file/d/1jqyY9lw4w8GatIcPdbuADtoYLlAicqKN/preview"
     };
 
-    // 4: ساموراي جاك (13 حلقة)
-    const samuraiJackEpisodes = {
-        1: "https://drive.google.com/file/d/1De21MqXf5V5Exey3hpVmS4HQnGSyc9Sb/preview",
-        2: "https://drive.google.com/file/d/1Df8jSckAHe8v6YNRvK5FeF61_tChMwX0/preview",
-        3: "https://drive.google.com/file/d/1DfHEfEnlofQ1kHT36Jg4ZVS6G7tVuPq9/preview",
-        4: "https://drive.google.com/file/d/1DfMO5RsOySdxF9lVLXv5gWLQxKL1k9T_/preview",
-        5: "https://drive.google.com/file/d/1Dhz2vNN97CqSEqm3Ji0wd1Dhz2vNN97CqSEqm3Ji0wdWVS4JEegintWVS4JEegint/preview",
-        6: "https://drive.google.com/file/d/1DitVuzuJ0-8waCWbVL65FXxDckSN2kBA/preview",
-        7: "https://drive.google.com/file/d/1DitVuzuJ0-1DmtBrw3JuiDkAll-37h47HdE19W00cPU/preview",
-        8: "https://drive.google.com/file/d/1DnjD4FEtY-EEwv6DLkWSmRP9EUc6IWAh/preview",
-        9: "https://drive.google.com/file/d/1DnjD4FEtY-1Do40Jq4BS5oACZ2kaqpiwrofq8BWBM1D/preview",
-        10: "https://drive.google.com/file/d/1DogrzspyiLUapZVxNmZ9OzXabSSX8Tv_/preview",
-        11: "https://drive.google.com/file/d/1Dozq4WFvKmzQlVZ6QcC2AJBrdNg1iXnf/preview",
-        12: "https://drive.google.com/file/d/1DpaScUQH9gKSHhTnEjdkwCuxzGSkrFBX/preview",
-        13: "https://drive.google.com/file/d/1DnjD4FEtY-1DqXZ5hQoSuLQVFEYeuNfG0cZLZiCe3oE/preview"
-    };
-
-    // 5: باتمان (27 حلقة)
+    // id 3: باتمان (27 حلقة)
     const batmanEpisodes = {
         1: "https://drive.google.com/file/d/19WEbgPUkZivHVhgTE022Oa3D7zegmrhH/preview",
         2: "https://drive.google.com/file/d/16ucC0P4EYv3uchIWBKhmO1qu9ovT61SB/preview",
@@ -269,10 +173,53 @@
         27: "https://drive.google.com/file/d/18bs7qhUSmnS8a34lhM-sFbJXoRhI4m0U/preview"
     };
 
-    // 6: فاملي غاي - روابط خارجية (poawooptugroo)
-    // سيتم استخدام روابط مباشرة
+    // id 5: ساموراي جاك (13 حلقة)
+    const samuraiJackEpisodes = {
+        1: "https://drive.google.com/file/d/1De21MqXf5V5Exey3hpVmS4HQnGSyc9Sb/preview",
+        2: "https://drive.google.com/file/d/1Df8jSckAHe8v6YNRvK5FeF61_tChMwX0/preview",
+        3: "https://drive.google.com/file/d/1DfHEfEnlofQ1kHT36Jg4ZVS6G7tVuPq9/preview",
+        4: "https://drive.google.com/file/d/1DfMO5RsOySdxF9lVLXv5gWLQxKL1k9T_/preview",
+        5: "https://drive.google.com/file/d/1Dhz2vNN97CqSEqm3Ji0wd1Dhz2vNN97CqSEqm3Ji0wdWVS4JEegintWVS4JEegint/preview",
+        6: "https://drive.google.com/file/d/1DitVuzuJ0-8waCWbVL65FXxDckSN2kBA/preview",
+        7: "https://drive.google.com/file/d/1DitVuzuJ0-1DmtBrw3JuiDkAll-37h47HdE19W00cPU/preview",
+        8: "https://drive.google.com/file/d/1DnjD4FEtY-EEwv6DLkWSmRP9EUc6IWAh/preview",
+        9: "https://drive.google.com/file/d/1DnjD4FEtY-1Do40Jq4BS5oACZ2kaqpiwrofq8BWBM1D/preview",
+        10: "https://drive.google.com/file/d/1DogrzspyiLUapZVxNmZ9OzXabSSX8Tv_/preview",
+        11: "https://drive.google.com/file/d/1Dozq4WFvKmzQlVZ6QcC2AJBrdNg1iXnf/preview",
+        12: "https://drive.google.com/file/d/1DpaScUQH9gKSHhTnEjdkwCuxzGSkrFBX/preview",
+        13: "https://drive.google.com/file/d/1DnjD4FEtY-1DqXZ5hQoSuLQVFEYeuNfG0cZLZiCe3oE/preview"
+    };
 
-    // 7: البؤساء (52 حلقة)
+    // id 6: وقت المغامرة (25 حلقة)
+    const adventureTimeEpisodes = {
+        1: "https://drive.google.com/file/d/14UVi5UrSvR5bXBz_ZYLNZfldbFFZdTv6/preview",
+        2: "https://drive.google.com/file/d/14VMuLvlcJ79XerzNr5A8efTTKCc4n_ud/preview",
+        3: "https://drive.google.com/file/d/14XY7c68dzSdPxBnh_G2r94-szjNqK0so/preview",
+        4: "https://drive.google.com/file/d/14YLlNHFchaBSk_v578jEB349E4aW7HNz/preview",
+        5: "https://drive.google.com/file/d/14Yhe9NNZRkdgonkcQ_XyE3emAAl6YDWw/preview",
+        6: "https://drive.google.com/file/d/14_b6yT6VjmDDJ0EAwUCdeGyE6PNedZBZ/preview",
+        7: "https://drive.google.com/file/d/14_bKTh4m6PL9iFH1Xk3x6-np7I0S7yuU/preview",
+        8: "https://drive.google.com/file/d/14iooNQm_tSyKcJEaB5aFmLHZrEr1tSYH/preview",
+        9: "https://drive.google.com/file/d/14aYeF-zNIUaPoKwZFTmevit0ePm4pnzY/preview",
+        10: "https://drive.google.com/file/d/14f5O6bx81JZ59EvyqRW0NNLITp744VWD/preview",
+        11: "https://drive.google.com/file/d/14d4VpdI_w1C1Tp-_jQHvvoI9dFPHABzq/preview",
+        12: "https://drive.google.com/file/d/14tnUuQQrotqn6P5rQpclhWg9w9IgQIRa/preview",
+        13: "https://drive.google.com/file/d/14mL3qC3V4G0QoY0kkCkUAmN8kmybEl0W/preview",
+        14: "https://drive.google.com/file/d/14prEdZ3SDM20VebmxheFVshvS4zx7_RA/preview",
+        15: "https://drive.google.com/file/d/14r2JJ1Lnpfb7XFKGUKxmhqL_2OzGDi9r/preview",
+        16: "https://drive.google.com/file/d/14pQAE2tHNmXkzVOsWYN9wzUn7ShsjZvX/preview",
+        17: "https://drive.google.com/file/d/14twNZenH7u5uLIMYh-jpWyx13sA-6h9w/preview",
+        18: "https://drive.google.com/file/d/14uxteDU2oSGp3HoWFNhm7NqEDJS9eAZr/preview",
+        19: "https://drive.google.com/file/d/14w7rLNMJuOLVBk4YvFIWr8YdgSJ4ae6n/preview",
+        20: "https://drive.google.com/file/d/14yXM9KZvp9Q5vn_AKpCUKA4mp19B-o6L/preview",
+        21: "https://drive.google.com/file/d/14yuIH4wzPX8ckNBRCslUWOIPU8xg_XXC/preview",
+        22: "https://drive.google.com/file/d/15-QZ7FVJjQPQ6TvUDkU8rwhmUdqp6SZo/preview",
+        23: "https://drive.google.com/file/d/150pAaW28fd249rJZDayWRXMyqffrXCjd/preview",
+        24: "https://drive.google.com/file/d/152K79n0fw414TUmr5vD-EJ6Vi-ZvfSud/preview",
+        25: "https://drive.google.com/file/d/153kyeokvaINdNz6ELIR4BTs-GLYjqEpY/preview"
+    };
+
+    // id 7: البؤساء (52 حلقة)
     const miserablesEpisodes = {
         1: "https://drive.google.com/file/d/1CWN3-ajQcbqzEpHPxFdmEdesqfhzBTUi/preview",
         2: "https://drive.google.com/file/d/1CI8TWVpuUqpVgUH_TZUXPF9u4sM5J-Do/preview",
@@ -328,7 +275,7 @@
         52: "https://drive.google.com/file/d/16mz3tgQmFMMS79gfqPhny8fL_KJ4wGjI/preview"
     };
 
-    // 8: عهد الأصدقاء (23 حلقة)
+    // id 8: عهد الأصدقاء (23 حلقة)
     const friendsEpisodes = {
         1: "https://drive.google.com/file/d/1Dujns_Bsez4McbqGdJFb6361U7A1Wl5d/preview",
         2: "https://drive.google.com/file/d/1DwNu-MbZkdiK8QWG5JLuIfOEBCZ7PMJh/preview",
@@ -372,39 +319,21 @@
         const episodesGrid = document.getElementById('episodesGrid');
         let episodesData = {};
         
-        // اختيار روابط المسلسل حسب المعرف
+        // ربط كل مسلسل بروابطه حسب المعرف (id)
         switch(showId) {
-            case 0: episodesData = adventureTimeEpisodes; break;
-            case 1: episodesData = blueLockEpisodes; break;
-            case 2: episodesData = demonSlayerEpisodes; break;
-            case 3: episodesData = gumballEpisodes; break;
-            case 4: episodesData = samuraiJackEpisodes; break;
-            case 5: episodesData = batmanEpisodes; break;
-            case 7: episodesData = miserablesEpisodes; break;
-            case 8: episodesData = friendsEpisodes; break;
-            case 6: // فاملي غاي - روابط خارجية
-                for (let i = 1; i <= 20; i++) {
-                    const btn = document.createElement('button');
-                    btn.className = 'episode-btn';
-                    btn.innerHTML = `<i class="fas fa-play"></i> الحلقة ${i}`;
-                    btn.onclick = () => {
-                        document.querySelectorAll('.episode-btn').forEach(b => b.classList.remove('active'));
-                        btn.classList.add('active');
-                        const videoWrapper = document.getElementById('videoWrapper');
-                        videoWrapper.innerHTML = `
-                            <iframe src="https://poawooptugroo.com/4/8923201" 
-                                    frameborder="0" 
-                                    allowfullscreen>
-                            </iframe>
-                        `;
-                    };
-                    episodesGrid.appendChild(btn);
-                }
-                break;
+            case 0: episodesData = blueLockEpisodes; break;      // BLUE LOCK
+            case 1: episodesData = demonSlayerEpisodes; break;  // قاتل الشياطين
+            case 2: episodesData = gumballEpisodes; break;      // عالم غامبول
+            case 3: episodesData = batmanEpisodes; break;       // باتمان
+            case 4: episodesData = {}; break;                   // فاملي غاي (بدون روابط حالياً)
+            case 5: episodesData = samuraiJackEpisodes; break;  // ساموراي جاك
+            case 6: episodesData = adventureTimeEpisodes; break; // وقت المغامرة
+            case 7: episodesData = miserablesEpisodes; break;    // البؤساء
+            case 8: episodesData = friendsEpisodes; break;       // عهد الأصدقاء
             default: episodesData = {};
         }
         
-        // إذا كان المسلسل له روابط من Google Drive
+        // إضافة أزرار الحلقات
         if (Object.keys(episodesData).length > 0) {
             const maxEpisode = Math.max(...Object.keys(episodesData).map(Number));
             for (let i = 1; i <= maxEpisode; i++) {
@@ -421,10 +350,18 @@
                     episodesGrid.appendChild(btn);
                 }
             }
+        } else {
+            // إذا كان المسلسل ليس له روابط
+            const msg = document.createElement('div');
+            msg.style.textAlign = 'center';
+            msg.style.padding = '20px';
+            msg.style.color = '#FFD700';
+            msg.innerHTML = '<i class="fas fa-video-slash"></i> لا توجد حلقات متاحة حالياً';
+            episodesGrid.appendChild(msg);
         }
         
         // تشغيل أول حلقة تلقائياً
-        if (episodesGrid.children[0]) {
+        if (episodesGrid.children[0] && episodesGrid.children[0].classList && episodesGrid.children[0].classList.contains('episode-btn')) {
             episodesGrid.children[0].click();
         }
     } else {
