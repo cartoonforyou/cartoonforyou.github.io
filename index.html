@@ -466,17 +466,17 @@
 <div id="toast" class="toast"></div>
 
 <script>
-    // ========== DATA (بدون روابط خارجية - تم إزالة خاصية link) ==========
+    // ========== DATA ==========
     const cartoons = [
-        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
-        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين. قصة تانجيرو كامادو الذي يسعى لإنقاذ أخته نيزوكو." },
-        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
-        { id: 3, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام. سلسلة كرتونية كلاسيكية." },
-        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين ومغامراتهم الطريفة." },
-        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل. قصة انتقام من الشرير أكو." },
-        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي." },
-        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو الشهيرة." },
-        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء في رحلة حياتية." }
+        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم." },
+        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", type: "series", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين." },
+        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة." },
+        { id: 3, name: "باتمان", nameAr: "Batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام." },
+        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار." },
+        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي في المستقبل." },
+        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك." },
+        { id: 7, name: "البؤساء", nameAr: "Les Misérables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة." },
+        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء." }
     ];
 
     const sliderItems = cartoons.filter(c => c.isNew);
@@ -515,7 +515,12 @@
         document.querySelectorAll('.slide').forEach(slide => {
             slide.addEventListener('click', () => {
                 const id = parseInt(slide.dataset.id);
-                window.location.href = `watch.html?id=${id}`;
+                // فاملي غاي (id=4) يفتح الصفحة القديمة
+                if (id === 4) {
+                    window.location.href = 'https://cartoonforyou.github.io/index-old.html';
+                } else {
+                    window.location.href = `watch.html?id=${id}`;
+                }
             });
         });
         
@@ -547,7 +552,12 @@
         document.querySelectorAll('.cartoon-list li').forEach(li => {
             li.addEventListener('click', () => {
                 const id = parseInt(li.dataset.id);
-                window.location.href = `watch.html?id=${id}`;
+                // فاملي غاي (id=4) يفتح الصفحة القديمة
+                if (id === 4) {
+                    window.location.href = 'https://cartoonforyou.github.io/index-old.html';
+                } else {
+                    window.location.href = `watch.html?id=${id}`;
+                }
             });
         });
         
