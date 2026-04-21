@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>كرتون فور يو - مشاهدة</title>
+    
+    <!-- SEO Meta Tags - سيتم تعبئتها ديناميكياً حسب المسلسل -->
+    <title id="pageTitle">كرتون فور يو - مشاهدة</title>
+    <meta name="description" id="metaDescription" content="كرتون فور يو - منصة مجانية لمشاهدة الكرتون والأنمي بجودة عالية">
+    <meta name="keywords" id="metaKeywords" content="كرتون, انمي, مشاهدة كرتون, كرتون فور يو, cartoon for you">
+    <meta name="author" content="Cartoon For You">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" id="ogTitle" content="كرتون فور يو">
+    <meta property="og:description" id="ogDescription" content="منصة مجانية لمشاهدة الكرتون والأنمي">
+    <meta property="og:image" id="ogImage" content="images/cartoon_for_you_gold.webp">
+    <meta property="og:url" id="ogUrl" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="كرتون فور يو">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" id="twitterTitle" content="كرتون فور يو">
+    <meta name="twitter:description" id="twitterDescription" content="منصة مجانية لمشاهدة الكرتون والأنمي">
+    <meta name="twitter:image" id="twitterImage" content="images/cartoon_for_you_gold.webp">
+    
+    <!-- Canonical URL -->
+    <link id="canonicalLink" rel="canonical" href="">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -568,12 +592,13 @@
 </div>
 
 <script>
-    // ========== جميع بيانات المسلسلات مع الحلقات الكاملة (نفس البيانات الأصلية - لم يتم حذف أي شيء) ==========
+    // ========== جميع بيانات المسلسلات مع الحلقات الكاملة (جميع الحلقات موجودة - لم يتم حذف أي شيء) ==========
     const cartoons = [
         { 
             id: 0, 
             name: "BLUE LOCK", 
             nameAr: "بلو لوك", 
+            nameSlug: "blue-lock",
             type: "series", 
             category: "anime", 
             img: "images/blue.jpg", 
@@ -600,6 +625,7 @@
             id: 1, 
             name: "قاتل الشياطين", 
             nameAr: "Demon Slayer", 
+            nameSlug: "demon-slayer",
             type: "movie", 
             category: "anime", 
             img: "images/قاتل.jpg", 
@@ -617,6 +643,7 @@
             id: 2, 
             name: "عالم غامبول المدهش", 
             nameAr: "Gumball", 
+            nameSlug: "gumball",
             type: "series", 
             category: "cartoon", 
             img: "images/g.jpg", 
@@ -643,6 +670,7 @@
             id: 3, 
             name: "باتمان", 
             nameAr: "Batman", 
+            nameSlug: "batman",
             type: "series", 
             category: "cartoon", 
             img: "images/Batman.jpg", 
@@ -686,6 +714,7 @@
             id: 4, 
             name: "فاملي غاي", 
             nameAr: "Family Guy", 
+            nameSlug: "family-guy",
             type: "series", 
             category: "cartoon", 
             img: "images/fg.jpg", 
@@ -712,6 +741,7 @@
             id: 5, 
             name: "ساموراي جاك", 
             nameAr: "Samurai Jack", 
+            nameSlug: "samurai-jack",
             type: "series", 
             category: "cartoon", 
             img: "images/sj.jpg", 
@@ -741,6 +771,7 @@
             id: 6, 
             name: "وقت المغامرة", 
             nameAr: "Adventure Time", 
+            nameSlug: "adventure-time",
             type: "series", 
             category: "cartoon", 
             img: "images/وقت%20المغامرة.jpg", 
@@ -782,6 +813,7 @@
             id: 7, 
             name: "البؤساء", 
             nameAr: "Les Misérables", 
+            nameSlug: "les-miserables",
             type: "series", 
             category: "anime", 
             img: "images/مسلسل%20البؤساء.jpg", 
@@ -850,6 +882,7 @@
             id: 8, 
             name: "عهد الأصدقاء", 
             nameAr: "The Era of Friends", 
+            nameSlug: "era-of-friends",
             type: "series", 
             category: "anime", 
             img: "images/عهد%20الاصدقاء.jpg", 
@@ -887,12 +920,67 @@
         }
     ];
 
+    // دالة للبحث عن المسلسل (بالرقم أو بالاسم)
+    function findShow() {
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // محاولة جلب id
+        let showId = urlParams.get('id');
+        if (showId !== null) {
+            return cartoons.find(c => c.id === parseInt(showId));
+        }
+        
+        // محاولة جلب name (slug)
+        let showName = urlParams.get('name');
+        if (showName !== null) {
+            // البحث بالـ slug (مثل blue-lock)
+            let found = cartoons.find(c => c.nameSlug === showName.toLowerCase());
+            if (found) return found;
+            
+            // البحث بالاسم العربي أو الإنجليزي
+            found = cartoons.find(c => 
+                c.name.toLowerCase() === showName.toLowerCase() ||
+                c.nameAr.toLowerCase() === showName.toLowerCase() ||
+                c.name.toLowerCase().replace(/ /g, '-') === showName.toLowerCase()
+            );
+            if (found) return found;
+        }
+        
+        return null;
+    }
+
     function getCategoryName(c) { return c === 'anime' ? 'أنمي' : 'كرتون'; }
     function getTypeIcon(t) { return t === 'movie' ? '🎬 فيلم' : '📺 مسلسل'; }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const showId = parseInt(urlParams.get('id'));
-    const show = cartoons.find(c => c.id === showId);
+    const show = findShow();
+
+    // تحديث SEO Tags حسب المسلسل
+    function updateSEOTags(show) {
+        if (!show) return;
+        
+        const siteUrl = "https://cartoonforyou.github.io/";
+        const pageUrl = siteUrl + "watch.html?name=" + show.nameSlug;
+        
+        document.title = `${show.name} | كرتون فور يو - مشاهدة ${show.name} اونلاين`;
+        document.getElementById('pageTitle').innerHTML = `${show.name} | كرتون فور يو`;
+        
+        const metaDesc = `مشاهدة ${show.name} (${show.nameAr}) اونلاين بجودة ${show.quality} - ${show.description.substring(0, 150)}`;
+        document.getElementById('metaDescription').setAttribute('content', metaDesc);
+        
+        const metaKeywords = `${show.name}, ${show.nameAr}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو, cartoon for you, ${show.category === 'anime' ? 'انمي اونلاين' : 'كرتون اونلاين'}`;
+        document.getElementById('metaKeywords').setAttribute('content', metaKeywords);
+        
+        document.getElementById('ogTitle').setAttribute('content', `${show.name} | كرتون فور يو`);
+        document.getElementById('ogDescription').setAttribute('content', metaDesc);
+        document.getElementById('ogImage').setAttribute('content', siteUrl + show.img);
+        document.getElementById('ogUrl').setAttribute('content', pageUrl);
+        
+        document.getElementById('twitterTitle').setAttribute('content', `${show.name} | كرتون فور يو`);
+        document.getElementById('twitterDescription').setAttribute('content', metaDesc);
+        document.getElementById('twitterImage').setAttribute('content', siteUrl + show.img);
+        
+        document.getElementById('canonicalLink').setAttribute('href', pageUrl);
+    }
 
     function renderPage() {
         if (!show) {
@@ -900,7 +988,8 @@
             return;
         }
 
-        document.title = `${show.name} - كرتون فور يو`;
+        // تحديث SEO
+        updateSEOTags(show);
 
         const html = `
             <div class="hero-card">
@@ -974,7 +1063,7 @@
 
         document.getElementById('mainContent').innerHTML = html;
 
-        // Build episodes grid
+        // بناء قائمة الحلقات (جميع الحلقات موجودة)
         const episodesGrid = document.getElementById('episodesGrid');
         const episodes = show.episodes;
         const episodeNumbers = Object.keys(episodes).map(Number).sort((a,b) => a - b);
@@ -1000,13 +1089,13 @@
             episodesGrid.appendChild(card);
         });
 
-        // Auto-play first episode
+        // تشغيل أول حلقة تلقائياً
         if (episodeNumbers.length > 0 && episodes[episodeNumbers[0]]) {
             const videoWrapper = document.getElementById('videoWrapper');
             videoWrapper.innerHTML = `<iframe src="${episodes[episodeNumbers[0]]}" frameborder="0" allowfullscreen></iframe>`;
         }
 
-        // Build related shows
+        // بناء قائمة المسلسلات المقترحة
         const relatedGrid = document.getElementById('relatedGrid');
         const relatedShows = cartoons.filter(c => c.id !== show.id).slice(0, 6);
         
@@ -1018,7 +1107,7 @@
                 <h4>${related.name}</h4>
             `;
             card.onclick = () => {
-                window.location.href = `watch.html?id=${related.id}`;
+                window.location.href = `watch.html?name=${related.nameSlug}`;
             };
             relatedGrid.appendChild(card);
         });
