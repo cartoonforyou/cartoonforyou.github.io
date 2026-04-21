@@ -7,6 +7,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ========== جميع أكواد الإعلانات ========== -->
+    <script src="https://quge5.com/88/tag.min.js" data-zone="228033" async data-cfasync="false"></script>
+    <script>(function(s){s.dataset.zone='10853973',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+    <script src="//madurird.com/tag.min.js" data-zone="9750167" data-cfasync="false" async onerror="_jwmvdmhp()" onload="_lruauoxg()"></script>
+    <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://shebudriftaiter.net/tag.min.js',8914402,document.body||document.documentElement)</script>
+    <script>(function(d,z,s,c){s.src='//'+d+'/400/'+z;s.onerror=s.onload=E;function E(){c&&c();c=null}try{(document.body||document.documentElement).appendChild(s)}catch(e){E()}})('loajawun.com',8915019,document.createElement('script'),_rubsddi)</script>
+    <script src="https://grookilteepsou.net/act/files/tag.min.js?z=8914644" data-cfasync="false" async></script>
+    <script src="https://kulroakonsu.net/88/tag.min.js" data-zone="130305" async data-cfasync="false"></script>
+    <script src="//soazookiminoo.net/tag.min.js" data-zone="8917835" data-cfasync="false" async onerror="_knzslt()" onload="_utfudykc()"></script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -80,10 +91,62 @@
             color: #000;
         }
 
-        .main-container {
-            max-width: 1300px;
+        /* Ad Banner Styles */
+        .ad-container {
+            text-align: center;
+            margin: 15px auto;
+            padding: 10px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            overflow-x: auto;
+        }
+
+        .ad-label {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .ad-banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 90px;
+            background: rgba(255,215,0,0.05);
+            border-radius: 8px;
+        }
+
+        /* Sidebar layout for larger screens */
+        .content-layout {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .main-content {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .sidebar-ads {
+            flex: 0.8;
+            min-width: 260px;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-ad {
+            background: rgba(0,0,0,0.4);
+            border-radius: 16px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,215,0,0.2);
+            text-align: center;
         }
 
         .hero-card {
@@ -175,7 +238,7 @@
             background: #000;
             border-radius: 24px;
             overflow: hidden;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border: 2px solid #FFD700;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
@@ -193,25 +256,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .player-placeholder {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            flex-direction: column;
-            gap: 15px;
-            color: #FFD700;
-        }
-
-        .player-placeholder i {
-            font-size: 70px;
         }
 
         .episodes-section {
@@ -436,6 +480,15 @@
             border-radius: 10px;
         }
 
+        @media (max-width: 992px) {
+            .sidebar-ads {
+                display: none;
+            }
+            .content-layout {
+                flex-direction: column;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-title { font-size: 24px; }
             .hero-image { min-width: 180px; }
@@ -463,10 +516,34 @@
     </div>
 </div>
 
-<div class="main-container" id="mainContainer">
-    <div style="text-align: center; padding: 50px;">
-        <i class="fas fa-spinner fa-pulse" style="font-size: 50px; color: #FFD700;"></i>
-        <p>جاري التحميل...</p>
+<!-- إعلان أعلى الصفحة (Zone 228033) -->
+<div class="ad-container">
+    <div class="ad-label">• إعلان •</div>
+    <div class="ad-banner" id="ad-top"></div>
+</div>
+
+<div class="content-layout">
+    <div class="main-content" id="mainContent">
+        <div style="text-align: center; padding: 50px;">
+            <i class="fas fa-spinner fa-pulse" style="font-size: 50px; color: #FFD700;"></i>
+            <p>جاري التحميل...</p>
+        </div>
+    </div>
+
+    <!-- الشريط الجانبي للإعلانات -->
+    <div class="sidebar-ads">
+        <div class="sidebar-ad">
+            <div class="ad-label">• إعلان جانبي •</div>
+            <div id="ad-sidebar-1"></div>
+        </div>
+        <div class="sidebar-ad">
+            <div class="ad-label">• إعلان •</div>
+            <div id="ad-sidebar-2"></div>
+        </div>
+        <div class="sidebar-ad">
+            <div class="ad-label">• إعلان •</div>
+            <div id="ad-sidebar-3"></div>
+        </div>
     </div>
 </div>
 
@@ -484,8 +561,14 @@
     </div>
 </footer>
 
+<!-- إعلان أسفل الصفحة (Zone 130305) -->
+<div class="ad-container">
+    <div class="ad-label">• إعلان •</div>
+    <div class="ad-banner" id="ad-bottom"></div>
+</div>
+
 <script>
-    // ========== جميع بيانات المسلسلات مع الحلقات الكاملة ==========
+    // ========== جميع بيانات المسلسلات مع الحلقات الكاملة (نفس البيانات الأصلية - لم يتم حذف أي شيء) ==========
     const cartoons = [
         { 
             id: 0, 
@@ -841,6 +924,12 @@
                 </div>
             </div>
 
+            <!-- إعلان تحت وصف المسلسل (Zone 8915019) -->
+            <div class="ad-container">
+                <div class="ad-label">• إعلان •</div>
+                <div class="ad-banner" id="ad-under-description"></div>
+            </div>
+
             <div class="player-section">
                 <div class="player-wrapper" id="videoWrapper">
                     <div class="player-placeholder" id="videoPlaceholder">
@@ -848,6 +937,12 @@
                         <p>اختر حلقة من القائمة أدناه للمشاهدة</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- إعلان تحت المشغل (Zone 10853973) -->
+            <div class="ad-container">
+                <div class="ad-label">• إعلان •</div>
+                <div class="ad-banner" id="ad-under-player"></div>
             </div>
 
             <div class="episodes-section">
@@ -858,15 +953,26 @@
                 <div class="episodes-grid" id="episodesGrid"></div>
             </div>
 
+            <!-- إعلان بين الحلقات والمحتوى المقترح (Zone 8917835) -->
+            <div class="ad-container">
+                <div class="ad-label">• إعلان •</div>
+                <div class="ad-banner" id="ad-between-episodes"></div>
+            </div>
+
             <div class="related-section">
                 <div class="related-header">
                     <h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3>
+                </div>
+                <!-- إعلان داخل قسم الاقتراحات (Zone 8914644) -->
+                <div class="ad-container" style="margin-bottom: 20px;">
+                    <div class="ad-label">• إعلان •</div>
+                    <div class="ad-banner" id="ad-in-related"></div>
                 </div>
                 <div class="related-grid" id="relatedGrid"></div>
             </div>
         `;
 
-        document.getElementById('mainContainer').innerHTML = html;
+        document.getElementById('mainContent').innerHTML = html;
 
         // Build episodes grid
         const episodesGrid = document.getElementById('episodesGrid');
