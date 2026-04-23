@@ -28,6 +28,16 @@
     <!-- Canonical URL -->
     <link id="canonicalLink" rel="canonical" href="">
     
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json" id="structuredData">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "كرتون فور يو",
+        "url": "https://cartoonforyou.github.io/"
+    }
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -927,22 +937,23 @@
         // محاولة جلب id
         let showId = urlParams.get('id');
         if (showId !== null) {
-            return cartoons.find(c => c.id === parseInt(showId));
+            let found = cartoons.find(c => c.id === parseInt(showId));
+            if (found) return found;
         }
         
-        // محاولة جلب name (slug)
+        // محاولة جلب name (slug أو الاسم)
         let showName = urlParams.get('name');
         if (showName !== null) {
-            // البحث بالـ slug (مثل blue-lock)
+            // البحث بالـ slug
             let found = cartoons.find(c => c.nameSlug === showName.toLowerCase());
             if (found) return found;
             
-            // البحث بالاسم العربي أو الإنجليزي
-            found = cartoons.find(c => 
-                c.name.toLowerCase() === showName.toLowerCase() ||
-                c.nameAr.toLowerCase() === showName.toLowerCase() ||
-                c.name.toLowerCase().replace(/ /g, '-') === showName.toLowerCase()
-            );
+            // البحث بالاسم الإنجليزي
+            found = cartoons.find(c => c.name.toLowerCase() === showName.toLowerCase());
+            if (found) return found;
+            
+            // البحث بالاسم العربي
+            found = cartoons.find(c => c.nameAr.toLowerCase() === showName.toLowerCase());
             if (found) return found;
         }
         
@@ -961,25 +972,65 @@
         const siteUrl = "https://cartoonforyou.github.io/";
         const pageUrl = siteUrl + "watch.html?name=" + show.nameSlug;
         
-        document.title = `${show.name} | كرتون فور يو - مشاهدة ${show.name} اونلاين`;
-        document.getElementById('pageTitle').innerHTML = `${show.name} | كرتون فور يو`;
+        // تحديث عنوان الصفحة
+        document.title = `${show.name} | كرتون فور يو - مشاهدة ${show.name} اونلاين بجودة عالية`;
+        const titleElement = document.getElementById('pageTitle');
+        if (titleElement) titleElement.innerHTML = `${show.name} | كرتون فور يو`;
         
+        // تحديث وصف الصفحة
         const metaDesc = `مشاهدة ${show.name} (${show.nameAr}) اونلاين بجودة ${show.quality} - ${show.description.substring(0, 150)}`;
-        document.getElementById('metaDescription').setAttribute('content', metaDesc);
+        const metaDescElement = document.getElementById('metaDescription');
+        if (metaDescElement) metaDescElement.setAttribute('content', metaDesc);
         
-        const metaKeywords = `${show.name}, ${show.nameAr}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو, cartoon for you, ${show.category === 'anime' ? 'انمي اونلاين' : 'كرتون اونلاين'}`;
-        document.getElementById('metaKeywords').setAttribute('content', metaKeywords);
+        // تحديث الكلمات المفتاحية
+        const metaKeywords = `${show.name}, ${show.nameAr}, ${show.nameSlug}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو, cartoon for you, ${show.category === 'anime' ? 'انمي اونلاين' : 'كرتون اونلاين'}`;
+        const metaKeywordsElement = document.getElementById('metaKeywords');
+        if (metaKeywordsElement) metaKeywordsElement.setAttribute('content', metaKeywords);
         
-        document.getElementById('ogTitle').setAttribute('content', `${show.name} | كرتون فور يو`);
-        document.getElementById('ogDescription').setAttribute('content', metaDesc);
-        document.getElementById('ogImage').setAttribute('content', siteUrl + show.img);
-        document.getElementById('ogUrl').setAttribute('content', pageUrl);
+        // تحديث Open Graph
+        const ogTitleElement = document.getElementById('ogTitle');
+        if (ogTitleElement) ogTitleElement.setAttribute('content', `${show.name} | كرتون فور يو`);
+        const ogDescElement = document.getElementById('ogDescription');
+        if (ogDescElement) ogDescElement.setAttribute('content', metaDesc);
+        const ogImageElement = document.getElementById('ogImage');
+        if (ogImageElement) ogImageElement.setAttribute('content', siteUrl + show.img);
+        const ogUrlElement = document.getElementById('ogUrl');
+        if (ogUrlElement) ogUrlElement.setAttribute('content', pageUrl);
         
-        document.getElementById('twitterTitle').setAttribute('content', `${show.name} | كرتون فور يو`);
-        document.getElementById('twitterDescription').setAttribute('content', metaDesc);
-        document.getElementById('twitterImage').setAttribute('content', siteUrl + show.img);
+        // تحديث Twitter Card
+        const twitterTitleElement = document.getElementById('twitterTitle');
+        if (twitterTitleElement) twitterTitleElement.setAttribute('content', `${show.name} | كرتون فور يو`);
+        const twitterDescElement = document.getElementById('twitterDescription');
+        if (twitterDescElement) twitterDescElement.setAttribute('content', metaDesc);
+        const twitterImageElement = document.getElementById('twitterImage');
+        if (twitterImageElement) twitterImageElement.setAttribute('content', siteUrl + show.img);
         
-        document.getElementById('canonicalLink').setAttribute('href', pageUrl);
+        // تحديث الرابط الأساسي
+        const canonicalElement = document.getElementById('canonicalLink');
+        if (canonicalElement) canonicalElement.setAttribute('href', pageUrl);
+        
+        // تحديث Structured Data
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": show.type === "movie" ? "Movie" : "TVSeries",
+            "name": show.name,
+            "alternateName": show.nameAr,
+            "description": show.description.substring(0, 300),
+            "image": siteUrl + show.img,
+            "url": pageUrl,
+            "contentRating": "PG-13",
+            "genre": show.category === "anime" ? "Animation, Anime" : "Animation, Cartoon",
+            "datePublished": show.year,
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": parseFloat(show.rating.split(" ")[1]),
+                "bestRating": "5",
+                "worstRating": "1",
+                "ratingCount": "100"
+            }
+        };
+        const structuredDataElement = document.getElementById('structuredData');
+        if (structuredDataElement) structuredDataElement.innerHTML = JSON.stringify(structuredData);
     }
 
     function renderPage() {
