@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <!-- SEO Meta Tags - سيتم تعبئتها ديناميكياً حسب المسلسل -->
+    <!-- SEO Meta Tags - سيتم تعبئتها ديناميكياً حسب المسلسل/الفيلم -->
     <title id="pageTitle">كرتون فور يو - مشاهدة</title>
-    <meta name="description" id="metaDescription" content="كرتون فور يو - منصة مجانية لمشاهدة الكرتون والأنمي بجودة عالية">
-    <meta name="keywords" id="metaKeywords" content="كرتون, انمي, مشاهدة كرتون, كرتون فور يو, cartoon for you">
+    <meta name="description" id="metaDescription" content="كرتون فور يو - منصة مجانية لمشاهدة الكرتون والأنمي والأفلام بجودة عالية">
+    <meta name="keywords" id="metaKeywords" content="كرتون, انمي, أفلام كرتون, مشاهدة كرتون, كرتون فور يو, cartoon for you">
     <meta name="author" content="Cartoon For You">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:title" id="ogTitle" content="كرتون فور يو">
-    <meta property="og:description" id="ogDescription" content="منصة مجانية لمشاهدة الكرتون والأنمي">
+    <meta property="og:description" id="ogDescription" content="منصة مجانية لمشاهدة الكرتون والأنمي والأفلام">
     <meta property="og:image" id="ogImage" content="images/cartoon_for_you_gold.webp">
     <meta property="og:url" id="ogUrl" content="">
     <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" id="twitterTitle" content="كرتون فور يو">
-    <meta name="twitter:description" id="twitterDescription" content="منصة مجانية لمشاهدة الكرتون والأنمي">
+    <meta name="twitter:description" id="twitterDescription" content="منصة مجانية لمشاهدة الكرتون والأنمي والأفلام">
     <meta name="twitter:image" id="twitterImage" content="images/cartoon_for_you_gold.webp">
     
     <!-- Canonical URL -->
@@ -291,6 +291,34 @@
             width: 100%;
             height: 100%;
         }
+        
+        .coming-soon-message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            flex-direction: column;
+            gap: 20px;
+            color: #FFD700;
+        }
+        
+        .coming-soon-message i {
+            font-size: 80px;
+        }
+        
+        .coming-soon-message h2 {
+            font-size: 32px;
+        }
+        
+        .coming-soon-message p {
+            font-size: 18px;
+            color: #ccc;
+        }
 
         .episodes-section {
             background: linear-gradient(135deg, #111, #0d0d0d);
@@ -528,6 +556,8 @@
             .hero-image { min-width: 180px; }
             .hero-info { padding: 20px; }
             .episodes-header h3 { font-size: 20px; }
+            .coming-soon-message i { font-size: 50px; }
+            .coming-soon-message h2 { font-size: 24px; }
         }
 
         @media (max-width: 480px) {
@@ -602,8 +632,9 @@
 </div>
 
 <script>
-    // ========== جميع بيانات المسلسلات مع الحلقات الكاملة (جميع الحلقات موجودة - لم يتم حذف أي شيء) ==========
+    // ========== جميع المسلسلات والأفلام (القديمة + الجديدة) مع الحلقات الكاملة ==========
     const cartoons = [
+        // ========== المسلسلات القديمة (9) ==========
         { 
             id: 0, 
             name: "BLUE LOCK", 
@@ -927,10 +958,220 @@
                 22: "https://drive.google.com/file/d/14IbtIutPXlAzU1_NtkQlv64M8RxE-BRz/preview",
                 23: "https://drive.google.com/file/d/148af8upmnu-KQyFCfYI7v8eEI4VKVfoT/preview"
             }
+        },
+        
+        // ========== أفلام Cars ==========
+        { 
+            id: 9, 
+            name: "Cars 1", 
+            nameAr: "سيارات 1", 
+            nameSlug: "cars-1",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/cars 1.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2006", 
+            rating: "⭐ 4.7",
+            duration: "117 دقيقة",
+            quality: "1080p",
+            description: "فيلم كرتون مغامرات سيارات السباق من إنتاج Pixar. قصة البرق ماكوين، سيارة سباق شابة وموهوبة تتوه في طريقها إلى سباق البطولة وتتعلم أن الحياة ليست مجرد سرعة وجوائز، بل الأصدقاء والعائلة.",
+            episodes: { 1: "https://drive.google.com/file/d/1Cars1Example/preview" }
+        },
+        { 
+            id: 10, 
+            name: "Cars 2", 
+            nameAr: "سيارات 2", 
+            nameSlug: "cars-2",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/cars 2.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2011", 
+            rating: "⭐ 4.5",
+            duration: "106 دقيقة",
+            quality: "1080p",
+            description: "البرق ماكوين وصديقه المخلص ماطر يسافران حول العالم للمشاركة في سباق الجائزة الكبرى العالمي، لكنهما يكتشفان أن هناك مؤامرة جاسوسية تهدد عالم سباقات السيارات.",
+            episodes: { 1: "https://drive.google.com/file/d/1Cars2Example/preview" }
+        },
+        { 
+            id: 11, 
+            name: "Cars 3", 
+            nameAr: "سيارات 3", 
+            nameSlug: "cars-3",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/cars 3.jpeg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2017", 
+            rating: "⭐ 4.6",
+            duration: "109 دقائق",
+            quality: "1080p",
+            description: "البرق ماكوين يواجه جيلاً جديداً من سيارات السباق المتطورة. بعد حادث مروع، يتعاون مع مدربة جديدة ليثبت أنه لا يزال قادراً على المنافسة.",
+            episodes: { 1: "https://drive.google.com/file/d/1Cars3Example/preview" }
+        },
+        { 
+            id: 12, 
+            name: "Cars 4", 
+            nameAr: "سيارات 4", 
+            nameSlug: "cars-4",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/cars 4.jpg", 
+            isNew: true, 
+            comingSoon: true,
+            year: "2025", 
+            rating: "⭐ قريباً",
+            duration: "غير محدد",
+            quality: "قريباً",
+            description: "الجزء الرابع المنتظر من سلسلة سيارات - قريباً على كرتون فور يو.",
+            episodes: {}
+        },
+        
+        // ========== أفلام Toy Story ==========
+        { 
+            id: 13, 
+            name: "Toy Story 1", 
+            nameAr: "حكاية لعبة 1", 
+            nameSlug: "toy-story-1",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/toy story 1.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "1995", 
+            rating: "⭐ 4.9",
+            duration: "81 دقيقة",
+            quality: "1080p",
+            description: "الفيلم الكلاسيكي الرائع من إنتاج Pixar. قصة راعي البقر وودي ورائد الفضاء باز لايتيير، وكيف يتعلمون التعاون عندما تُسرق الألعاب من قبل جارهم الشرير.",
+            episodes: { 1: "https://drive.google.com/file/d/1ToyStory1Example/preview" }
+        },
+        { 
+            id: 14, 
+            name: "Toy Story 2", 
+            nameAr: "حكاية لعبة 2", 
+            nameSlug: "toy-story-2",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/toy story 2.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "1999", 
+            rating: "⭐ 4.8",
+            duration: "92 دقيقة",
+            quality: "1080p",
+            description: "وودي يتم اختطافه على يد جامع ألعاب، ويقوم باز وأصدقاؤه بخوض مغامرة مثيرة لإنقاذه قبل أن يتم بيعه إلى متحف في اليابان.",
+            episodes: { 1: "https://drive.google.com/file/d/1ToyStory2Example/preview" }
+        },
+        { 
+            id: 15, 
+            name: "Toy Story 3", 
+            nameAr: "حكاية لعبة 3", 
+            nameSlug: "toy-story-3",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/toy story 3.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2010", 
+            rating: "⭐ 4.9",
+            duration: "103 دقائق",
+            quality: "1080p",
+            description: "آندي يكبر ويستعد للذهاب إلى الجامعة، والألعاب تواجه مصيرها في الحضانة. قصة مؤثرة عن الصداقة والولاء.",
+            episodes: { 1: "https://drive.google.com/file/d/1ToyStory3Example/preview" }
+        },
+        { 
+            id: 16, 
+            name: "Toy Story 4", 
+            nameAr: "حكاية لعبة 4", 
+            nameSlug: "toy-story-4",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/toy story 4.jpeg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2019", 
+            rating: "⭐ 4.7",
+            duration: "100 دقيقة",
+            quality: "1080p",
+            description: "وودي وباز يخوضان مغامرة جديدة مع لعبة جديدة تُدعى فوركي، ويكتشفان معنى جديداً للحياة كألعاب.",
+            episodes: { 1: "https://drive.google.com/file/d/1ToyStory4Example/preview" }
+        },
+        
+        // ========== أفلام Kung Fu Panda ==========
+        { 
+            id: 17, 
+            name: "Kung Fu Panda 1", 
+            nameAr: "كونغ فو باندا 1", 
+            nameSlug: "kung-fu-panda-1",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/kung fu panda 1.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2008", 
+            rating: "⭐ 4.8",
+            duration: "92 دقيقة",
+            quality: "1080p",
+            description: "قصة الباندا بو، العامل في مطعم النودلز، الذي يتحقق حلمه بأن يصبح محارب كونغ فو أسطوري عندما يتم اختياره بشكل غير متوقع ليكون التنين المحارب.",
+            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda1Example/preview" }
+        },
+        { 
+            id: 18, 
+            name: "Kung Fu Panda 2", 
+            nameAr: "كونغ فو باندا 2", 
+            nameSlug: "kung-fu-panda-2",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/kung fu panda 2.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2011", 
+            rating: "⭐ 4.7",
+            duration: "90 دقيقة",
+            quality: "1080p",
+            description: "بو يواجه شريراً جديداً هو شين الذي يهدد السلام في وادي السلام. بو يكتشف أسرار ماضيه ويتعلم أن مفتاح القوة الحقيقية هو السلام الداخلي.",
+            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda2Example/preview" }
+        },
+        { 
+            id: 19, 
+            name: "Kung Fu Panda 3", 
+            nameAr: "كونغ فو باندا 3", 
+            nameSlug: "kung-fu-panda-3",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/kung fu panda 3.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2016", 
+            rating: "⭐ 4.6",
+            duration: "95 دقيقة",
+            quality: "1080p",
+            description: "بو يجتمع مع والده الحقيقي ويواجه كاي، المحارب الروحي الشرير الذي هزم جميع أساتذة الكونغ فو في عالم الأرواح.",
+            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda3Example/preview" }
+        },
+        { 
+            id: 20, 
+            name: "Kung Fu Panda 4", 
+            nameAr: "كونغ فو باندا 4", 
+            nameSlug: "kung-fu-panda-4",
+            type: "movie", 
+            category: "cartoon", 
+            img: "images/kung fu panda 4.jpg", 
+            isNew: true, 
+            comingSoon: false,
+            year: "2024", 
+            rating: "⭐ 4.5",
+            duration: "94 دقيقة",
+            quality: "1080p",
+            description: "المحارب الأسطوري بو يواجه تحدياً جديداً في مغامرة شيقة. بو يتعلم مهارات جديدة ويواجه أعداء أقوى من أي وقت مضى.",
+            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda4Example/preview" }
         }
     ];
 
-    // دالة للبحث عن المسلسل (بالرقم أو بالاسم)
+    // دالة للبحث عن المسلسل/الفيلم (بالرقم أو بالاسم)
     function findShow() {
         const urlParams = new URLSearchParams(window.location.search);
         
@@ -941,18 +1182,13 @@
             if (found) return found;
         }
         
-        // محاولة جلب name (slug أو الاسم)
+        // محاولة جلب name (slug)
         let showName = urlParams.get('name');
         if (showName !== null) {
-            // البحث بالـ slug
             let found = cartoons.find(c => c.nameSlug === showName.toLowerCase());
             if (found) return found;
-            
-            // البحث بالاسم الإنجليزي
             found = cartoons.find(c => c.name.toLowerCase() === showName.toLowerCase());
             if (found) return found;
-            
-            // البحث بالاسم العربي
             found = cartoons.find(c => c.nameAr.toLowerCase() === showName.toLowerCase());
             if (found) return found;
         }
@@ -965,29 +1201,25 @@
 
     const show = findShow();
 
-    // تحديث SEO Tags حسب المسلسل
+    // تحديث SEO Tags حسب المسلسل/الفيلم
     function updateSEOTags(show) {
         if (!show) return;
         
         const siteUrl = "https://cartoonforyou.github.io/";
         const pageUrl = siteUrl + "watch.html?name=" + show.nameSlug;
         
-        // تحديث عنوان الصفحة
         document.title = `${show.name} | كرتون فور يو - مشاهدة ${show.name} اونلاين بجودة عالية`;
         const titleElement = document.getElementById('pageTitle');
         if (titleElement) titleElement.innerHTML = `${show.name} | كرتون فور يو`;
         
-        // تحديث وصف الصفحة
         const metaDesc = `مشاهدة ${show.name} (${show.nameAr}) اونلاين بجودة ${show.quality} - ${show.description.substring(0, 150)}`;
         const metaDescElement = document.getElementById('metaDescription');
         if (metaDescElement) metaDescElement.setAttribute('content', metaDesc);
         
-        // تحديث الكلمات المفتاحية
-        const metaKeywords = `${show.name}, ${show.nameAr}, ${show.nameSlug}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو, cartoon for you, ${show.category === 'anime' ? 'انمي اونلاين' : 'كرتون اونلاين'}`;
+        const metaKeywords = `${show.name}, ${show.nameAr}, ${show.nameSlug}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو, cartoon for you`;
         const metaKeywordsElement = document.getElementById('metaKeywords');
         if (metaKeywordsElement) metaKeywordsElement.setAttribute('content', metaKeywords);
         
-        // تحديث Open Graph
         const ogTitleElement = document.getElementById('ogTitle');
         if (ogTitleElement) ogTitleElement.setAttribute('content', `${show.name} | كرتون فور يو`);
         const ogDescElement = document.getElementById('ogDescription');
@@ -997,7 +1229,6 @@
         const ogUrlElement = document.getElementById('ogUrl');
         if (ogUrlElement) ogUrlElement.setAttribute('content', pageUrl);
         
-        // تحديث Twitter Card
         const twitterTitleElement = document.getElementById('twitterTitle');
         if (twitterTitleElement) twitterTitleElement.setAttribute('content', `${show.name} | كرتون فور يو`);
         const twitterDescElement = document.getElementById('twitterDescription');
@@ -1005,11 +1236,9 @@
         const twitterImageElement = document.getElementById('twitterImage');
         if (twitterImageElement) twitterImageElement.setAttribute('content', siteUrl + show.img);
         
-        // تحديث الرابط الأساسي
         const canonicalElement = document.getElementById('canonicalLink');
         if (canonicalElement) canonicalElement.setAttribute('href', pageUrl);
         
-        // تحديث Structured Data
         const structuredData = {
             "@context": "https://schema.org",
             "@type": show.type === "movie" ? "Movie" : "TVSeries",
@@ -1018,16 +1247,9 @@
             "description": show.description.substring(0, 300),
             "image": siteUrl + show.img,
             "url": pageUrl,
-            "contentRating": "PG-13",
-            "genre": show.category === "anime" ? "Animation, Anime" : "Animation, Cartoon",
-            "datePublished": show.year,
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": parseFloat(show.rating.split(" ")[1]),
-                "bestRating": "5",
-                "worstRating": "1",
-                "ratingCount": "100"
-            }
+            "contentRating": "PG",
+            "genre": "Animation, Family",
+            "datePublished": show.year
         };
         const structuredDataElement = document.getElementById('structuredData');
         if (structuredDataElement) structuredDataElement.innerHTML = JSON.stringify(structuredData);
@@ -1039,9 +1261,65 @@
             return;
         }
 
-        // تحديث SEO
         updateSEOTags(show);
 
+        // إذا كان الفيلم قادماً (coming soon)
+        if (show.comingSoon === true) {
+            const html = `
+                <div class="hero-card">
+                    <div class="hero-image">
+                        <img src="${show.img}" alt="${show.name}">
+                    </div>
+                    <div class="hero-info">
+                        <h1 class="hero-title">${show.name}</h1>
+                        <div class="hero-meta">
+                            <span><i class="fas fa-tag"></i> ${getCategoryName(show.category)}</span>
+                            <span><i class="fas fa-film"></i> ${getTypeIcon(show.type)}</span>
+                            <span><i class="fas fa-calendar"></i> ${show.year}</span>
+                            <span><i class="fas fa-star"></i> ${show.rating}</span>
+                        </div>
+                        <p class="hero-description">${show.description}</p>
+                        <div class="hero-stats">
+                            <div class="stat"><i class="fas fa-clock"></i> المدة: ${show.duration}</div>
+                            <div class="stat"><i class="fas fa-hd"></i> الجودة: ${show.quality}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-description"></div></div>
+                <div class="player-section">
+                    <div class="player-wrapper">
+                        <div class="coming-soon-message">
+                            <i class="fas fa-clock"></i>
+                            <h2>🔜 قريباً</h2>
+                            <p>هذا الفيلم سيتم إضافته قريباً إلى كرتون فور يو</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-player"></div></div>
+                <div class="related-section">
+                    <div class="related-header"><h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3></div>
+                    <div class="ad-container" style="margin-bottom: 20px;"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-in-related"></div></div>
+                    <div class="related-grid" id="relatedGrid"></div>
+                </div>
+            `;
+            document.getElementById('mainContent').innerHTML = html;
+            
+            const relatedGrid = document.getElementById('relatedGrid');
+            const relatedShows = cartoons.filter(c => c.id !== show.id && c.comingSoon !== true).slice(0, 6);
+            relatedShows.forEach(related => {
+                const card = document.createElement('div');
+                card.className = 'related-card';
+                card.innerHTML = `<img src="${related.img}" alt="${related.name}"><h4>${related.name}</h4>`;
+                card.onclick = () => window.location.href = `watch.html?name=${related.nameSlug}`;
+                relatedGrid.appendChild(card);
+            });
+            return;
+        }
+
+        // للعروض والأفلام العادية
+        const episodes = show.episodes || {};
+        const episodeNumbers = Object.keys(episodes).map(Number).sort((a,b) => a - b);
+        
         const html = `
             <div class="hero-card">
                 <div class="hero-image">
@@ -1059,107 +1337,78 @@
                     <div class="hero-stats">
                         <div class="stat"><i class="fas fa-clock"></i> المدة: ${show.duration}</div>
                         <div class="stat"><i class="fas fa-hd"></i> الجودة: ${show.quality}</div>
-                        <div class="stat"><i class="fas fa-list"></i> عدد الحلقات: ${Object.keys(show.episodes).length}</div>
+                        <div class="stat"><i class="fas fa-list"></i> ${show.type === 'movie' ? 'فيلم كامل' : `عدد الحلقات: ${episodeNumbers.length}`}</div>
                     </div>
                 </div>
             </div>
-
-            <!-- إعلان تحت وصف المسلسل (Zone 8915019) -->
-            <div class="ad-container">
-                <div class="ad-label">• إعلان •</div>
-                <div class="ad-banner" id="ad-under-description"></div>
-            </div>
-
+            <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-description"></div></div>
             <div class="player-section">
                 <div class="player-wrapper" id="videoWrapper">
                     <div class="player-placeholder" id="videoPlaceholder">
                         <i class="fas fa-play-circle"></i>
-                        <p>اختر حلقة من القائمة أدناه للمشاهدة</p>
+                        <p>${show.type === 'movie' ? 'اضغط على التشغيل لمشاهدة الفيلم' : 'اختر حلقة من القائمة أدناه للمشاهدة'}</p>
                     </div>
                 </div>
             </div>
-
-            <!-- إعلان تحت المشغل (Zone 10853973) -->
-            <div class="ad-container">
-                <div class="ad-label">• إعلان •</div>
-                <div class="ad-banner" id="ad-under-player"></div>
-            </div>
-
+            <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-player"></div></div>`;
+        
+        if (show.type === 'series') {
+            html += `
             <div class="episodes-section">
                 <div class="episodes-header">
                     <h3><i class="fas fa-list"></i> قائمة الحلقات</h3>
-                    <div class="episode-count"><i class="fas fa-play"></i> ${Object.keys(show.episodes).length} حلقة</div>
+                    <div class="episode-count"><i class="fas fa-play"></i> ${episodeNumbers.length} حلقة</div>
                 </div>
                 <div class="episodes-grid" id="episodesGrid"></div>
-            </div>
-
-            <!-- إعلان بين الحلقات والمحتوى المقترح (Zone 8917835) -->
-            <div class="ad-container">
-                <div class="ad-label">• إعلان •</div>
-                <div class="ad-banner" id="ad-between-episodes"></div>
-            </div>
-
+            </div>`;
+        }
+        
+        html += `
+            <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-between-episodes"></div></div>
             <div class="related-section">
-                <div class="related-header">
-                    <h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3>
-                </div>
-                <!-- إعلان داخل قسم الاقتراحات (Zone 8914644) -->
-                <div class="ad-container" style="margin-bottom: 20px;">
-                    <div class="ad-label">• إعلان •</div>
-                    <div class="ad-banner" id="ad-in-related"></div>
-                </div>
+                <div class="related-header"><h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3></div>
+                <div class="ad-container" style="margin-bottom: 20px;"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-in-related"></div></div>
                 <div class="related-grid" id="relatedGrid"></div>
             </div>
         `;
-
+        
         document.getElementById('mainContent').innerHTML = html;
-
-        // بناء قائمة الحلقات (جميع الحلقات موجودة)
-        const episodesGrid = document.getElementById('episodesGrid');
-        const episodes = show.episodes;
-        const episodeNumbers = Object.keys(episodes).map(Number).sort((a,b) => a - b);
         
-        episodeNumbers.forEach((epNum, index) => {
-            const card = document.createElement('div');
-            card.className = 'episode-card';
-            if (index === 0) card.classList.add('active');
-            card.innerHTML = `
-                <div class="episode-number">الحلقة ${epNum}</div>
-                <div class="episode-info">
-                    <h4>${show.name}</h4>
-                    <p><i class="fas fa-clock"></i> ${show.duration}</p>
-                </div>
-                <div class="play-icon"><i class="fas fa-play"></i></div>
-            `;
-            card.onclick = () => {
-                document.querySelectorAll('.episode-card').forEach(c => c.classList.remove('active'));
-                card.classList.add('active');
-                const videoWrapper = document.getElementById('videoWrapper');
-                videoWrapper.innerHTML = `<iframe src="${episodes[epNum]}" frameborder="0" allowfullscreen></iframe>`;
-            };
-            episodesGrid.appendChild(card);
-        });
-
-        // تشغيل أول حلقة تلقائياً
-        if (episodeNumbers.length > 0 && episodes[episodeNumbers[0]]) {
-            const videoWrapper = document.getElementById('videoWrapper');
-            videoWrapper.innerHTML = `<iframe src="${episodes[episodeNumbers[0]]}" frameborder="0" allowfullscreen></iframe>`;
+        if (show.type === 'series' && episodeNumbers.length > 0) {
+            const episodesGrid = document.getElementById('episodesGrid');
+            episodeNumbers.forEach((epNum, index) => {
+                const card = document.createElement('div');
+                card.className = 'episode-card';
+                if (index === 0) card.classList.add('active');
+                card.innerHTML = `
+                    <div class="episode-number">الحلقة ${epNum}</div>
+                    <div class="episode-info">
+                        <h4>${show.name}</h4>
+                        <p><i class="fas fa-clock"></i> ${show.duration}</p>
+                    </div>
+                    <div class="play-icon"><i class="fas fa-play"></i></div>
+                `;
+                card.onclick = () => {
+                    document.querySelectorAll('.episode-card').forEach(c => c.classList.remove('active'));
+                    card.classList.add('active');
+                    document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[epNum]}" frameborder="0" allowfullscreen></iframe>`;
+                };
+                episodesGrid.appendChild(card);
+            });
+            if (episodes[episodeNumbers[0]]) {
+                document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[episodeNumbers[0]]}" frameborder="0" allowfullscreen></iframe>`;
+            }
+        } else if (show.type === 'movie' && episodes[1]) {
+            document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[1]}" frameborder="0" allowfullscreen></iframe>`;
         }
-
-        // بناء قائمة المسلسلات المقترحة
-        const relatedGrid = document.getElementById('relatedGrid');
-        const relatedShows = cartoons.filter(c => c.id !== show.id).slice(0, 6);
         
+        const relatedGrid = document.getElementById('relatedGrid');
+        const relatedShows = cartoons.filter(c => c.id !== show.id && c.comingSoon !== true).slice(0, 6);
         relatedShows.forEach(related => {
             const card = document.createElement('div');
             card.className = 'related-card';
-            card.innerHTML = `
-                <img src="${related.img}" alt="${related.name}">
-                <h4>${related.name}</h4>
-            `;
-            card.onclick = () => {
-                window.location.href = `watch.html?name=${related.nameSlug}`;
-            };
+            card.innerHTML = `<img src="${related.img}" alt="${related.name}"><h4>${related.name}</h4>`;
+            card.onclick = () => window.location.href = `watch.html?name=${related.nameSlug}`;
             relatedGrid.appendChild(card);
         });
     }
