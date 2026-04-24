@@ -125,7 +125,6 @@
             color: #000;
         }
 
-        /* Ad Banner Styles */
         .ad-container {
             text-align: center;
             margin: 15px auto;
@@ -151,7 +150,6 @@
             border-radius: 8px;
         }
 
-        /* Sidebar layout for larger screens */
         .content-layout {
             max-width: 1400px;
             margin: 0 auto;
@@ -183,20 +181,23 @@
             text-align: center;
         }
 
+        /* Hero Card - محسن مع صور واضحة */
         .hero-card {
             background: linear-gradient(135deg, #111, #1a1a1a);
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
             margin-bottom: 30px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
             display: flex;
             flex-wrap: wrap;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
 
         .hero-image {
-            flex: 0.8;
-            min-width: 220px;
+            flex: 0.7;
+            min-width: 250px;
             position: relative;
+            overflow: hidden;
         }
 
         .hero-image img {
@@ -204,36 +205,42 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
         }
 
         .hero-info {
             flex: 2;
-            padding: 25px;
+            padding: 30px;
         }
 
         .hero-title {
-            font-size: 32px;
+            font-size: 36px;
             font-weight: 800;
             color: #FFD700;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-family: 'Poppins', sans-serif;
         }
 
         .hero-meta {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin: 15px 0;
+            gap: 12px;
+            margin: 20px 0;
         }
 
         .hero-meta span {
-            background: rgba(255, 215, 0, 0.15);
-            padding: 5px 15px;
+            background: rgba(255, 215, 0, 0.12);
+            padding: 6px 18px;
             border-radius: 30px;
             font-size: 13px;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
+            font-weight: 500;
         }
 
         .hero-meta span i {
@@ -241,17 +248,17 @@
         }
 
         .hero-description {
-            color: #ccc;
-            line-height: 1.7;
-            margin: 15px 0;
-            font-size: 15px;
+            color: #ddd;
+            line-height: 1.8;
+            margin: 20px 0;
+            font-size: 16px;
         }
 
         .hero-stats {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 25px;
         }
 
         .stat {
@@ -259,13 +266,15 @@
             align-items: center;
             gap: 8px;
             background: rgba(255, 215, 0, 0.08);
-            padding: 6px 15px;
-            border-radius: 30px;
-            font-size: 13px;
+            padding: 8px 18px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
         }
 
         .stat i {
             color: #FFD700;
+            font-size: 16px;
         }
 
         .player-section {
@@ -305,14 +314,21 @@
             flex-direction: column;
             gap: 20px;
             color: #FFD700;
+            text-align: center;
         }
         
         .coming-soon-message i {
             font-size: 80px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
         }
         
         .coming-soon-message h2 {
-            font-size: 32px;
+            font-size: 36px;
         }
         
         .coming-soon-message p {
@@ -456,45 +472,47 @@
 
         .related-header h3 {
             color: #FFD700;
-            font-size: 20px;
+            font-size: 22px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .related-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             gap: 20px;
         }
 
         .related-card {
             background: #1a1a1a;
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
             transition: 0.3s;
             border: 1px solid rgba(255, 215, 0, 0.2);
             text-align: center;
-            padding: 10px;
+            padding: 12px;
         }
 
         .related-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
             border-color: #FFD700;
+            box-shadow: 0 10px 20px rgba(255,215,0,0.15);
         }
 
         .related-card img {
             width: 100%;
-            height: 120px;
+            height: 140px;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 8px;
+            border-radius: 16px;
+            margin-bottom: 10px;
         }
 
         .related-card h4 {
-            font-size: 13px;
+            font-size: 14px;
             color: #FFD700;
+            font-weight: 600;
         }
 
         footer {
@@ -553,18 +571,28 @@
 
         @media (max-width: 768px) {
             .hero-title { font-size: 24px; }
-            .hero-image { min-width: 180px; }
+            .hero-image { min-width: 200px; }
             .hero-info { padding: 20px; }
             .episodes-header h3 { font-size: 20px; }
             .coming-soon-message i { font-size: 50px; }
             .coming-soon-message h2 { font-size: 24px; }
+            .coming-soon-message p { font-size: 14px; }
+            .hero-description { font-size: 14px; }
+            .stat { font-size: 12px; padding: 5px 12px; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .related-card img { height: 110px; }
         }
 
         @media (max-width: 480px) {
             .hero-card { flex-direction: column; }
-            .hero-image { min-width: 100%; max-height: 200px; }
-            .hero-image img { height: 200px; }
-            .episodes-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-image { min-width: 100%; max-height: 220px; }
+            .hero-image img { height: 220px; }
+            .hero-title { font-size: 20px; }
+            .hero-meta span { font-size: 11px; padding: 4px 12px; }
+            .episodes-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .related-grid { grid-template-columns: repeat(2, 1fr); }
+            .related-card img { height: 100px; }
+            .related-card h4 { font-size: 12px; }
         }
     </style>
 </head>
@@ -632,557 +660,78 @@
 </div>
 
 <script>
-    // ========== جميع المسلسلات والأفلام (القديمة + الجديدة) مع الحلقات الكاملة ==========
+    // ========== جميع المسلسلات والأفلام مع الحلقات الكاملة ==========
     const cartoons = [
-        // ========== المسلسلات القديمة (9) ==========
+        // المسلسلات القديمة (9)
         { 
-            id: 0, 
-            name: "BLUE LOCK", 
-            nameAr: "بلو لوك", 
-            nameSlug: "blue-lock",
-            type: "series", 
-            category: "anime", 
-            img: "images/blue.jpg", 
-            isNew: true, 
-            year: "2024", 
-            rating: "⭐ 4.8",
-            duration: "24 دقيقة",
-            quality: "1080p",
+            id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", nameSlug: "blue-lock", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", rating: "⭐ 4.8", duration: "24 دقيقة", quality: "1080p",
             description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم. انضم إلى برنامج BLUE LOCK التدريبي الثوري لصناعة أعظم مهاجم في تاريخ كرة القدم.",
-            episodes: {
-                1: "https://drive.google.com/file/d/1Z0i4k17YaQBmNVPqZyt_B89WUQlJ7-lk/preview",
-                2: "https://drive.google.com/file/d/1Z3QNfTL6k9hF33IQ5DD-zOundzaEcckM/preview",
-                3: "https://drive.google.com/file/d/1ZF58gxRM3Ut10X_N3H588cVkp9kGEDM5/preview",
-                4: "https://drive.google.com/file/d/1ZGKpV-xCSVrAltd9zs8dAajumczOI34q/preview",
-                5: "https://drive.google.com/file/d/1ZRUiRLcinM7i_Urv2ZF7Obr1qKVFinWW/preview",
-                6: "https://drive.google.com/file/d/1ZfwpVES1UH2empWni2FpsHOGMrPKp0fN/preview",
-                7: "https://drive.google.com/file/d/1Zaom19IKplLUb6wUa6MeCoKjbwJzhnBU/preview",
-                8: "https://drive.google.com/file/d/1Zexp3fsrmUr-IY95mAbnbygMS8UiOJAZ/preview",
-                9: "https://drive.google.com/file/d/1Zjm39DMfWk1MNOdeC5txwgVxtsvc6KjF/preview",
-                10: "https://drive.google.com/file/d/1Zj24AG79V6i9g2aaLV6baYk8zh-DOqh0/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/1Z0i4k17YaQBmNVPqZyt_B89WUQlJ7-lk/preview", 2: "https://drive.google.com/file/d/1Z3QNfTL6k9hF33IQ5DD-zOundzaEcckM/preview", 3: "https://drive.google.com/file/d/1ZF58gxRM3Ut10X_N3H588cVkp9kGEDM5/preview", 4: "https://drive.google.com/file/d/1ZGKpV-xCSVrAltd9zs8dAajumczOI34q/preview", 5: "https://drive.google.com/file/d/1ZRUiRLcinM7i_Urv2ZF7Obr1qKVFinWW/preview", 6: "https://drive.google.com/file/d/1ZfwpVES1UH2empWni2FpsHOGMrPKp0fN/preview", 7: "https://drive.google.com/file/d/1Zaom19IKplLUb6wUa6MeCoKjbwJzhnBU/preview", 8: "https://drive.google.com/file/d/1Zexp3fsrmUr-IY95mAbnbygMS8UiOJAZ/preview", 9: "https://drive.google.com/file/d/1Zjm39DMfWk1MNOdeC5txwgVxtsvc6KjF/preview", 10: "https://drive.google.com/file/d/1Zj24AG79V6i9g2aaLV6baYk8zh-DOqh0/preview" }
         },
         { 
-            id: 1, 
-            name: "قاتل الشياطين", 
-            nameAr: "Demon Slayer", 
-            nameSlug: "demon-slayer",
-            type: "movie", 
-            category: "anime", 
-            img: "images/قاتل.jpg", 
-            isNew: true, 
-            year: "2024", 
-            rating: "⭐ 4.9",
-            duration: "120 دقيقة",
-            quality: "1080p",
+            id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", nameSlug: "demon-slayer", type: "movie", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", rating: "⭐ 4.9", duration: "120 دقيقة", quality: "1080p",
             description: "أنمي أكشن خارق عن محاربة الشياطين. قصة تانجيرو كامادو الذي يسعى لإنقاذ أخته نيزوكو بعد أن تحولت إلى شيطان، وينضم إلى فرقة قاتلي الشياطين للقضاء على الشر.",
-            episodes: {
-                1: "https://drive.google.com/file/d/1oJB4jI5baYYfjmoiu4xMVR1i2c3v6Ms6/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/1oJB4jI5baYYfjmoiu4xMVR1i2c3v6Ms6/preview" }
         },
         { 
-            id: 2, 
-            name: "عالم غامبول المدهش", 
-            nameAr: "Gumball", 
-            nameSlug: "gumball",
-            type: "series", 
-            category: "cartoon", 
-            img: "images/g.jpg", 
-            isNew: false, 
-            year: "2023", 
-            rating: "⭐ 4.6",
-            duration: "22 دقيقة",
-            quality: "1080p",
+            id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", nameSlug: "gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", rating: "⭐ 4.6", duration: "22 دقيقة", quality: "1080p",
             description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين في مدينة إلمور الساحرة. سلسلة من المواقف الطريفة والمضحكة.",
-            episodes: {
-                1: "https://drive.google.com/file/d/1jNjk9kfMVqgVJRD6IlyYY1BnyAN5yGWO/preview",
-                2: "https://drive.google.com/file/d/1jPRco9rm2H-Aa3F5tmzK_vepH3kU_3yf/preview",
-                3: "https://drive.google.com/file/d/1jRpDD5Qc9OiKE3tvEmcUB2dpBA08MHfe/preview",
-                4: "https://drive.google.com/file/d/1jU7Uz_Qe4JNcPTBc6ml6DN94BAyddRis/preview",
-                5: "https://drive.google.com/file/d/1jZ_jh6qqDK9bVXTfSIK9Opqu_0rxcyOJ/preview",
-                6: "https://drive.google.com/file/d/1jb3oS2RT0_SScBR0B_HRa60_5mT8CqjE/preview",
-                7: "https://drive.google.com/file/d/1jejQEd4BJAyNjP-LtuzoX-Iu2-Lpyu5b/preview",
-                8: "https://drive.google.com/file/d/1jfiwv-7AOZU2CJ4gscC5vR2ellxmRwI2/preview",
-                9: "https://drive.google.com/file/d/1jpxh5AEB3bJ00cJDI-5fSnBNumqt_hsn/preview",
-                10: "https://drive.google.com/file/d/1jqyY9lw4w8GatIcPdbuADtoYLlAicqKN/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/1jNjk9kfMVqgVJRD6IlyYY1BnyAN5yGWO/preview", 2: "https://drive.google.com/file/d/1jPRco9rm2H-Aa3F5tmzK_vepH3kU_3yf/preview", 3: "https://drive.google.com/file/d/1jRpDD5Qc9OiKE3tvEmcUB2dpBA08MHfe/preview", 4: "https://drive.google.com/file/d/1jU7Uz_Qe4JNcPTBc6ml6DN94BAyddRis/preview", 5: "https://drive.google.com/file/d/1jZ_jh6qqDK9bVXTfSIK9Opqu_0rxcyOJ/preview", 6: "https://drive.google.com/file/d/1jb3oS2RT0_SScBR0B_HRa60_5mT8CqjE/preview", 7: "https://drive.google.com/file/d/1jejQEd4BJAyNjP-LtuzoX-Iu2-Lpyu5b/preview", 8: "https://drive.google.com/file/d/1jfiwv-7AOZU2CJ4gscC5vR2ellxmRwI2/preview", 9: "https://drive.google.com/file/d/1jpxh5AEB3bJ00cJDI-5fSnBNumqt_hsn/preview", 10: "https://drive.google.com/file/d/1jqyY9lw4w8GatIcPdbuADtoYLlAicqKN/preview" }
         },
         { 
-            id: 3, 
-            name: "باتمان", 
-            nameAr: "Batman", 
-            nameSlug: "batman",
-            type: "series", 
-            category: "cartoon", 
-            img: "images/Batman.jpg", 
-            isNew: false, 
-            year: "2022", 
-            rating: "⭐ 4.7",
-            duration: "22 دقيقة",
-            quality: "1080p",
+            id: 3, name: "باتمان", nameAr: "Batman", nameSlug: "batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", rating: "⭐ 4.7", duration: "22 دقيقة", quality: "1080p",
             description: "مغامرات فارس الظلام في مدينة جوثام. سلسلة كرتونية كلاسيكية تتبع بروس واين في مهمته لمكافحة الجريمة وحماية مدينته من الأشرار.",
-            episodes: {
-                1: "https://drive.google.com/file/d/19WEbgPUkZivHVhgTE022Oa3D7zegmrhH/preview",
-                2: "https://drive.google.com/file/d/16ucC0P4EYv3uchIWBKhmO1qu9ovT61SB/preview",
-                3: "https://drive.google.com/file/d/16rGOCLtTC5NDnosdUJGWa_YpWWB249yo/preview",
-                4: "https://drive.google.com/file/d/179mf-TIKtjtn_PKxqf5RKeEagRKHp9UI/preview",
-                5: "https://drive.google.com/file/d/174vdK1n7PGQVpBVvXzoKjLCBt_C1-B8W/preview",
-                6: "https://drive.google.com/file/d/170GojB807WJiUqJ26nlNRfLXkCGLNpls/preview",
-                7: "https://drive.google.com/file/d/17B9tNxTzru-jcA3vBDof5Wkw77reS-by/preview",
-                8: "https://drive.google.com/file/d/17JJBdFWHeRl44gx-ZD80Sq0LUP0kUlMK/preview",
-                9: "https://drive.google.com/file/d/19dzI7WOU9j2ErD7nJwf9YktEP5EA7m9R/preview",
-                10: "https://drive.google.com/file/d/17RBmYQqazj6ns6vPXR_JsVtAojgXypps/preview",
-                11: "https://drive.google.com/file/d/18cFAt0goi_wBtb89G9BbiEjjtBQSKaaB/preview",
-                12: "https://drive.google.com/file/d/197sTWkyrPE3DWuov7qfvABBkwerVeJ4G/preview",
-                13: "https://drive.google.com/file/d/17Uck2v8cFxnVAsWOxTPAkdV65v2WW83X/preview",
-                14: "https://drive.google.com/file/d/17gaOXq0NuRz_m7otQ2qfFARO1ZM18V7u/preview",
-                15: "https://drive.google.com/file/d/17oKqpKE78Qhlyms2OpkynsBMqiNgczKr/preview",
-                16: "https://drive.google.com/file/d/17rfxzujAQQuyjvfVmp2UCxSc8yRcgZtP/preview",
-                17: "https://drive.google.com/file/d/17zl0GgPA8aMPaDrjVOIWAEQIKVKX6sO_/preview",
-                18: "https://drive.google.com/file/d/17gLVVkhkz5kR5__giZzLcN6Oa2A6L4mD/preview",
-                19: "https://drive.google.com/file/d/17tzjImgCAg6YEmgW1EsW-Ivx3L2PJTV3/preview",
-                20: "https://drive.google.com/file/d/18-6ZVaGzljFHqV8NMI2MjvJa7QmzdiiC/preview",
-                21: "https://drive.google.com/file/d/18bihqvFvSBJfCtDR9QW3BZA2_DdWz7PU/preview",
-                22: "https://drive.google.com/file/d/18G2wuYM9Z7okzft0g1ovWdBX43f26fPg/preview",
-                23: "https://drive.google.com/file/d/1882N3w26lQUhyRct26QpsBNrjCFhhu4n/preview",
-                24: "https://drive.google.com/file/d/18GQfaNma4KzfVCO1DG_q_ntb9ZNJfKXv/preview",
-                25: "https://drive.google.com/file/d/18QkqStbbI6dWUANYdBkjQaGOIIQav2CH/preview",
-                26: "https://drive.google.com/file/d/18VfY0ysUf5bUyiScAoFmRy2DMb0lBdt5/preview",
-                27: "https://drive.google.com/file/d/18bs7qhUSmnS8a34lhM-sFbJXoRhI4m0U/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/19WEbgPUkZivHVhgTE022Oa3D7zegmrhH/preview", 2: "https://drive.google.com/file/d/16ucC0P4EYv3uchIWBKhmO1qu9ovT61SB/preview", 3: "https://drive.google.com/file/d/16rGOCLtTC5NDnosdUJGWa_YpWWB249yo/preview", 4: "https://drive.google.com/file/d/179mf-TIKtjtn_PKxqf5RKeEagRKHp9UI/preview", 5: "https://drive.google.com/file/d/174vdK1n7PGQVpBVvXzoKjLCBt_C1-B8W/preview", 6: "https://drive.google.com/file/d/170GojB807WJiUqJ26nlNRfLXkCGLNpls/preview", 7: "https://drive.google.com/file/d/17B9tNxTzru-jcA3vBDof5Wkw77reS-by/preview", 8: "https://drive.google.com/file/d/17JJBdFWHeRl44gx-ZD80Sq0LUP0kUlMK/preview", 9: "https://drive.google.com/file/d/19dzI7WOU9j2ErD7nJwf9YktEP5EA7m9R/preview", 10: "https://drive.google.com/file/d/17RBmYQqazj6ns6vPXR_JsVtAojgXypps/preview", 11: "https://drive.google.com/file/d/18cFAt0goi_wBtb89G9BbiEjjtBQSKaaB/preview", 12: "https://drive.google.com/file/d/197sTWkyrPE3DWuov7qfvABBkwerVeJ4G/preview", 13: "https://drive.google.com/file/d/17Uck2v8cFxnVAsWOxTPAkdV65v2WW83X/preview", 14: "https://drive.google.com/file/d/17gaOXq0NuRz_m7otQ2qfFARO1ZM18V7u/preview", 15: "https://drive.google.com/file/d/17oKqpKE78Qhlyms2OpkynsBMqiNgczKr/preview", 16: "https://drive.google.com/file/d/17rfxzujAQQuyjvfVmp2UCxSc8yRcgZtP/preview", 17: "https://drive.google.com/file/d/17zl0GgPA8aMPaDrjVOIWAEQIKVKX6sO_/preview", 18: "https://drive.google.com/file/d/17gLVVkhkz5kR5__giZzLcN6Oa2A6L4mD/preview", 19: "https://drive.google.com/file/d/17tzjImgCAg6YEmgW1EsW-Ivx3L2PJTV3/preview", 20: "https://drive.google.com/file/d/18-6ZVaGzljFHqV8NMI2MjvJa7QmzdiiC/preview", 21: "https://drive.google.com/file/d/18bihqvFvSBJfCtDR9QW3BZA2_DdWz7PU/preview", 22: "https://drive.google.com/file/d/18G2wuYM9Z7okzft0g1ovWdBX43f26fPg/preview", 23: "https://drive.google.com/file/d/1882N3w26lQUhyRct26QpsBNrjCFhhu4n/preview", 24: "https://drive.google.com/file/d/18GQfaNma4KzfVCO1DG_q_ntb9ZNJfKXv/preview", 25: "https://drive.google.com/file/d/18QkqStbbI6dWUANYdBkjQaGOIIQav2CH/preview", 26: "https://drive.google.com/file/d/18VfY0ysUf5bUyiScAoFmRy2DMb0lBdt5/preview", 27: "https://drive.google.com/file/d/18bs7qhUSmnS8a34lhM-sFbJXoRhI4m0U/preview" }
         },
         { 
-            id: 4, 
-            name: "فاملي غاي", 
-            nameAr: "Family Guy", 
-            nameSlug: "family-guy",
-            type: "series", 
-            category: "cartoon", 
-            img: "images/fg.jpg", 
-            isNew: false, 
-            year: "2023", 
-            rating: "⭐ 4.5",
-            duration: "22 دقيقة",
-            quality: "1080p",
+            id: 4, name: "فاملي غاي", nameAr: "Family Guy", nameSlug: "family-guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", rating: "⭐ 4.5", duration: "22 دقيقة", quality: "1080p",
             description: "كرتون كوميدي للكبار. قصة عائلة غريفين ومغامراتهم الطريفة والمضحكة في مدينة كواهوغ.",
-            episodes: {
-                1: "https://drive.google.com/file/d/19WEbgPUkZivHVhgTE022Oa3D7zegmrhH/preview",
-                2: "https://drive.google.com/file/d/16ucC0P4EYv3uchIWBKhmO1qu9ovT61SB/preview",
-                3: "https://drive.google.com/file/d/16rGOCLtTC5NDnosdUJGWa_YpWWB249yo/preview",
-                4: "https://drive.google.com/file/d/179mf-TIKtjtn_PKxqf5RKeEagRKHp9UI/preview",
-                5: "https://drive.google.com/file/d/174vdK1n7PGQVpBVvXzoKjLCBt_C1-B8W/preview",
-                6: "https://drive.google.com/file/d/170GojB807WJiUqJ26nlNRfLXkCGLNpls/preview",
-                7: "https://drive.google.com/file/d/17B9tNxTzru-jcA3vBDof5Wkw77reS-by/preview",
-                8: "https://drive.google.com/file/d/17JJBdFWHeRl44gx-ZD80Sq0LUP0kUlMK/preview",
-                9: "https://drive.google.com/file/d/19dzI7WOU9j2ErD7nJwf9YktEP5EA7m9R/preview",
-                10: "https://drive.google.com/file/d/17RBmYQqazj6ns6vPXR_JsVtAojgXypps/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/19WEbgPUkZivHVhgTE022Oa3D7zegmrhH/preview", 2: "https://drive.google.com/file/d/16ucC0P4EYv3uchIWBKhmO1qu9ovT61SB/preview", 3: "https://drive.google.com/file/d/16rGOCLtTC5NDnosdUJGWa_YpWWB249yo/preview", 4: "https://drive.google.com/file/d/179mf-TIKtjtn_PKxqf5RKeEagRKHp9UI/preview", 5: "https://drive.google.com/file/d/174vdK1n7PGQVpBVvXzoKjLCBt_C1-B8W/preview", 6: "https://drive.google.com/file/d/170GojB807WJiUqJ26nlNRfLXkCGLNpls/preview", 7: "https://drive.google.com/file/d/17B9tNxTzru-jcA3vBDof5Wkw77reS-by/preview", 8: "https://drive.google.com/file/d/17JJBdFWHeRl44gx-ZD80Sq0LUP0kUlMK/preview", 9: "https://drive.google.com/file/d/19dzI7WOU9j2ErD7nJwf9YktEP5EA7m9R/preview", 10: "https://drive.google.com/file/d/17RBmYQqazj6ns6vPXR_JsVtAojgXypps/preview" }
         },
         { 
-            id: 5, 
-            name: "ساموراي جاك", 
-            nameAr: "Samurai Jack", 
-            nameSlug: "samurai-jack",
-            type: "series", 
-            category: "cartoon", 
-            img: "images/sj.jpg", 
-            isNew: false, 
-            year: "2022", 
-            rating: "⭐ 4.8",
-            duration: "22 دقيقة",
-            quality: "1080p",
+            id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", nameSlug: "samurai-jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", rating: "⭐ 4.8", duration: "22 دقيقة", quality: "1080p",
             description: "مغامرات الساموراي جاك في المستقبل. قصة انتقام من الشرير أكو الذي أرسل جاك إلى مستقبل بائس.",
-            episodes: {
-                1: "https://drive.google.com/file/d/1De21MqXf5V5Exey3hpVmS4HQnGSyc9Sb/preview",
-                2: "https://drive.google.com/file/d/1Df8jSckAHe8v6YNRvK5FeF61_tChMwX0/preview",
-                3: "https://drive.google.com/file/d/1DfHEfEnlofQ1kHT36Jg4ZVS6G7tVuPq9/preview",
-                4: "https://drive.google.com/file/d/1DfMO5RsOySdxF9lVLXv5gWLQxKL1k9T_/preview",
-                5: "https://drive.google.com/file/d/1Dhz2vNN97CqSEqm3Ji0wd1Dhz2vNN97CqSEqm3Ji0wdWVS4JEegintWVS4JEegint/preview",
-                6: "https://drive.google.com/file/d/1DitVuzuJ0-8waCWbVL65FXxDckSN2kBA/preview",
-                7: "https://drive.google.com/file/d/1DitVuzuJ0-1DmtBrw3JuiDkAll-37h47HdE19W00cPU/preview",
-                8: "https://drive.google.com/file/d/1DnjD4FEtY-EEwv6DLkWSmRP9EUc6IWAh/preview",
-                9: "https://drive.google.com/file/d/1DnjD4FEtY-1Do40Jq4BS5oACZ2kaqpiwrofq8BWBM1D/preview",
-                10: "https://drive.google.com/file/d/1DogrzspyiLUapZVxNmZ9OzXabSSX8Tv_/preview",
-                11: "https://drive.google.com/file/d/1Dozq4WFvKmzQlVZ6QcC2AJBrdNg1iXnf/preview",
-                12: "https://drive.google.com/file/d/1DpaScUQH9gKSHhTnEjdkwCuxzGSkrFBX/preview",
-                13: "https://drive.google.com/file/d/1DnjD4FEtY-1DqXZ5hQoSuLQVFEYeuNfG0cZLZiCe3oE/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/1De21MqXf5V5Exey3hpVmS4HQnGSyc9Sb/preview", 2: "https://drive.google.com/file/d/1Df8jSckAHe8v6YNRvK5FeF61_tChMwX0/preview", 3: "https://drive.google.com/file/d/1DfHEfEnlofQ1kHT36Jg4ZVS6G7tVuPq9/preview", 4: "https://drive.google.com/file/d/1DfMO5RsOySdxF9lVLXv5gWLQxKL1k9T_/preview", 5: "https://drive.google.com/file/d/1Dhz2vNN97CqSEqm3Ji0wd1Dhz2vNN97CqSEqm3Ji0wdWVS4JEegintWVS4JEegint/preview", 6: "https://drive.google.com/file/d/1DitVuzuJ0-8waCWbVL65FXxDckSN2kBA/preview", 7: "https://drive.google.com/file/d/1DitVuzuJ0-1DmtBrw3JuiDkAll-37h47HdE19W00cPU/preview", 8: "https://drive.google.com/file/d/1DnjD4FEtY-EEwv6DLkWSmRP9EUc6IWAh/preview", 9: "https://drive.google.com/file/d/1DnjD4FEtY-1Do40Jq4BS5oACZ2kaqpiwrofq8BWBM1D/preview", 10: "https://drive.google.com/file/d/1DogrzspyiLUapZVxNmZ9OzXabSSX8Tv_/preview", 11: "https://drive.google.com/file/d/1Dozq4WFvKmzQlVZ6QcC2AJBrdNg1iXnf/preview", 12: "https://drive.google.com/file/d/1DpaScUQH9gKSHhTnEjdkwCuxzGSkrFBX/preview", 13: "https://drive.google.com/file/d/1DnjD4FEtY-1DqXZ5hQoSuLQVFEYeuNfG0cZLZiCe3oE/preview" }
         },
         { 
-            id: 6, 
-            name: "وقت المغامرة", 
-            nameAr: "Adventure Time", 
-            nameSlug: "adventure-time",
-            type: "series", 
-            category: "cartoon", 
-            img: "images/وقت%20المغامرة.jpg", 
-            isNew: false, 
-            year: "2023", 
-            rating: "⭐ 4.7",
-            duration: "22 دقيقة",
-            quality: "1080p",
+            id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", nameSlug: "adventure-time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", rating: "⭐ 4.7", duration: "22 دقيقة", quality: "1080p",
             description: "مغامرات فيني وجيك في أرض أوو. كرتون مغامرات كوميدي يتبع صبي صغير وكلبه السحري في رحلاتهم.",
-            episodes: {
-                1: "https://drive.google.com/file/d/14UVi5UrSvR5bXBz_ZYLNZfldbFFZdTv6/preview",
-                2: "https://drive.google.com/file/d/14VMuLvlcJ79XerzNr5A8efTTKCc4n_ud/preview",
-                3: "https://drive.google.com/file/d/14XY7c68dzSdPxBnh_G2r94-szjNqK0so/preview",
-                4: "https://drive.google.com/file/d/14YLlNHFchaBSk_v578jEB349E4aW7HNz/preview",
-                5: "https://drive.google.com/file/d/14Yhe9NNZRkdgonkcQ_XyE3emAAl6YDWw/preview",
-                6: "https://drive.google.com/file/d/14_b6yT6VjmDDJ0EAwUCdeGyE6PNedZBZ/preview",
-                7: "https://drive.google.com/file/d/14_bKTh4m6PL9iFH1Xk3x6-np7I0S7yuU/preview",
-                8: "https://drive.google.com/file/d/14iooNQm_tSyKcJEaB5aFmLHZrEr1tSYH/preview",
-                9: "https://drive.google.com/file/d/14aYeF-zNIUaPoKwZFTmevit0ePm4pnzY/preview",
-                10: "https://drive.google.com/file/d/14f5O6bx81JZ59EvyqRW0NNLITp744VWD/preview",
-                11: "https://drive.google.com/file/d/14d4VpdI_w1C1Tp-_jQHvvoI9dFPHABzq/preview",
-                12: "https://drive.google.com/file/d/14tnUuQQrotqn6P5rQpclhWg9w9IgQIRa/preview",
-                13: "https://drive.google.com/file/d/14mL3qC3V4G0QoY0kkCkUAmN8kmybEl0W/preview",
-                14: "https://drive.google.com/file/d/14prEdZ3SDM20VebmxheFVshvS4zx7_RA/preview",
-                15: "https://drive.google.com/file/d/14r2JJ1Lnpfb7XFKGUKxmhqL_2OzGDi9r/preview",
-                16: "https://drive.google.com/file/d/14pQAE2tHNmXkzVOsWYN9wzUn7ShsjZvX/preview",
-                17: "https://drive.google.com/file/d/14twNZenH7u5uLIMYh-jpWyx13sA-6h9w/preview",
-                18: "https://drive.google.com/file/d/14uxteDU2oSGp3HoWFNhm7NqEDJS9eAZr/preview",
-                19: "https://drive.google.com/file/d/14w7rLNMJuOLVBk4YvFIWr8YdgSJ4ae6n/preview",
-                20: "https://drive.google.com/file/d/14yXM9KZvp9Q5vn_AKpCUKA4mp19B-o6L/preview",
-                21: "https://drive.google.com/file/d/14yuIH4wzPX8ckNBRCslUWOIPU8xg_XXC/preview",
-                22: "https://drive.google.com/file/d/15-QZ7FVJjQPQ6TvUDkU8rwhmUdqp6SZo/preview",
-                23: "https://drive.google.com/file/d/150pAaW28fd249rJZDayWRXMyqffrXCjd/preview",
-                24: "https://drive.google.com/file/d/152K79n0fw414TUmr5vD-EJ6Vi-ZvfSud/preview",
-                25: "https://drive.google.com/file/d/153kyeokvaINdNz6ELIR4BTs-GLYjqEpY/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/14UVi5UrSvR5bXBz_ZYLNZfldbFFZdTv6/preview", 2: "https://drive.google.com/file/d/14VMuLvlcJ79XerzNr5A8efTTKCc4n_ud/preview", 3: "https://drive.google.com/file/d/14XY7c68dzSdPxBnh_G2r94-szjNqK0so/preview", 4: "https://drive.google.com/file/d/14YLlNHFchaBSk_v578jEB349E4aW7HNz/preview", 5: "https://drive.google.com/file/d/14Yhe9NNZRkdgonkcQ_XyE3emAAl6YDWw/preview", 6: "https://drive.google.com/file/d/14_b6yT6VjmDDJ0EAwUCdeGyE6PNedZBZ/preview", 7: "https://drive.google.com/file/d/14_bKTh4m6PL9iFH1Xk3x6-np7I0S7yuU/preview", 8: "https://drive.google.com/file/d/14iooNQm_tSyKcJEaB5aFmLHZrEr1tSYH/preview", 9: "https://drive.google.com/file/d/14aYeF-zNIUaPoKwZFTmevit0ePm4pnzY/preview", 10: "https://drive.google.com/file/d/14f5O6bx81JZ59EvyqRW0NNLITp744VWD/preview", 11: "https://drive.google.com/file/d/14d4VpdI_w1C1Tp-_jQHvvoI9dFPHABzq/preview", 12: "https://drive.google.com/file/d/14tnUuQQrotqn6P5rQpclhWg9w9IgQIRa/preview", 13: "https://drive.google.com/file/d/14mL3qC3V4G0QoY0kkCkUAmN8kmybEl0W/preview", 14: "https://drive.google.com/file/d/14prEdZ3SDM20VebmxheFVshvS4zx7_RA/preview", 15: "https://drive.google.com/file/d/14r2JJ1Lnpfb7XFKGUKxmhqL_2OzGDi9r/preview", 16: "https://drive.google.com/file/d/14pQAE2tHNmXkzVOsWYN9wzUn7ShsjZvX/preview", 17: "https://drive.google.com/file/d/14twNZenH7u5uLIMYh-jpWyx13sA-6h9w/preview", 18: "https://drive.google.com/file/d/14uxteDU2oSGp3HoWFNhm7NqEDJS9eAZr/preview", 19: "https://drive.google.com/file/d/14w7rLNMJuOLVBk4YvFIWr8YdgSJ4ae6n/preview", 20: "https://drive.google.com/file/d/14yXM9KZvp9Q5vn_AKpCUKA4mp19B-o6L/preview", 21: "https://drive.google.com/file/d/14yuIH4wzPX8ckNBRCslUWOIPU8xg_XXC/preview", 22: "https://drive.google.com/file/d/15-QZ7FVJjQPQ6TvUDkU8rwhmUdqp6SZo/preview", 23: "https://drive.google.com/file/d/150pAaW28fd249rJZDayWRXMyqffrXCjd/preview", 24: "https://drive.google.com/file/d/152K79n0fw414TUmr5vD-EJ6Vi-ZvfSud/preview", 25: "https://drive.google.com/file/d/153kyeokvaINdNz6ELIR4BTs-GLYjqEpY/preview" }
         },
         { 
-            id: 7, 
-            name: "البؤساء", 
-            nameAr: "Les Misérables", 
-            nameSlug: "les-miserables",
-            type: "series", 
-            category: "anime", 
-            img: "images/مسلسل%20البؤساء.jpg", 
-            isNew: false, 
-            year: "2021", 
-            rating: "⭐ 4.6",
-            duration: "25 دقيقة",
-            quality: "1080p",
+            id: 7, name: "البؤساء", nameAr: "Les Misérables", nameSlug: "les-miserables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", rating: "⭐ 4.6", duration: "25 دقيقة", quality: "1080p",
             description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو الشهيرة. تتبع حياة جان فالجان ونضاله من أجل الخلاص.",
-            episodes: {
-                1: "https://drive.google.com/file/d/1CWN3-ajQcbqzEpHPxFdmEdesqfhzBTUi/preview",
-                2: "https://drive.google.com/file/d/1CI8TWVpuUqpVgUH_TZUXPF9u4sM5J-Do/preview",
-                3: "https://drive.google.com/file/d/1CLu9m7gmqfQlUP7cyFzhwu_EvwhSlDAU/preview",
-                4: "https://drive.google.com/file/d/1CM7gByHnTjvKvtaQ9eEhxdxOREvN_Q4X/preview",
-                5: "https://drive.google.com/file/d/1CQhrh0CYD4ifHOovKPZEx6WmPc5diPGt/preview",
-                6: "https://drive.google.com/file/d/1CVbVY313f8GCOKxDj8-e4bQ2-QSvHRAe/preview",
-                7: "https://drive.google.com/file/d/15RELEGsBdRIPnkQMMJC7qp7z9i4zad0w/preview",
-                8: "https://drive.google.com/file/d/1CetRTouqGWj5JkWQD3OpZU7nUFD4tJzn/preview",
-                9: "https://drive.google.com/file/d/1Cgkbm4QnhvZ0UY6iT9HEbzWcmwLFQQl1/preview",
-                10: "https://drive.google.com/file/d/1CjGtHs_iT7IniRhU1b7Dkqdzlql1WzW7/preview",
-                11: "https://drive.google.com/file/d/1Cmrnf90asBoVR6OGPD5L7n2JXA36MYVU/preview",
-                12: "https://drive.google.com/file/d/1CnA_TnbOmKo11rs9h6bGnFghAeKlf7yA/preview",
-                13: "https://drive.google.com/file/d/15gr0I-W7z024GWyq4YmmzV7nYRt_BYC2/preview",
-                14: "https://drive.google.com/file/d/1CoL8S8hx15TEVB0Hub-0WxWLG2WQ-luF/preview",
-                15: "https://drive.google.com/file/d/1CuOkhwzzWh72_QINu1wY_2PE1ZBFCJdV/preview",
-                16: "https://drive.google.com/file/d/15iWvjV2aZIKkmtO0n2j27-RmPN0yATrb/preview",
-                17: "https://drive.google.com/file/d/1CwpNiD0Lx_-ttP7um7ZBVgOX1g6fXdS9/preview",
-                18: "https://drive.google.com/file/d/1CyZ3cnziFhVgRlQz2lCcIkexdAgvMZr8/preview",
-                19: "https://drive.google.com/file/d/1D1PMzH__w9SeAxQUdZ6fvD_QyuqWjp9o/preview",
-                20: "https://drive.google.com/file/d/1D1eE4gJvXw-rjoCorACuX_AdsYtr2Dv_/preview",
-                21: "https://drive.google.com/file/d/1D2-ieno9oN06F7aAF7mG1-jgePNH60ab/preview",
-                22: "https://drive.google.com/file/d/160gtf-YxE5fOfbRnpJ8gM6uZnBrn_0Wy/preview",
-                23: "https://drive.google.com/file/d/168znBhY1Lj8fTiT9uzGyDJnGiy9dc1HK/preview",
-                24: "https://drive.google.com/file/d/163oaNTP3pClpBC6I7TigrGFiKo25jazP/preview",
-                25: "https://drive.google.com/file/d/167c0y8-rXpSh2SBlFSauS9aa4OhMKP-S/preview",
-                26: "https://drive.google.com/file/d/161ROeSSFv7HCb6ArJrn-14jHMAhNsHF3/preview",
-                27: "https://drive.google.com/file/d/1D3QC387tL30ILqUle8iLMfZ3CJO7tw6W/preview",
-                28: "https://drive.google.com/file/d/1D4J1OGhwjBZCoPXjOstV8VrUhP6czYOm/preview",
-                29: "https://drive.google.com/file/d/1D53EqVNm6Pe9t2tzPuLozNKxPjeoQSOv/preview",
-                30: "https://drive.google.com/file/d/16CH_JZ6Ldi0lP0OJCyTSuSyzPMsaDixN/preview",
-                31: "https://drive.google.com/file/d/16C5AGOWUM6HWLWJ0JDGHD4IIGYRND_p1/preview",
-                32: "https://drive.google.com/file/d/16CRbx4RlLkJeO_5fYcHaTiLcHcsgLPdd/preview",
-                33: "https://drive.google.com/file/d/16DQHp5e3rucDX7uxBBWrPxA9raUrEzUr/preview",
-                34: "https://drive.google.com/file/d/16DdA1a6SecUR53FXXPMjWCAwvoqn5T5C/preview",
-                35: "https://drive.google.com/file/d/16CYiyGyrL6VzoU2Q9A71MmwU_Q4VA25w/preview",
-                36: "https://drive.google.com/file/d/16GRbYI9Ix4VCXbTdSDUaCifDO3uCIff4/preview",
-                37: "https://drive.google.com/file/d/16F_2zc_HKJbgQqQEiqzb1GPFiatB8JAY/preview",
-                38: "https://drive.google.com/file/d/16Hcit0aGI8aXUbUzKkG9vasshXbPX8aG/preview",
-                39: "https://drive.google.com/file/d/16cTmFm717vhJR0XqjTzRVnwcsOq0L1re/preview",
-                40: "https://drive.google.com/file/d/16Nih5OU3U7cB5c5xKuXNZBtlhHrtwZyW/preview",
-                41: "https://drive.google.com/file/d/16TAkdKqXOafNyGRMOPXdtIDip_qx-T3q/preview",
-                42: "https://drive.google.com/file/d/16rf3HayQiN-2IDlZ_khDGx8_f_3jI3j2/preview",
-                43: "https://drive.google.com/file/d/16VISo2oKyNvInPQQiKQGO9dUKj_iyk_u/preview",
-                44: "https://drive.google.com/file/d/16UZkSU_uwEoR7o-lfPPqhfHOhLVdIoxb/preview",
-                45: "https://drive.google.com/file/d/16f59ezS6zmuhdz53xtMMuN9vOPruzvyV/preview",
-                46: "https://drive.google.com/file/d/16t69Djd5Qy9MpTzT9kSehPAcr7xh1R9g/preview",
-                47: "https://drive.google.com/file/d/16jzBUfKvcM78EYhXwMmVY89zeto2QKWL/preview",
-                48: "https://drive.google.com/file/d/16lLkLouZvirsTQUizI13IwyFo4muwU2h/preview",
-                49: "https://drive.google.com/file/d/16p6hVKRjJU5I5KJy_muV4RBanZqeeKvj/preview",
-                50: "https://drive.google.com/file/d/16tLziwEaJBPQ6zJQ5pVCxptqaoPOtK8J/preview",
-                51: "https://drive.google.com/file/d/16lpc-M0Rrx8KZJ8p82OAcGZTIbyExYMf/preview",
-                52: "https://drive.google.com/file/d/16mz3tgQmFMMS79gfqPhny8fL_KJ4wGjI/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/1CWN3-ajQcbqzEpHPxFdmEdesqfhzBTUi/preview", 2: "https://drive.google.com/file/d/1CI8TWVpuUqpVgUH_TZUXPF9u4sM5J-Do/preview", 3: "https://drive.google.com/file/d/1CLu9m7gmqfQlUP7cyFzhwu_EvwhSlDAU/preview", 4: "https://drive.google.com/file/d/1CM7gByHnTjvKvtaQ9eEhxdxOREvN_Q4X/preview", 5: "https://drive.google.com/file/d/1CQhrh0CYD4ifHOovKPZEx6WmPc5diPGt/preview", 6: "https://drive.google.com/file/d/1CVbVY313f8GCOKxDj8-e4bQ2-QSvHRAe/preview", 7: "https://drive.google.com/file/d/15RELEGsBdRIPnkQMMJC7qp7z9i4zad0w/preview", 8: "https://drive.google.com/file/d/1CetRTouqGWj5JkWQD3OpZU7nUFD4tJzn/preview", 9: "https://drive.google.com/file/d/1Cgkbm4QnhvZ0UY6iT9HEbzWcmwLFQQl1/preview", 10: "https://drive.google.com/file/d/1CjGtHs_iT7IniRhU1b7Dkqdzlql1WzW7/preview", 11: "https://drive.google.com/file/d/1Cmrnf90asBoVR6OGPD5L7n2JXA36MYVU/preview", 12: "https://drive.google.com/file/d/1CnA_TnbOmKo11rs9h6bGnFghAeKlf7yA/preview", 13: "https://drive.google.com/file/d/15gr0I-W7z024GWyq4YmmzV7nYRt_BYC2/preview", 14: "https://drive.google.com/file/d/1CoL8S8hx15TEVB0Hub-0WxWLG2WQ-luF/preview", 15: "https://drive.google.com/file/d/1CuOkhwzzWh72_QINu1wY_2PE1ZBFCJdV/preview", 16: "https://drive.google.com/file/d/15iWvjV2aZIKkmtO0n2j27-RmPN0yATrb/preview", 17: "https://drive.google.com/file/d/1CwpNiD0Lx_-ttP7um7ZBVgOX1g6fXdS9/preview", 18: "https://drive.google.com/file/d/1CyZ3cnziFhVgRlQz2lCcIkexdAgvMZr8/preview", 19: "https://drive.google.com/file/d/1D1PMzH__w9SeAxQUdZ6fvD_QyuqWjp9o/preview", 20: "https://drive.google.com/file/d/1D1eE4gJvXw-rjoCorACuX_AdsYtr2Dv_/preview", 21: "https://drive.google.com/file/d/1D2-ieno9oN06F7aAF7mG1-jgePNH60ab/preview", 22: "https://drive.google.com/file/d/160gtf-YxE5fOfbRnpJ8gM6uZnBrn_0Wy/preview", 23: "https://drive.google.com/file/d/168znBhY1Lj8fTiT9uzGyDJnGiy9dc1HK/preview", 24: "https://drive.google.com/file/d/163oaNTP3pClpBC6I7TigrGFiKo25jazP/preview", 25: "https://drive.google.com/file/d/167c0y8-rXpSh2SBlFSauS9aa4OhMKP-S/preview", 26: "https://drive.google.com/file/d/161ROeSSFv7HCb6ArJrn-14jHMAhNsHF3/preview", 27: "https://drive.google.com/file/d/1D3QC387tL30ILqUle8iLMfZ3CJO7tw6W/preview", 28: "https://drive.google.com/file/d/1D4J1OGhwjBZCoPXjOstV8VrUhP6czYOm/preview", 29: "https://drive.google.com/file/d/1D53EqVNm6Pe9t2tzPuLozNKxPjeoQSOv/preview", 30: "https://drive.google.com/file/d/16CH_JZ6Ldi0lP0OJCyTSuSyzPMsaDixN/preview", 31: "https://drive.google.com/file/d/16C5AGOWUM6HWLWJ0JDGHD4IIGYRND_p1/preview", 32: "https://drive.google.com/file/d/16CRbx4RlLkJeO_5fYcHaTiLcHcsgLPdd/preview", 33: "https://drive.google.com/file/d/16DQHp5e3rucDX7uxBBWrPxA9raUrEzUr/preview", 34: "https://drive.google.com/file/d/16DdA1a6SecUR53FXXPMjWCAwvoqn5T5C/preview", 35: "https://drive.google.com/file/d/16CYiyGyrL6VzoU2Q9A71MmwU_Q4VA25w/preview", 36: "https://drive.google.com/file/d/16GRbYI9Ix4VCXbTdSDUaCifDO3uCIff4/preview", 37: "https://drive.google.com/file/d/16F_2zc_HKJbgQqQEiqzb1GPFiatB8JAY/preview", 38: "https://drive.google.com/file/d/16Hcit0aGI8aXUbUzKkG9vasshXbPX8aG/preview", 39: "https://drive.google.com/file/d/16cTmFm717vhJR0XqjTzRVnwcsOq0L1re/preview", 40: "https://drive.google.com/file/d/16Nih5OU3U7cB5c5xKuXNZBtlhHrtwZyW/preview", 41: "https://drive.google.com/file/d/16TAkdKqXOafNyGRMOPXdtIDip_qx-T3q/preview", 42: "https://drive.google.com/file/d/16rf3HayQiN-2IDlZ_khDGx8_f_3jI3j2/preview", 43: "https://drive.google.com/file/d/16VISo2oKyNvInPQQiKQGO9dUKj_iyk_u/preview", 44: "https://drive.google.com/file/d/16UZkSU_uwEoR7o-lfPPqhfHOhLVdIoxb/preview", 45: "https://drive.google.com/file/d/16f59ezS6zmuhdz53xtMMuN9vOPruzvyV/preview", 46: "https://drive.google.com/file/d/16t69Djd5Qy9MpTzT9kSehPAcr7xh1R9g/preview", 47: "https://drive.google.com/file/d/16jzBUfKvcM78EYhXwMmVY89zeto2QKWL/preview", 48: "https://drive.google.com/file/d/16lLkLouZvirsTQUizI13IwyFo4muwU2h/preview", 49: "https://drive.google.com/file/d/16p6hVKRjJU5I5KJy_muV4RBanZqeeKvj/preview", 50: "https://drive.google.com/file/d/16tLziwEaJBPQ6zJQ5pVCxptqaoPOtK8J/preview", 51: "https://drive.google.com/file/d/16lpc-M0Rrx8KZJ8p82OAcGZTIbyExYMf/preview", 52: "https://drive.google.com/file/d/16mz3tgQmFMMS79gfqPhny8fL_KJ4wGjI/preview" }
         },
         { 
-            id: 8, 
-            name: "عهد الأصدقاء", 
-            nameAr: "The Era of Friends", 
-            nameSlug: "era-of-friends",
-            type: "series", 
-            category: "anime", 
-            img: "images/عهد%20الاصدقاء.jpg", 
-            isNew: false, 
-            year: "2022", 
-            rating: "⭐ 4.5",
-            duration: "24 دقيقة",
-            quality: "1080p",
+            id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", nameSlug: "era-of-friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", rating: "⭐ 4.5", duration: "24 دقيقة", quality: "1080p",
             description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء في رحلة حياتية مليئة بالتحديات والمواقف المؤثرة.",
-            episodes: {
-                1: "https://drive.google.com/file/d/1Dujns_Bsez4McbqGdJFb6361U7A1Wl5d/preview",
-                2: "https://drive.google.com/file/d/1DwNu-MbZkdiK8QWG5JLuIfOEBCZ7PMJh/preview",
-                3: "https://drive.google.com/file/d/1DxfRvGHh-0CVfxLWSvOCIXFIgPfzBJ2Z/preview",
-                4: "https://drive.google.com/file/d/1Dy4heEXh2dmccD51k6snEU6KWFu306us/preview",
-                5: "https://drive.google.com/file/d/1DyhiivBr5ktyzoXna7_CaIeN4v8qresG/preview",
-                6: "https://drive.google.com/file/d/1Ez5eCvcq5ZFl1XZ1nwUoRVhx9SHYa25u/preview",
-                7: "https://drive.google.com/file/d/1E020s6SE8TUyF4tVy6EFkuLS8wbj-mNb/preview",
-                8: "https://drive.google.com/file/d/1E0FepCO2p64jJAVWPgtCs5OdcXT0jeSG/preview",
-                9: "https://drive.google.com/file/d/1F-QxeqOo90ncEZub7j9Kz-QzdMzeTlyp/preview",
-                10: "https://drive.google.com/file/d/1F0jACEXPcmgms5o8gQwDIrKOwp3zSWz7/preview",
-                11: "https://drive.google.com/file/d/1F27Wwwu1427F105SlkSE8uVGOY7iqUGQ/preview",
-                12: "https://drive.google.com/file/d/1F4KO8zlTL7HVLQPksgz0W0Qf3I2aijeM/preview",
-                13: "https://drive.google.com/file/d/1F7Plw9-fUiz-u7Eakq6EwcLVwE_qO1GA/preview",
-                14: "https://drive.google.com/file/d/15CH0TaSgc9OaUIDFzWBSLjQu5oQWEGeL/preview",
-                15: "https://drive.google.com/file/d/1F7mnRVCEtSOxBBr9dkr9s9da-3hEplbS/preview",
-                16: "https://drive.google.com/file/d/13yTV3xLNbTfmlls6v_xKN_RzRDOOa3FW/preview",
-                17: "https://drive.google.com/file/d/14-llyYkGcdM3zStc1cSuCCdB_bxPSrR7/preview",
-                18: "https://drive.google.com/file/d/145edbADqjYAd760zEuOJZBjsD_2F1kFX/preview",
-                19: "https://drive.google.com/file/d/146N5ajnn6fCRrnapEDh3TyhQjUHpS3OP/preview",
-                20: "https://drive.google.com/file/d/146V1HGQvZSrs8G68nMKfZwl75yhVLKvL/preview",
-                21: "https://drive.google.com/file/d/147FK3iI2TS1bKigF2HAwdakdlpgXfxLk/preview",
-                22: "https://drive.google.com/file/d/14IbtIutPXlAzU1_NtkQlv64M8RxE-BRz/preview",
-                23: "https://drive.google.com/file/d/148af8upmnu-KQyFCfYI7v8eEI4VKVfoT/preview"
-            }
+            episodes: { 1: "https://drive.google.com/file/d/1Dujns_Bsez4McbqGdJFb6361U7A1Wl5d/preview", 2: "https://drive.google.com/file/d/1DwNu-MbZkdiK8QWG5JLuIfOEBCZ7PMJh/preview", 3: "https://drive.google.com/file/d/1DxfRvGHh-0CVfxLWSvOCIXFIgPfzBJ2Z/preview", 4: "https://drive.google.com/file/d/1Dy4heEXh2dmccD51k6snEU6KWFu306us/preview", 5: "https://drive.google.com/file/d/1DyhiivBr5ktyzoXna7_CaIeN4v8qresG/preview", 6: "https://drive.google.com/file/d/1Ez5eCvcq5ZFl1XZ1nwUoRVhx9SHYa25u/preview", 7: "https://drive.google.com/file/d/1E020s6SE8TUyF4tVy6EFkuLS8wbj-mNb/preview", 8: "https://drive.google.com/file/d/1E0FepCO2p64jJAVWPgtCs5OdcXT0jeSG/preview", 9: "https://drive.google.com/file/d/1F-QxeqOo90ncEZub7j9Kz-QzdMzeTlyp/preview", 10: "https://drive.google.com/file/d/1F0jACEXPcmgms5o8gQwDIrKOwp3zSWz7/preview", 11: "https://drive.google.com/file/d/1F27Wwwu1427F105SlkSE8uVGOY7iqUGQ/preview", 12: "https://drive.google.com/file/d/1F4KO8zlTL7HVLQPksgz0W0Qf3I2aijeM/preview", 13: "https://drive.google.com/file/d/1F7Plw9-fUiz-u7Eakq6EwcLVwE_qO1GA/preview", 14: "https://drive.google.com/file/d/15CH0TaSgc9OaUIDFzWBSLjQu5oQWEGeL/preview", 15: "https://drive.google.com/file/d/1F7mnRVCEtSOxBBr9dkr9s9da-3hEplbS/preview", 16: "https://drive.google.com/file/d/13yTV3xLNbTfmlls6v_xKN_RzRDOOa3FW/preview", 17: "https://drive.google.com/file/d/14-llyYkGcdM3zStc1cSuCCdB_bxPSrR7/preview", 18: "https://drive.google.com/file/d/145edbADqjYAd760zEuOJZBjsD_2F1kFX/preview", 19: "https://drive.google.com/file/d/146N5ajnn6fCRrnapEDh3TyhQjUHpS3OP/preview", 20: "https://drive.google.com/file/d/146V1HGQvZSrs8G68nMKfZwl75yhVLKvL/preview", 21: "https://drive.google.com/file/d/147FK3iI2TS1bKigF2HAwdakdlpgXfxLk/preview", 22: "https://drive.google.com/file/d/14IbtIutPXlAzU1_NtkQlv64M8RxE-BRz/preview", 23: "https://drive.google.com/file/d/148af8upmnu-KQyFCfYI7v8eEI4VKVfoT/preview" }
         },
         
-        // ========== أفلام Cars ==========
-        { 
-            id: 9, 
-            name: "Cars 1", 
-            nameAr: "سيارات 1", 
-            nameSlug: "cars-1",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/cars 1.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2006", 
-            rating: "⭐ 4.7",
-            duration: "117 دقيقة",
-            quality: "1080p",
-            description: "فيلم كرتون مغامرات سيارات السباق من إنتاج Pixar. قصة البرق ماكوين، سيارة سباق شابة وموهوبة تتوه في طريقها إلى سباق البطولة وتتعلم أن الحياة ليست مجرد سرعة وجوائز، بل الأصدقاء والعائلة.",
-            episodes: { 1: "https://drive.google.com/file/d/1Cars1Example/preview" }
-        },
-        { 
-            id: 10, 
-            name: "Cars 2", 
-            nameAr: "سيارات 2", 
-            nameSlug: "cars-2",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/cars 2.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2011", 
-            rating: "⭐ 4.5",
-            duration: "106 دقيقة",
-            quality: "1080p",
-            description: "البرق ماكوين وصديقه المخلص ماطر يسافران حول العالم للمشاركة في سباق الجائزة الكبرى العالمي، لكنهما يكتشفان أن هناك مؤامرة جاسوسية تهدد عالم سباقات السيارات.",
-            episodes: { 1: "https://drive.google.com/file/d/1Cars2Example/preview" }
-        },
-        { 
-            id: 11, 
-            name: "Cars 3", 
-            nameAr: "سيارات 3", 
-            nameSlug: "cars-3",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/cars 3.jpeg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2017", 
-            rating: "⭐ 4.6",
-            duration: "109 دقائق",
-            quality: "1080p",
-            description: "البرق ماكوين يواجه جيلاً جديداً من سيارات السباق المتطورة. بعد حادث مروع، يتعاون مع مدربة جديدة ليثبت أنه لا يزال قادراً على المنافسة.",
-            episodes: { 1: "https://drive.google.com/file/d/1Cars3Example/preview" }
-        },
-        { 
-            id: 12, 
-            name: "Cars 4", 
-            nameAr: "سيارات 4", 
-            nameSlug: "cars-4",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/cars 4.jpg", 
-            isNew: true, 
-            comingSoon: true,
-            year: "2025", 
-            rating: "⭐ قريباً",
-            duration: "غير محدد",
-            quality: "قريباً",
-            description: "الجزء الرابع المنتظر من سلسلة سيارات - قريباً على كرتون فور يو.",
-            episodes: {}
-        },
+        // أفلام Cars
+        { id: 9, name: "Cars 1", nameAr: "سيارات 1", nameSlug: "cars-1", type: "movie", category: "cartoon", img: "images/cars 1.jpg", isNew: true, year: "2006", rating: "⭐ 4.7", duration: "117 دقيقة", quality: "1080p", description: "فيلم كرتون مغامرات سيارات السباق من إنتاج Pixar. قصة البرق ماكوين، سيارة سباق شابة وموهوبة تتوه في طريقها إلى سباق البطولة وتتعلم أن الحياة ليست مجرد سرعة وجوائز، بل الأصدقاء والعائلة.", episodes: { 1: "https://drive.google.com/file/d/1Cars1Example/preview" } },
+        { id: 10, name: "Cars 2", nameAr: "سيارات 2", nameSlug: "cars-2", type: "movie", category: "cartoon", img: "images/cars 2.jpg", isNew: true, year: "2011", rating: "⭐ 4.5", duration: "106 دقيقة", quality: "1080p", description: "البرق ماكوين وصديقه المخلص ماطر يسافران حول العالم للمشاركة في سباق الجائزة الكبرى العالمي، لكنهما يكتشفان أن هناك مؤامرة جاسوسية تهدد عالم سباقات السيارات.", episodes: { 1: "https://drive.google.com/file/d/1Cars2Example/preview" } },
+        { id: 11, name: "Cars 3", nameAr: "سيارات 3", nameSlug: "cars-3", type: "movie", category: "cartoon", img: "images/cars 3.jpeg", isNew: true, year: "2017", rating: "⭐ 4.6", duration: "109 دقائق", quality: "1080p", description: "البرق ماكوين يواجه جيلاً جديداً من سيارات السباق المتطورة. بعد حادث مروع، يتعاون مع مدربة جديدة ليثبت أنه لا يزال قادراً على المنافسة.", episodes: { 1: "https://drive.google.com/file/d/1Cars3Example/preview" } },
+        { id: 12, name: "Cars 4", nameAr: "سيارات 4", nameSlug: "cars-4", type: "movie", category: "cartoon", img: "images/cars 4.jpg", isNew: true, comingSoon: true, year: "2025", rating: "⭐ قريباً", duration: "غير محدد", quality: "قريباً", description: "الجزء الرابع المنتظر من سلسلة سيارات - قريباً على كرتون فور يو.", episodes: {} },
         
-        // ========== أفلام Toy Story ==========
-        { 
-            id: 13, 
-            name: "Toy Story 1", 
-            nameAr: "حكاية لعبة 1", 
-            nameSlug: "toy-story-1",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/toy story 1.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "1995", 
-            rating: "⭐ 4.9",
-            duration: "81 دقيقة",
-            quality: "1080p",
-            description: "الفيلم الكلاسيكي الرائع من إنتاج Pixar. قصة راعي البقر وودي ورائد الفضاء باز لايتيير، وكيف يتعلمون التعاون عندما تُسرق الألعاب من قبل جارهم الشرير.",
-            episodes: { 1: "https://drive.google.com/file/d/1ToyStory1Example/preview" }
-        },
-        { 
-            id: 14, 
-            name: "Toy Story 2", 
-            nameAr: "حكاية لعبة 2", 
-            nameSlug: "toy-story-2",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/toy story 2.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "1999", 
-            rating: "⭐ 4.8",
-            duration: "92 دقيقة",
-            quality: "1080p",
-            description: "وودي يتم اختطافه على يد جامع ألعاب، ويقوم باز وأصدقاؤه بخوض مغامرة مثيرة لإنقاذه قبل أن يتم بيعه إلى متحف في اليابان.",
-            episodes: { 1: "https://drive.google.com/file/d/1ToyStory2Example/preview" }
-        },
-        { 
-            id: 15, 
-            name: "Toy Story 3", 
-            nameAr: "حكاية لعبة 3", 
-            nameSlug: "toy-story-3",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/toy story 3.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2010", 
-            rating: "⭐ 4.9",
-            duration: "103 دقائق",
-            quality: "1080p",
-            description: "آندي يكبر ويستعد للذهاب إلى الجامعة، والألعاب تواجه مصيرها في الحضانة. قصة مؤثرة عن الصداقة والولاء.",
-            episodes: { 1: "https://drive.google.com/file/d/1ToyStory3Example/preview" }
-        },
-        { 
-            id: 16, 
-            name: "Toy Story 4", 
-            nameAr: "حكاية لعبة 4", 
-            nameSlug: "toy-story-4",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/toy story 4.jpeg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2019", 
-            rating: "⭐ 4.7",
-            duration: "100 دقيقة",
-            quality: "1080p",
-            description: "وودي وباز يخوضان مغامرة جديدة مع لعبة جديدة تُدعى فوركي، ويكتشفان معنى جديداً للحياة كألعاب.",
-            episodes: { 1: "https://drive.google.com/file/d/1ToyStory4Example/preview" }
-        },
+        // أفلام Toy Story
+        { id: 13, name: "Toy Story 1", nameAr: "حكاية لعبة 1", nameSlug: "toy-story-1", type: "movie", category: "cartoon", img: "images/toy story 1.jpg", isNew: true, year: "1995", rating: "⭐ 4.9", duration: "81 دقيقة", quality: "1080p", description: "الفيلم الكلاسيكي الرائع من إنتاج Pixar. قصة راعي البقر وودي ورائد الفضاء باز لايتيير، وكيف يتعلمون التعاون عندما تُسرق الألعاب من قبل جارهم الشرير.", episodes: { 1: "https://drive.google.com/file/d/1ToyStory1Example/preview" } },
+        { id: 14, name: "Toy Story 2", nameAr: "حكاية لعبة 2", nameSlug: "toy-story-2", type: "movie", category: "cartoon", img: "images/toy story 2.jpg", isNew: true, year: "1999", rating: "⭐ 4.8", duration: "92 دقيقة", quality: "1080p", description: "وودي يتم اختطافه على يد جامع ألعاب، ويقوم باز وأصدقاؤه بخوض مغامرة مثيرة لإنقاذه قبل أن يتم بيعه إلى متحف في اليابان.", episodes: { 1: "https://drive.google.com/file/d/1ToyStory2Example/preview" } },
+        { id: 15, name: "Toy Story 3", nameAr: "حكاية لعبة 3", nameSlug: "toy-story-3", type: "movie", category: "cartoon", img: "images/toy story 3.jpg", isNew: true, year: "2010", rating: "⭐ 4.9", duration: "103 دقائق", quality: "1080p", description: "آندي يكبر ويستعد للذهاب إلى الجامعة، والألعاب تواجه مصيرها في الحضانة. قصة مؤثرة عن الصداقة والولاء.", episodes: { 1: "https://drive.google.com/file/d/1ToyStory3Example/preview" } },
+        { id: 16, name: "Toy Story 4", nameAr: "حكاية لعبة 4", nameSlug: "toy-story-4", type: "movie", category: "cartoon", img: "images/toy story 4.jpeg", isNew: true, year: "2019", rating: "⭐ 4.7", duration: "100 دقيقة", quality: "1080p", description: "وودي وباز يخوضان مغامرة جديدة مع لعبة جديدة تُدعى فوركي، ويكتشفان معنى جديداً للحياة كألعاب.", episodes: { 1: "https://drive.google.com/file/d/1ToyStory4Example/preview" } },
         
-        // ========== أفلام Kung Fu Panda ==========
-        { 
-            id: 17, 
-            name: "Kung Fu Panda 1", 
-            nameAr: "كونغ فو باندا 1", 
-            nameSlug: "kung-fu-panda-1",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/kung fu panda 1.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2008", 
-            rating: "⭐ 4.8",
-            duration: "92 دقيقة",
-            quality: "1080p",
-            description: "قصة الباندا بو، العامل في مطعم النودلز، الذي يتحقق حلمه بأن يصبح محارب كونغ فو أسطوري عندما يتم اختياره بشكل غير متوقع ليكون التنين المحارب.",
-            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda1Example/preview" }
-        },
-        { 
-            id: 18, 
-            name: "Kung Fu Panda 2", 
-            nameAr: "كونغ فو باندا 2", 
-            nameSlug: "kung-fu-panda-2",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/kung fu panda 2.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2011", 
-            rating: "⭐ 4.7",
-            duration: "90 دقيقة",
-            quality: "1080p",
-            description: "بو يواجه شريراً جديداً هو شين الذي يهدد السلام في وادي السلام. بو يكتشف أسرار ماضيه ويتعلم أن مفتاح القوة الحقيقية هو السلام الداخلي.",
-            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda2Example/preview" }
-        },
-        { 
-            id: 19, 
-            name: "Kung Fu Panda 3", 
-            nameAr: "كونغ فو باندا 3", 
-            nameSlug: "kung-fu-panda-3",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/kung fu panda 3.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2016", 
-            rating: "⭐ 4.6",
-            duration: "95 دقيقة",
-            quality: "1080p",
-            description: "بو يجتمع مع والده الحقيقي ويواجه كاي، المحارب الروحي الشرير الذي هزم جميع أساتذة الكونغ فو في عالم الأرواح.",
-            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda3Example/preview" }
-        },
-        { 
-            id: 20, 
-            name: "Kung Fu Panda 4", 
-            nameAr: "كونغ فو باندا 4", 
-            nameSlug: "kung-fu-panda-4",
-            type: "movie", 
-            category: "cartoon", 
-            img: "images/kung fu panda 4.jpg", 
-            isNew: true, 
-            comingSoon: false,
-            year: "2024", 
-            rating: "⭐ 4.5",
-            duration: "94 دقيقة",
-            quality: "1080p",
-            description: "المحارب الأسطوري بو يواجه تحدياً جديداً في مغامرة شيقة. بو يتعلم مهارات جديدة ويواجه أعداء أقوى من أي وقت مضى.",
-            episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda4Example/preview" }
-        }
+        // أفلام Kung Fu Panda
+        { id: 17, name: "Kung Fu Panda 1", nameAr: "كونغ فو باندا 1", nameSlug: "kung-fu-panda-1", type: "movie", category: "cartoon", img: "images/kung fu panda 1.jpg", isNew: true, year: "2008", rating: "⭐ 4.8", duration: "92 دقيقة", quality: "1080p", description: "قصة الباندا بو، العامل في مطعم النودلز، الذي يتحقق حلمه بأن يصبح محارب كونغ فو أسطوري عندما يتم اختياره بشكل غير متوقع ليكون التنين المحارب.", episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda1Example/preview" } },
+        { id: 18, name: "Kung Fu Panda 2", nameAr: "كونغ فو باندا 2", nameSlug: "kung-fu-panda-2", type: "movie", category: "cartoon", img: "images/kung fu panda 2.jpg", isNew: true, year: "2011", rating: "⭐ 4.7", duration: "90 دقيقة", quality: "1080p", description: "بو يواجه شريراً جديداً هو شين الذي يهدد السلام في وادي السلام. بو يكتشف أسرار ماضيه ويتعلم أن مفتاح القوة الحقيقية هو السلام الداخلي.", episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda2Example/preview" } },
+        { id: 19, name: "Kung Fu Panda 3", nameAr: "كونغ فو باندا 3", nameSlug: "kung-fu-panda-3", type: "movie", category: "cartoon", img: "images/kung fu panda 3.jpg", isNew: true, year: "2016", rating: "⭐ 4.6", duration: "95 دقيقة", quality: "1080p", description: "بو يجتمع مع والده الحقيقي ويواجه كاي، المحارب الروحي الشرير الذي هزم جميع أساتذة الكونغ فو في عالم الأرواح.", episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda3Example/preview" } },
+        { id: 20, name: "Kung Fu Panda 4", nameAr: "كونغ فو باندا 4", nameSlug: "kung-fu-panda-4", type: "movie", category: "cartoon", img: "images/kung fu panda 4.jpg", isNew: true, comingSoon: false, year: "2024", rating: "⭐ 4.5", duration: "94 دقيقة", quality: "1080p", description: "المحارب الأسطوري بو يواجه تحدياً جديداً في مغامرة شيقة. بو يتعلم مهارات جديدة ويواجه أعداء أقوى من أي وقت مضى.", episodes: { 1: "https://drive.google.com/file/d/1KungFuPanda4Example/preview" } }
     ];
 
-    // دالة للبحث عن المسلسل/الفيلم (بالرقم أو بالاسم)
     function findShow() {
         const urlParams = new URLSearchParams(window.location.search);
-        
-        // محاولة جلب id
         let showId = urlParams.get('id');
-        if (showId !== null) {
-            let found = cartoons.find(c => c.id === parseInt(showId));
-            if (found) return found;
-        }
-        
-        // محاولة جلب name (slug)
+        if (showId !== null) return cartoons.find(c => c.id === parseInt(showId));
         let showName = urlParams.get('name');
         if (showName !== null) {
             let found = cartoons.find(c => c.nameSlug === showName.toLowerCase());
@@ -1192,7 +741,6 @@
             found = cartoons.find(c => c.nameAr.toLowerCase() === showName.toLowerCase());
             if (found) return found;
         }
-        
         return null;
     }
 
@@ -1201,43 +749,23 @@
 
     const show = findShow();
 
-    // تحديث SEO Tags حسب المسلسل/الفيلم
     function updateSEOTags(show) {
         if (!show) return;
-        
         const siteUrl = "https://cartoonforyou.github.io/";
         const pageUrl = siteUrl + "watch.html?name=" + show.nameSlug;
-        
         document.title = `${show.name} | كرتون فور يو - مشاهدة ${show.name} اونلاين بجودة عالية`;
-        const titleElement = document.getElementById('pageTitle');
-        if (titleElement) titleElement.innerHTML = `${show.name} | كرتون فور يو`;
-        
+        document.querySelector('title').innerHTML = `${show.name} | كرتون فور يو`;
         const metaDesc = `مشاهدة ${show.name} (${show.nameAr}) اونلاين بجودة ${show.quality} - ${show.description.substring(0, 150)}`;
-        const metaDescElement = document.getElementById('metaDescription');
-        if (metaDescElement) metaDescElement.setAttribute('content', metaDesc);
-        
-        const metaKeywords = `${show.name}, ${show.nameAr}, ${show.nameSlug}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو, cartoon for you`;
-        const metaKeywordsElement = document.getElementById('metaKeywords');
-        if (metaKeywordsElement) metaKeywordsElement.setAttribute('content', metaKeywords);
-        
-        const ogTitleElement = document.getElementById('ogTitle');
-        if (ogTitleElement) ogTitleElement.setAttribute('content', `${show.name} | كرتون فور يو`);
-        const ogDescElement = document.getElementById('ogDescription');
-        if (ogDescElement) ogDescElement.setAttribute('content', metaDesc);
-        const ogImageElement = document.getElementById('ogImage');
-        if (ogImageElement) ogImageElement.setAttribute('content', siteUrl + show.img);
-        const ogUrlElement = document.getElementById('ogUrl');
-        if (ogUrlElement) ogUrlElement.setAttribute('content', pageUrl);
-        
-        const twitterTitleElement = document.getElementById('twitterTitle');
-        if (twitterTitleElement) twitterTitleElement.setAttribute('content', `${show.name} | كرتون فور يو`);
-        const twitterDescElement = document.getElementById('twitterDescription');
-        if (twitterDescElement) twitterDescElement.setAttribute('content', metaDesc);
-        const twitterImageElement = document.getElementById('twitterImage');
-        if (twitterImageElement) twitterImageElement.setAttribute('content', siteUrl + show.img);
-        
-        const canonicalElement = document.getElementById('canonicalLink');
-        if (canonicalElement) canonicalElement.setAttribute('href', pageUrl);
+        document.querySelector('meta[name="description"]').setAttribute('content', metaDesc);
+        document.querySelector('meta[name="keywords"]').setAttribute('content', `${show.name}, ${show.nameAr}, ${show.nameSlug}, مشاهدة ${show.name}, كرتون, انمي, كرتون فور يو`);
+        document.querySelector('meta[property="og:title"]').setAttribute('content', `${show.name} | كرتون فور يو`);
+        document.querySelector('meta[property="og:description"]').setAttribute('content', metaDesc);
+        document.querySelector('meta[property="og:image"]').setAttribute('content', siteUrl + show.img);
+        document.querySelector('meta[property="og:url"]').setAttribute('content', pageUrl);
+        document.querySelector('meta[name="twitter:title"]').setAttribute('content', `${show.name} | كرتون فور يو`);
+        document.querySelector('meta[name="twitter:description"]').setAttribute('content', metaDesc);
+        document.querySelector('meta[name="twitter:image"]').setAttribute('content', siteUrl + show.img);
+        document.querySelector('link[rel="canonical"]').setAttribute('href', pageUrl);
         
         const structuredData = {
             "@context": "https://schema.org",
@@ -1249,27 +777,20 @@
             "url": pageUrl,
             "contentRating": "PG",
             "genre": "Animation, Family",
-            "datePublished": show.year
+            "datePublished": show.year,
+            "aggregateRating": { "@type": "AggregateRating", "ratingValue": parseFloat(show.rating.split(" ")[1]) || 4.5, "bestRating": "5", "worstRating": "1", "ratingCount": "150" }
         };
-        const structuredDataElement = document.getElementById('structuredData');
-        if (structuredDataElement) structuredDataElement.innerHTML = JSON.stringify(structuredData);
+        document.getElementById('structuredData').innerHTML = JSON.stringify(structuredData);
     }
 
     function renderPage() {
-        if (!show) {
-            window.location.href = 'index.html';
-            return;
-        }
-
+        if (!show) { window.location.href = 'index.html'; return; }
         updateSEOTags(show);
 
-        // إذا كان الفيلم قادماً (coming soon)
         if (show.comingSoon === true) {
             const html = `
                 <div class="hero-card">
-                    <div class="hero-image">
-                        <img src="${show.img}" alt="${show.name}">
-                    </div>
+                    <div class="hero-image"><img src="${show.img}" alt="${show.name}"></div>
                     <div class="hero-info">
                         <h1 class="hero-title">${show.name}</h1>
                         <div class="hero-meta">
@@ -1279,36 +800,18 @@
                             <span><i class="fas fa-star"></i> ${show.rating}</span>
                         </div>
                         <p class="hero-description">${show.description}</p>
-                        <div class="hero-stats">
-                            <div class="stat"><i class="fas fa-clock"></i> المدة: ${show.duration}</div>
-                            <div class="stat"><i class="fas fa-hd"></i> الجودة: ${show.quality}</div>
-                        </div>
+                        <div class="hero-stats"><div class="stat"><i class="fas fa-clock"></i> المدة: ${show.duration}</div><div class="stat"><i class="fas fa-hd"></i> الجودة: ${show.quality}</div></div>
                     </div>
                 </div>
                 <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-description"></div></div>
-                <div class="player-section">
-                    <div class="player-wrapper">
-                        <div class="coming-soon-message">
-                            <i class="fas fa-clock"></i>
-                            <h2>🔜 قريباً</h2>
-                            <p>هذا الفيلم سيتم إضافته قريباً إلى كرتون فور يو</p>
-                        </div>
-                    </div>
-                </div>
+                <div class="player-section"><div class="player-wrapper"><div class="coming-soon-message"><i class="fas fa-clock"></i><h2>🔜 قريباً</h2><p>هذا الفيلم سيتم إضافته قريباً إلى كرتون فور يو</p></div></div></div>
                 <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-player"></div></div>
-                <div class="related-section">
-                    <div class="related-header"><h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3></div>
-                    <div class="ad-container" style="margin-bottom: 20px;"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-in-related"></div></div>
-                    <div class="related-grid" id="relatedGrid"></div>
-                </div>
+                <div class="related-section"><div class="related-header"><h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3></div><div class="ad-container" style="margin-bottom:20px"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-in-related"></div></div><div class="related-grid" id="relatedGrid"></div></div>
             `;
             document.getElementById('mainContent').innerHTML = html;
-            
             const relatedGrid = document.getElementById('relatedGrid');
-            const relatedShows = cartoons.filter(c => c.id !== show.id && c.comingSoon !== true).slice(0, 6);
-            relatedShows.forEach(related => {
-                const card = document.createElement('div');
-                card.className = 'related-card';
+            cartoons.filter(c => c.id !== show.id && !c.comingSoon).slice(0, 6).forEach(related => {
+                const card = document.createElement('div'); card.className = 'related-card';
                 card.innerHTML = `<img src="${related.img}" alt="${related.name}"><h4>${related.name}</h4>`;
                 card.onclick = () => window.location.href = `watch.html?name=${related.nameSlug}`;
                 relatedGrid.appendChild(card);
@@ -1316,15 +819,12 @@
             return;
         }
 
-        // للعروض والأفلام العادية
         const episodes = show.episodes || {};
         const episodeNumbers = Object.keys(episodes).map(Number).sort((a,b) => a - b);
         
-        const html = `
+        let html = `
             <div class="hero-card">
-                <div class="hero-image">
-                    <img src="${show.img}" alt="${show.name}">
-                </div>
+                <div class="hero-image"><img src="${show.img}" alt="${show.name}" loading="eager"></div>
                 <div class="hero-info">
                     <h1 class="hero-title">${show.name}</h1>
                     <div class="hero-meta">
@@ -1342,77 +842,39 @@
                 </div>
             </div>
             <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-description"></div></div>
-            <div class="player-section">
-                <div class="player-wrapper" id="videoWrapper">
-                    <div class="player-placeholder" id="videoPlaceholder">
-                        <i class="fas fa-play-circle"></i>
-                        <p>${show.type === 'movie' ? 'اضغط على التشغيل لمشاهدة الفيلم' : 'اختر حلقة من القائمة أدناه للمشاهدة'}</p>
-                    </div>
-                </div>
-            </div>
+            <div class="player-section"><div class="player-wrapper" id="videoWrapper"><div class="player-placeholder"><i class="fas fa-play-circle"></i><p>${show.type === 'movie' ? 'اضغط على التشغيل لمشاهدة الفيلم' : 'اختر حلقة من القائمة أدناه للمشاهدة'}</p></div></div></div>
             <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-under-player"></div></div>`;
         
         if (show.type === 'series') {
-            html += `
-            <div class="episodes-section">
-                <div class="episodes-header">
-                    <h3><i class="fas fa-list"></i> قائمة الحلقات</h3>
-                    <div class="episode-count"><i class="fas fa-play"></i> ${episodeNumbers.length} حلقة</div>
-                </div>
-                <div class="episodes-grid" id="episodesGrid"></div>
-            </div>`;
+            html += `<div class="episodes-section"><div class="episodes-header"><h3><i class="fas fa-list"></i> قائمة الحلقات</h3><div class="episode-count"><i class="fas fa-play"></i> ${episodeNumbers.length} حلقة</div></div><div class="episodes-grid" id="episodesGrid"></div></div>`;
         }
         
-        html += `
-            <div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-between-episodes"></div></div>
-            <div class="related-section">
-                <div class="related-header"><h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3></div>
-                <div class="ad-container" style="margin-bottom: 20px;"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-in-related"></div></div>
-                <div class="related-grid" id="relatedGrid"></div>
-            </div>
-        `;
+        html += `<div class="ad-container"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-between-episodes"></div></div>
+            <div class="related-section"><div class="related-header"><h3><i class="fas fa-fire"></i> قد يعجبك أيضاً</h3></div><div class="ad-container" style="margin-bottom:20px"><div class="ad-label">• إعلان •</div><div class="ad-banner" id="ad-in-related"></div></div><div class="related-grid" id="relatedGrid"></div></div>`;
         
         document.getElementById('mainContent').innerHTML = html;
         
         if (show.type === 'series' && episodeNumbers.length > 0) {
             const episodesGrid = document.getElementById('episodesGrid');
             episodeNumbers.forEach((epNum, index) => {
-                const card = document.createElement('div');
-                card.className = 'episode-card';
-                if (index === 0) card.classList.add('active');
-                card.innerHTML = `
-                    <div class="episode-number">الحلقة ${epNum}</div>
-                    <div class="episode-info">
-                        <h4>${show.name}</h4>
-                        <p><i class="fas fa-clock"></i> ${show.duration}</p>
-                    </div>
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                `;
-                card.onclick = () => {
-                    document.querySelectorAll('.episode-card').forEach(c => c.classList.remove('active'));
-                    card.classList.add('active');
-                    document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[epNum]}" frameborder="0" allowfullscreen></iframe>`;
-                };
+                const card = document.createElement('div'); card.className = 'episode-card' + (index === 0 ? ' active' : '');
+                card.innerHTML = `<div class="episode-number">الحلقة ${epNum}</div><div class="episode-info"><h4>${show.name}</h4><p><i class="fas fa-clock"></i> ${show.duration}</p></div><div class="play-icon"><i class="fas fa-play"></i></div>`;
+                card.onclick = () => { document.querySelectorAll('.episode-card').forEach(c => c.classList.remove('active')); card.classList.add('active'); document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[epNum]}" frameborder="0" allowfullscreen></iframe>`; };
                 episodesGrid.appendChild(card);
             });
-            if (episodes[episodeNumbers[0]]) {
-                document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[episodeNumbers[0]]}" frameborder="0" allowfullscreen></iframe>`;
-            }
+            if (episodes[episodeNumbers[0]]) document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[episodeNumbers[0]]}" frameborder="0" allowfullscreen></iframe>`;
         } else if (show.type === 'movie' && episodes[1]) {
             document.getElementById('videoWrapper').innerHTML = `<iframe src="${episodes[1]}" frameborder="0" allowfullscreen></iframe>`;
         }
         
         const relatedGrid = document.getElementById('relatedGrid');
-        const relatedShows = cartoons.filter(c => c.id !== show.id && c.comingSoon !== true).slice(0, 6);
-        relatedShows.forEach(related => {
-            const card = document.createElement('div');
-            card.className = 'related-card';
+        cartoons.filter(c => c.id !== show.id && !c.comingSoon).slice(0, 6).forEach(related => {
+            const card = document.createElement('div'); card.className = 'related-card';
             card.innerHTML = `<img src="${related.img}" alt="${related.name}"><h4>${related.name}</h4>`;
             card.onclick = () => window.location.href = `watch.html?name=${related.nameSlug}`;
             relatedGrid.appendChild(card);
         });
     }
-
     renderPage();
 </script>
 </body>
