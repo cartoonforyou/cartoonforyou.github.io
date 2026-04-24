@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
-    <title>كرتون فور يو | Cartoon for You - منصة كرتون وأنمي مجانية</title>
+    <title>كرتون فور يو | Cartoon for You - منصة كرتون وأنمي وأفلام مجانية</title>
     <meta name="description" content="كرتون فور يو - منصة مجانية تعرض أشهر برامج الكرتون والأنمي والأفلام مثل قاتل الشياطين، ساموراي جاك، عالم غامبول، سيارات، حكاية لعبة، كونغ فو باندا بجودة عالية">
-    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة, سيارت, حكاية لعبة, كونغ فو باندا, cars, toy story, kung fu panda">
+    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, أفلام كرتون, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة, سيارات, حكاية لعبة, كونغ فو باندا, cars, toy story, kung fu panda">
     <meta name="author" content="Cartoon For You">
     <meta name="robots" content="index, follow">
     
@@ -197,6 +197,7 @@
             cursor: pointer;
             font-size: 13px;
             font-weight: 600;
+            transition: var(--transition);
         }
         .category-btn:hover, .category-btn.active {
             background: var(--gold);
@@ -204,44 +205,108 @@
             transform: translateY(-2px);
         }
 
-        .hero-section { margin: 20px auto; max-width: 1400px; padding: 0 15px; }
-        .section-badge { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
-        .section-badge i { color: var(--gold); font-size: 24px; }
-        .section-badge h3 { font-size: 22px; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        /* Hero Slider Section - محسن ومتجاوب */
+        .hero-section { 
+            margin: 30px auto; 
+            max-width: 1400px; 
+            padding: 0 20px;
+        }
+        
+        .section-badge { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            margin-bottom: 20px; 
+        }
+        
+        .section-badge i { 
+            color: var(--gold); 
+            font-size: 28px; 
+            background: rgba(255,215,0,0.15);
+            padding: 10px;
+            border-radius: 50%;
+        }
+        
+        .section-badge h3 { 
+            font-size: 24px; 
+            background: var(--gradient-gold); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
         
         .slider-container {
             position: relative;
+            border-radius: 28px;
             overflow: hidden;
-            border-radius: 24px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
-        .slider { display: flex; transition: transform 0.5s ease; }
-        .slide { min-width: 100%; position: relative; cursor: pointer; aspect-ratio: 16 / 9; }
-        .slide img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide {
+            min-width: 100%;
+            position: relative;
+            cursor: pointer;
+            aspect-ratio: 16 / 9;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .slide:hover img {
+            transform: scale(1.05);
+        }
+        
         .slide-info {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-            padding: 50px 40px 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
+            padding: 60px 40px 30px;
         }
+        
         .slide-badge {
             display: inline-flex;
+            align-items: center;
+            gap: 6px;
             background: var(--gold);
             color: #000;
-            padding: 5px 15px;
+            padding: 5px 18px;
             border-radius: 30px;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: bold;
             margin-bottom: 12px;
         }
-        .slide-info h2 { font-size: 32px; color: var(--gold); margin-bottom: 8px; }
+        
+        .slide-info h2 {
+            font-size: 36px;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slide-info p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+        }
+        
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
             color: var(--gold);
             border: 2px solid var(--gold);
             width: 50px;
@@ -249,77 +314,262 @@
             border-radius: 50%;
             cursor: pointer;
             z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
         }
+        
+        .slider-btn:hover {
+            background: var(--gold);
+            color: #000;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
         .slider-prev { left: 20px; }
         .slider-next { right: 20px; }
-        .slider-dots { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
-        .dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,215,0,0.4); cursor: pointer; }
-        .dot.active { background: var(--gold); width: 30px; border-radius: 10px; }
+        
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,215,0,0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: var(--gold);
+            width: 28px;
+            border-radius: 10px;
+        }
 
         .stats-bar {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 10px 15px;
+            gap: 25px;
+            padding: 12px 20px;
             background: rgba(255,215,0,0.05);
             flex-wrap: wrap;
-            margin: 10px 15px;
-            border-radius: 50px;
+            margin: 15px 20px;
+            border-radius: 60px;
+            backdrop-filter: blur(10px);
         }
-        .stat-item { display: flex; align-items: center; gap: 8px; font-size: 13px; background: rgba(255,215,0,0.1); padding: 5px 18px; border-radius: 50px; }
-        .stat-item i { color: var(--gold); }
+        
+        .stat-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 14px; 
+            background: rgba(255,215,0,0.1); 
+            padding: 8px 22px; 
+            border-radius: 40px;
+            font-weight: 500;
+        }
+        
+        .stat-item i { color: var(--gold); font-size: 18px; }
 
         main { flex: 1; padding: 20px; max-width: 1400px; margin: 0 auto; width: 100%; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; border-bottom: 2px dashed rgba(255,215,0,0.3); padding-bottom: 10px; }
-        .section-title { font-size: 24px; font-weight: 800; background: var(--gradient-gold); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .filters-row { display: flex; gap: 10px; margin-bottom: 25px; justify-content: flex-end; }
-        .sort-select { padding: 8px 15px; border-radius: 50px; background: var(--bg-card); border: 2px solid var(--gold); color: var(--text-primary); cursor: pointer; }
+        
+        .section-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap; 
+            border-bottom: 2px dashed rgba(255,215,0,0.3); 
+            padding-bottom: 12px; 
+        }
+        
+        .section-title { 
+            font-size: 26px; 
+            font-weight: 800; 
+            background: var(--gradient-gold); 
+            -webkit-background-clip: text; 
+            background-clip: text; 
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .filters-row { display: flex; gap: 15px; margin-bottom: 25px; justify-content: flex-end; }
+        
+        .sort-select { 
+            padding: 8px 20px; 
+            border-radius: 40px; 
+            background: var(--bg-card); 
+            border: 2px solid var(--gold); 
+            color: var(--text-primary); 
+            cursor: pointer;
+            font-size: 14px;
+        }
 
         .cartoon-list {
             list-style: none;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 20px;
         }
+        
         @media (max-width: 480px) {
             .cartoon-list { grid-template-columns: repeat(2, 1fr); gap: 12px; }
         }
+        
         @media (min-width: 768px) {
-            .cartoon-list li img { height: 200px; }
-            .cartoon-list { gap: 25px; grid-template-columns: repeat(auto-fill, minmax(180px, 220px)); }
+            .cartoon-list li img { height: 220px; }
+            .cartoon-list { gap: 25px; grid-template-columns: repeat(auto-fill, minmax(190px, 220px)); }
         }
+        
         .cartoon-list li {
             background: var(--bg-card);
-            border-radius: 16px;
-            padding: 10px;
+            border-radius: 20px;
+            padding: 12px;
             text-align: center;
             transition: var(--transition);
             border: 1px solid rgba(255,215,0,0.2);
             cursor: pointer;
             position: relative;
         }
-        .cartoon-list li:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .cartoon-list li img { width: 100%; height: 160px; object-fit: cover; border-radius: 12px; border: 2px solid var(--gold); }
-        .cartoon-list li h3 { font-size: 13px; color: var(--gold); margin: 10px 0 4px; font-weight: 700; }
-        .card-category { font-size: 10px; color: var(--text-secondary); display: inline-flex; gap: 4px; padding: 3px 8px; background: rgba(255,215,0,0.12); border-radius: 50px; }
-        .new-badge { position: absolute; top: 8px; right: 8px; background: var(--gold); color: #000; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; }
-        .coming-soon-badge { position: absolute; top: 8px; right: 8px; background: #ff4444; color: #fff; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; }
+        
+        .cartoon-list li:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--gold); 
+            box-shadow: 0 15px 30px rgba(255,215,0,0.2);
+        }
+        
+        .cartoon-list li img { 
+            width: 100%; 
+            height: 180px; 
+            object-fit: cover; 
+            border-radius: 16px; 
+            border: 2px solid var(--gold);
+            transition: transform 0.3s ease;
+        }
+        
+        .cartoon-list li:hover img {
+            transform: scale(1.02);
+        }
+        
+        .cartoon-list li h3 { 
+            font-size: 14px; 
+            color: var(--gold); 
+            margin: 12px 0 5px; 
+            font-weight: 700;
+        }
+        
+        .card-category { 
+            font-size: 10px; 
+            color: var(--text-secondary); 
+            display: inline-flex; 
+            align-items: center;
+            gap: 5px; 
+            padding: 3px 10px; 
+            background: rgba(255,215,0,0.12); 
+            border-radius: 20px;
+        }
+        
+        .new-badge { 
+            position: absolute; 
+            top: 8px; 
+            right: 8px; 
+            background: var(--gold); 
+            color: #000; 
+            padding: 3px 10px; 
+            border-radius: 20px; 
+            font-size: 10px; 
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .coming-soon-badge { 
+            position: absolute; 
+            top: 8px; 
+            right: 8px; 
+            background: #ff4444; 
+            color: #fff; 
+            padding: 3px 10px; 
+            border-radius: 20px; 
+            font-size: 10px; 
+            font-weight: bold;
+            z-index: 2;
+        }
 
-        .no-results { text-align: center; padding: 40px; grid-column: 1 / -1; }
-        .back-to-top { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: var(--gold); color: #000; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; z-index: 1000; }
+        .no-results { text-align: center; padding: 50px; grid-column: 1 / -1; }
+        
+        .back-to-top { 
+            position: fixed; 
+            bottom: 25px; 
+            right: 25px; 
+            width: 48px; 
+            height: 48px; 
+            border-radius: 50%; 
+            background: var(--gold); 
+            color: #000; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            cursor: pointer; 
+            opacity: 0; 
+            visibility: hidden; 
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
         .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: scale(1.1); }
 
-        footer { background: var(--bg-secondary); padding: 25px 20px; border-top: 2px solid var(--gold); margin-top: 40px; }
-        .footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; font-size: 12px; }
-        .footer-links { display: flex; gap: 20px; }
+        footer { 
+            background: var(--bg-secondary); 
+            padding: 30px 20px; 
+            border-top: 2px solid var(--gold); 
+            margin-top: 50px; 
+        }
+        
+        .footer-content { 
+            max-width: 1400px; 
+            margin: 0 auto; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            font-size: 13px; 
+        }
+        
+        .footer-links { display: flex; gap: 25px; }
         .footer-links a { color: var(--text-secondary); text-decoration: none; transition: 0.3s; }
         .footer-links a:hover { color: var(--gold); }
 
+        @media (max-width: 1024px) {
+            .slide-info h2 { font-size: 28px; }
+            .slide-info { padding: 40px 30px 20px; }
+        }
+        
         @media (max-width: 768px) {
-            .slide-info { padding: 20px; }
+            .slide-info { padding: 25px 20px 15px; }
             .slide-info h2 { font-size: 18px; }
+            .slide-info p { font-size: 12px; }
+            .slide-badge { font-size: 10px; padding: 3px 12px; }
             .slider-btn { width: 35px; height: 35px; font-size: 14px; }
             .nav-links { display: none; }
+            .section-badge h3 { font-size: 18px; }
+            .stats-bar { gap: 10px; margin: 10px; }
+            .stat-item { padding: 5px 15px; font-size: 11px; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-section { padding: 0 10px; }
+            .slide-info h2 { font-size: 14px; }
+            .slide-info p { font-size: 10px; }
+            .slider-btn { width: 28px; height: 28px; font-size: 12px; }
+            .section-badge i { font-size: 20px; }
         }
     </style>
 </head>
@@ -415,24 +665,24 @@
 <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
 <script>
-    // ========== جميع المسلسلات والأفلام (القديمة + الجديدة) ==========
+    // ========== جميع المسلسلات والأفلام ==========
     const cartoons = [
-        // المسلسلات القديمة (9 مسلسلات)
-        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", nameSlug: "blue-lock", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم" },
-        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", nameSlug: "demon-slayer", type: "movie", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين" },
-        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", nameSlug: "gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة" },
-        { id: 3, name: "باتمان", nameAr: "Batman", nameSlug: "batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام" },
-        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", nameSlug: "family-guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار" },
-        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", nameSlug: "samurai-jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي في المستقبل" },
-        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", nameSlug: "adventure-time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك" },
-        { id: 7, name: "البؤساء", nameAr: "Les Misérables", nameSlug: "les-miserables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة" },
-        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", nameSlug: "era-of-friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء" },
+        // المسلسلات القديمة (9)
+        { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", nameSlug: "blue-lock", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم. قصة آيساغي يويتشي الذي يسعى ليصبح أفضل مهاجم في العالم." },
+        { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", nameSlug: "demon-slayer", type: "movie", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين. قصة تانجيرو كامادو الذي يسعى لإنقاذ أخته نيزوكو." },
+        { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", nameSlug: "gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة. مغامرات غامبال واتربسون وأخيه داروين." },
+        { id: 3, name: "باتمان", nameAr: "Batman", nameSlug: "batman", type: "series", category: "cartoon", img: "images/Batman.jpg", isNew: false, year: "2022", description: "مغامرات فارس الظلام في مدينة جوثام." },
+        { id: 4, name: "فاملي غاي", nameAr: "Family Guy", nameSlug: "family-guy", type: "series", category: "cartoon", img: "images/fg.jpg", isNew: false, year: "2023", description: "كرتون كوميدي للكبار. قصة عائلة غريفين ومغامراتهم الطريفة." },
+        { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", nameSlug: "samurai-jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي جاك في المستقبل." },
+        { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", nameSlug: "adventure-time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك في أرض أوو." },
+        { id: 7, name: "البؤساء", nameAr: "Les Misérables", nameSlug: "les-miserables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة مقتبسة من رواية فيكتور هوغو." },
+        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", nameSlug: "era-of-friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء بين مجموعة من الأصدقاء." },
         
         // أفلام Cars
-        { id: 9, name: "Cars 1", nameAr: "سيارات 1", nameSlug: "cars-1", type: "movie", category: "cartoon", img: "images/cars 1.jpg", isNew: true, year: "2006", description: "فيلم كرتون مغامرات سيارات السباق. قصة البرق ماكوين الذي يتعلم أن الحياة ليست مجرد سرعة." },
-        { id: 10, name: "Cars 2", nameAr: "سيارات 2", nameSlug: "cars-2", type: "movie", category: "cartoon", img: "images/cars 2.jpg", isNew: true, year: "2011", description: "مغامرات جديدة لماكوين وصديقه ماطر في سباق عالمي جاسوسي." },
-        { id: 11, name: "Cars 3", nameAr: "سيارات 3", nameSlug: "cars-3", type: "movie", category: "cartoon", img: "images/cars 3.jpeg", isNew: true, year: "2017", description: "البرق ماكوين يواجه جيل جديد من سيارات السباق المتطورة." },
-        { id: 12, name: "Cars 4", nameAr: "سيارات 4", nameSlug: "cars-4", type: "movie", category: "cartoon", img: "images/cars 4.jpg", isNew: false, comingSoon: true, year: "2025", description: "الجزء الرابع المنتظر من سلسلة سيارات - قريباً على كرتون فور يو" },
+        { id: 9, name: "Cars 1", nameAr: "سيارات 1", nameSlug: "cars-1", type: "movie", category: "cartoon", img: "images/cars 1.jpg", isNew: true, year: "2006", description: "فيلم كرتون مغامرات سيارات السباق من إنتاج Pixar. قصة البرق ماكوين." },
+        { id: 10, name: "Cars 2", nameAr: "سيارات 2", nameSlug: "cars-2", type: "movie", category: "cartoon", img: "images/cars 2.jpg", isNew: true, year: "2011", description: "البرق ماكوين وصديقه ماطر يسافران حول العالم للمشاركة في سباق الجائزة الكبرى." },
+        { id: 11, name: "Cars 3", nameAr: "سيارات 3", nameSlug: "cars-3", type: "movie", category: "cartoon", img: "images/cars 3.jpeg", isNew: true, year: "2017", description: "البرق ماكوين يواجه جيلاً جديداً من سيارات السباق المتطورة." },
+        { id: 12, name: "Cars 4", nameAr: "سيارات 4", nameSlug: "cars-4", type: "movie", category: "cartoon", img: "images/cars 4.jpg", isNew: false, comingSoon: true, year: "2025", description: "الجزء الرابع المنتظر من سلسلة سيارات - قريباً على كرتون فور يو." },
         
         // أفلام Toy Story
         { id: 13, name: "Toy Story 1", nameAr: "حكاية لعبة 1", nameSlug: "toy-story-1", type: "movie", category: "cartoon", img: "images/toy story 1.jpg", isNew: true, year: "1995", description: "الفيلم الكلاسيكي الرائع عن حياة الألعاب عندما لا يكون البشر موجودين." },
@@ -444,13 +694,14 @@
         { id: 17, name: "Kung Fu Panda 1", nameAr: "كونغ فو باندا 1", nameSlug: "kung-fu-panda-1", type: "movie", category: "cartoon", img: "images/kung fu panda 1.jpg", isNew: true, year: "2008", description: "قصة الباندا بو الذي يصبح محارب كونغ فو أسطوري." },
         { id: 18, name: "Kung Fu Panda 2", nameAr: "كونغ فو باندا 2", nameSlug: "kung-fu-panda-2", type: "movie", category: "cartoon", img: "images/kung fu panda 2.jpg", isNew: true, year: "2011", description: "بو يواجه شريراً جديداً يهدد السلام في وادي السلام." },
         { id: 19, name: "Kung Fu Panda 3", nameAr: "كونغ فو باندا 3", nameSlug: "kung-fu-panda-3", type: "movie", category: "cartoon", img: "images/kung fu panda 3.jpg", isNew: true, year: "2016", description: "بو يجتمع مع والده الحقيقي ويواجه كاي، المحارب الروحي الشرير." },
-        { id: 20, name: "Kung Fu Panda 4", nameAr: "كونغ فو باندا 4", nameSlug: "kung-fu-panda-4", type: "movie", category: "cartoon", img: "images/kung fu panda 4.jpg", isNew: true, year: "2024", description: "المحارب الأسطوري بو يواجه تحدياً جديداً في مغامرة شيقة." }
+        { id: 20, name: "Kung Fu Panda 4", nameAr: "كونغ فو باندا 4", nameSlug: "kung-fu-panda-4", type: "movie", category: "cartoon", img: "images/kung fu panda 4.jpg", isNew: true, comingSoon: false, year: "2024", description: "المحارب الأسطوري بو يواجه تحدياً جديداً في مغامرة شيقة." }
     ];
 
-    const sliderItems = cartoons.filter(c => c.isNew === true).slice(0, 8);
+    // أحدث الإضافات (أول 8 عناصر جديدة)
+    const sliderItems = cartoons.filter(c => c.isNew === true && !c.comingSoon).slice(0, 8);
     let currentType = "all", currentSearch = "", currentSort = "default", currentSlide = 0, autoSlideInterval;
 
-    function getCategoryIcon(c) { return c === 'anime' ? '🇯🇵' : '🇺🇸🎬'; }
+    function getCategoryIcon(c) { return c === 'anime' ? '🇯🇵' : '🎬'; }
     function getCategoryName(c) { return c === 'anime' ? 'أنمي' : 'كرتون'; }
     function getTypeIcon(t) { return t === 'movie' ? '🎬 فيلم' : '📺 مسلسل'; }
 
@@ -461,9 +712,11 @@
     }
 
     function buildSlider() {
+        if (sliderItems.length === 0) return;
+        
         document.getElementById('slider').innerHTML = sliderItems.map(item => `
             <div class="slide" data-slug="${item.nameSlug}" data-coming-soon="${item.comingSoon || false}">
-                <img src="${item.img}" alt="${item.name}">
+                <img src="${item.img}" alt="${item.name}" loading="eager">
                 <div class="slide-info">
                     <span class="slide-badge"><i class="fas fa-star"></i> جديد ${item.year}</span>
                     <h2>${item.name}</h2>
@@ -471,23 +724,29 @@
                 </div>
             </div>
         `).join('');
+        
         document.querySelectorAll('.slide').forEach(slide => {
             const isComingSoon = slide.dataset.comingSoon === 'true';
             if (isComingSoon) {
-                slide.style.opacity = '0.7';
-                slide.addEventListener('click', () => alert('🔜 هذا الفيلم قريباً سيتم إضافته!'));
+                slide.addEventListener('click', () => alert('🔜 هذا العمل قريباً سيتم إضافته!'));
             } else {
                 slide.addEventListener('click', () => window.location.href = `watch.html?name=${slide.dataset.slug}`);
             }
         });
+        
         document.getElementById('sliderDots').innerHTML = sliderItems.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" data-dot-index="${i}"></div>`).join('');
         document.querySelectorAll('.dot').forEach(dot => dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.dotIndex)); resetAutoSlide(); }));
     }
 
-    function goToSlide(i) { currentSlide = i; document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`; document.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('active', idx === currentSlide)); }
+    function goToSlide(i) { 
+        currentSlide = i; 
+        document.getElementById('slider').style.transform = `translateX(-${currentSlide * 100}%)`; 
+        document.querySelectorAll('.dot').forEach((d, idx) => d.classList.toggle('active', idx === currentSlide)); 
+    }
+    
     function nextSlide() { goToSlide((currentSlide + 1) % sliderItems.length); }
     function prevSlide() { goToSlide((currentSlide - 1 + sliderItems.length) % sliderItems.length); }
-    function startAutoSlide() { autoSlideInterval = setInterval(nextSlide, 5000); }
+    function startAutoSlide() { if (autoSlideInterval) clearInterval(autoSlideInterval); autoSlideInterval = setInterval(nextSlide, 5000); }
     function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
     
     function filterAndSort() {
@@ -500,7 +759,7 @@
             <li data-slug="${item.nameSlug}" data-coming-soon="${item.comingSoon || false}">
                 ${item.isNew && !item.comingSoon ? '<span class="new-badge"><i class="fas fa-star"></i> جديد</span>' : ''}
                 ${item.comingSoon ? '<span class="coming-soon-badge"><i class="fas fa-clock"></i> قريباً</span>' : ''}
-                <img src="${item.img}" alt="${item.name}">
+                <img src="${item.img}" alt="${item.name}" loading="lazy">
                 <h3>${item.name}</h3>
                 <div class="card-category">${getCategoryIcon(item.category)} ${getCategoryName(item.category)} • ${getTypeIcon(item.type)}</div>
             </li>
@@ -509,7 +768,7 @@
         document.querySelectorAll('.cartoon-list li').forEach(li => {
             const isComingSoon = li.dataset.comingSoon === 'true';
             if (isComingSoon) {
-                li.addEventListener('click', () => alert('🔜 هذا الفيلم قريباً سيتم إضافته!'));
+                li.addEventListener('click', () => alert('🔜 هذا العمل قريباً سيتم إضافته!'));
             } else {
                 li.addEventListener('click', () => window.location.href = `watch.html?name=${li.dataset.slug}`);
             }
@@ -517,15 +776,21 @@
         document.getElementById('resultCount').innerText = `عرض ${filtered.length} من ${cartoons.length} عنوان`;
     }
 
+    // Event Listeners
     document.getElementById('searchInput').addEventListener('input', (e) => { currentSearch = e.target.value; document.getElementById('clearSearch').style.display = currentSearch ? 'flex' : 'none'; filterAndSort(); });
     document.getElementById('clearSearch').addEventListener('click', () => { document.getElementById('searchInput').value = ''; currentSearch = ''; document.getElementById('clearSearch').style.display = 'none'; filterAndSort(); });
     document.querySelectorAll('.category-btn').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); currentType = btn.dataset.category; filterAndSort(); }));
     document.getElementById('sortSelect').addEventListener('change', (e) => { currentSort = e.target.value; filterAndSort(); });
     document.getElementById('sliderPrev').addEventListener('click', () => { prevSlide(); resetAutoSlide(); });
     document.getElementById('sliderNext').addEventListener('click', () => { nextSlide(); resetAutoSlide(); });
-    document.querySelector('.slider-container').addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-    document.querySelector('.slider-container').addEventListener('mouseleave', startAutoSlide);
     
+    const sliderContainer = document.querySelector('.slider-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+    
+    // Dark Mode
     document.getElementById('darkModeToggle').addEventListener('click', () => {
         document.body.classList.toggle('light-mode');
         const icon = document.getElementById('darkModeToggle').querySelector('i');
@@ -535,10 +800,18 @@
     });
     if (localStorage.getItem('darkMode') === 'true') document.body.classList.add('light-mode');
     
+    // Back to Top
     window.addEventListener('scroll', () => document.getElementById('backToTop').classList.toggle('show', window.scrollY > 300));
     document.getElementById('backToTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     
-    window.addEventListener('load', () => { document.body.classList.add('loaded'); updateStats(); buildSlider(); startAutoSlide(); filterAndSort(); });
+    // Page Load
+    window.addEventListener('load', () => { 
+        document.body.classList.add('loaded'); 
+        updateStats(); 
+        buildSlider(); 
+        startAutoSlide(); 
+        filterAndSort(); 
+    });
 </script>
 </body>
 </html>
