@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <title>كرتون فور يو | Cartoon for You - منصة كرتون وأنمي مجانية</title>
-    <meta name="description" content="كرتون فور يو - منصة مجانية تعرض أشهر برامج الكرتون والأنمي مثل قاتل الشياطين، ساموراي جاك، عالم غامبول، وقت المغامرة بجودة عالية">
-    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة, بلو لوك, باتمان, فاملي غاي, البؤساء, عهد الأصدقاء">
+    <meta name="description" content="كرتون فور يو - منصة مجانية تعرض أشهر برامج الكرتون والأنمي والأفلام مثل قاتل الشياطين، ساموراي جاك، عالم غامبول، سيارات، حكاية لعبة، كونغ فو باندا بجودة عالية">
+    <meta name="keywords" content="كرتون فور يو, cartoon for you, كرتون, انمي, قاتل الشياطين, ساموراي جاك, عالم غامبول, وقت المغامرة, سيارت, حكاية لعبة, كونغ فو باندا, cars, toy story, kung fu panda">
     <meta name="author" content="Cartoon For You">
     <meta name="robots" content="index, follow">
     
     <meta property="og:title" content="كرتون فور يو | Cartoon for You">
-    <meta property="og:description" content="منصة مجانية للكرتون والأنمي - تصفح واستمتع بأحدث المسلسلات">
+    <meta property="og:description" content="منصة مجانية للكرتون والأنمي والأفلام - تصفح واستمتع بأحدث المسلسلات والأفلام">
     <meta property="og:image" content="images/cartoon_for_you_gold.webp">
     <meta property="og:url" content="https://cartoonforyou.github.io/">
     <meta property="og:type" content="website">
     
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="كرتون فور يو | Cartoon for You">
-    <meta name="twitter:description" content="منصة مجانية للكرتون والأنمي">
+    <meta name="twitter:description" content="منصة مجانية للكرتون والأنمي والأفلام">
     <meta name="twitter:image" content="images/cartoon_for_you_gold.webp">
     
     <link rel="icon" type="image/webp" href="images/ic.webp">
@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- ========== جميع أكواد الإعلانات ========== -->
+    <!-- جميع أكواد الإعلانات -->
     <script src="https://quge5.com/88/tag.min.js" data-zone="228033" async data-cfasync="false"></script>
     <script>(function(s){s.dataset.zone='10853973',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
     <script src="//madurird.com/tag.min.js" data-zone="9750167" data-cfasync="false" async onerror="_jwmvdmhp()" onload="_lruauoxg()"></script>
@@ -303,6 +303,7 @@
         .cartoon-list li h3 { font-size: 13px; color: var(--gold); margin: 10px 0 4px; font-weight: 700; }
         .card-category { font-size: 10px; color: var(--text-secondary); display: inline-flex; gap: 4px; padding: 3px 8px; background: rgba(255,215,0,0.12); border-radius: 50px; }
         .new-badge { position: absolute; top: 8px; right: 8px; background: var(--gold); color: #000; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; }
+        .coming-soon-badge { position: absolute; top: 8px; right: 8px; background: #ff4444; color: #fff; padding: 3px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; }
 
         .no-results { text-align: center; padding: 40px; grid-column: 1 / -1; }
         .back-to-top { position: fixed; bottom: 20px; right: 20px; width: 45px; height: 45px; border-radius: 50%; background: var(--gold); color: #000; display: flex; align-items: center; justify-content: center; cursor: pointer; opacity: 0; visibility: hidden; z-index: 1000; }
@@ -378,13 +379,13 @@
 
 <div class="stats-bar">
     <div class="stat-item"><i class="fas fa-film"></i> <span id="totalCount">0</span> عنوان</div>
-    <div class="stat-item"><i class="fas fa-star"></i> <span id="animeCount">0</span> أنمي</div>
+    <div class="stat-item"><i class="fas fa-star"></i> <span id="animeCount">0</span> أنمي وكرتون</div>
     <div class="stat-item"><i class="fas fa-calendar"></i> <span id="lastUpdate"></span></div>
 </div>
 
 <main>
     <div class="section-header">
-        <h2 class="section-title"><i class="fas fa-list"></i> جميع المسلسلات</h2>
+        <h2 class="section-title"><i class="fas fa-list"></i> جميع المسلسلات والأفلام</h2>
         <div class="result-count" id="resultCount"></div>
     </div>
     <div class="filters-row">
@@ -414,8 +415,9 @@
 <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
 <script>
-    // ========== بيانات المسلسلات مع slugs للروابط المحسنة SEO ==========
+    // ========== جميع المسلسلات والأفلام (القديمة + الجديدة) ==========
     const cartoons = [
+        // المسلسلات القديمة (9 مسلسلات)
         { id: 0, name: "BLUE LOCK", nameAr: "بلو لوك", nameSlug: "blue-lock", type: "series", category: "anime", img: "images/blue.jpg", isNew: true, year: "2024", description: "أنمي رياضي مثير عن كرة القدم" },
         { id: 1, name: "قاتل الشياطين", nameAr: "Demon Slayer", nameSlug: "demon-slayer", type: "movie", category: "anime", img: "images/قاتل.jpg", isNew: true, year: "2024", description: "أنمي أكشن خارق عن محاربة الشياطين" },
         { id: 2, name: "عالم غامبول المدهش", nameAr: "Gumball", nameSlug: "gumball", type: "series", category: "cartoon", img: "images/g.jpg", isNew: false, year: "2023", description: "كرتون كوميدي ممتع للعائلة" },
@@ -424,25 +426,43 @@
         { id: 5, name: "ساموراي جاك", nameAr: "Samurai Jack", nameSlug: "samurai-jack", type: "series", category: "cartoon", img: "images/sj.jpg", isNew: false, year: "2022", description: "مغامرات الساموراي في المستقبل" },
         { id: 6, name: "وقت المغامرة", nameAr: "Adventure Time", nameSlug: "adventure-time", type: "series", category: "cartoon", img: "images/وقت%20المغامرة.jpg", isNew: false, year: "2023", description: "مغامرات فيني وجيك" },
         { id: 7, name: "البؤساء", nameAr: "Les Misérables", nameSlug: "les-miserables", type: "series", category: "anime", img: "images/مسلسل%20البؤساء.jpg", isNew: false, year: "2021", description: "قصة درامية مؤثرة" },
-        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", nameSlug: "era-of-friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء" }
+        { id: 8, name: "عهد الأصدقاء", nameAr: "The Era of Friends", nameSlug: "era-of-friends", type: "series", category: "anime", img: "images/عهد%20الاصدقاء.jpg", isNew: false, year: "2022", description: "قصة صداقة ووفاء" },
+        
+        // أفلام Cars
+        { id: 9, name: "Cars 1", nameAr: "سيارات 1", nameSlug: "cars-1", type: "movie", category: "cartoon", img: "images/cars 1.jpg", isNew: true, year: "2006", description: "فيلم كرتون مغامرات سيارات السباق. قصة البرق ماكوين الذي يتعلم أن الحياة ليست مجرد سرعة." },
+        { id: 10, name: "Cars 2", nameAr: "سيارات 2", nameSlug: "cars-2", type: "movie", category: "cartoon", img: "images/cars 2.jpg", isNew: true, year: "2011", description: "مغامرات جديدة لماكوين وصديقه ماطر في سباق عالمي جاسوسي." },
+        { id: 11, name: "Cars 3", nameAr: "سيارات 3", nameSlug: "cars-3", type: "movie", category: "cartoon", img: "images/cars 3.jpeg", isNew: true, year: "2017", description: "البرق ماكوين يواجه جيل جديد من سيارات السباق المتطورة." },
+        { id: 12, name: "Cars 4", nameAr: "سيارات 4", nameSlug: "cars-4", type: "movie", category: "cartoon", img: "images/cars 4.jpg", isNew: false, comingSoon: true, year: "2025", description: "الجزء الرابع المنتظر من سلسلة سيارات - قريباً على كرتون فور يو" },
+        
+        // أفلام Toy Story
+        { id: 13, name: "Toy Story 1", nameAr: "حكاية لعبة 1", nameSlug: "toy-story-1", type: "movie", category: "cartoon", img: "images/toy story 1.jpg", isNew: true, year: "1995", description: "الفيلم الكلاسيكي الرائع عن حياة الألعاب عندما لا يكون البشر موجودين." },
+        { id: 14, name: "Toy Story 2", nameAr: "حكاية لعبة 2", nameSlug: "toy-story-2", type: "movie", category: "cartoon", img: "images/toy story 2.jpg", isNew: true, year: "1999", description: "وودي يتم اختطافه على يد جامع ألعاب، وباز يذهب لإنقاذه." },
+        { id: 15, name: "Toy Story 3", nameAr: "حكاية لعبة 3", nameSlug: "toy-story-3", type: "movie", category: "cartoon", img: "images/toy story 3.jpg", isNew: true, year: "2010", description: "آندي يكبر والألعاب تواجه مصيرها في الحضانة." },
+        { id: 16, name: "Toy Story 4", nameAr: "حكاية لعبة 4", nameSlug: "toy-story-4", type: "movie", category: "cartoon", img: "images/toy story 4.jpeg", isNew: true, year: "2019", description: "وودي وباز يخوضان مغامرة جديدة مع لعبة جديدة تدعى فوركي." },
+        
+        // أفلام Kung Fu Panda
+        { id: 17, name: "Kung Fu Panda 1", nameAr: "كونغ فو باندا 1", nameSlug: "kung-fu-panda-1", type: "movie", category: "cartoon", img: "images/kung fu panda 1.jpg", isNew: true, year: "2008", description: "قصة الباندا بو الذي يصبح محارب كونغ فو أسطوري." },
+        { id: 18, name: "Kung Fu Panda 2", nameAr: "كونغ فو باندا 2", nameSlug: "kung-fu-panda-2", type: "movie", category: "cartoon", img: "images/kung fu panda 2.jpg", isNew: true, year: "2011", description: "بو يواجه شريراً جديداً يهدد السلام في وادي السلام." },
+        { id: 19, name: "Kung Fu Panda 3", nameAr: "كونغ فو باندا 3", nameSlug: "kung-fu-panda-3", type: "movie", category: "cartoon", img: "images/kung fu panda 3.jpg", isNew: true, year: "2016", description: "بو يجتمع مع والده الحقيقي ويواجه كاي، المحارب الروحي الشرير." },
+        { id: 20, name: "Kung Fu Panda 4", nameAr: "كونغ فو باندا 4", nameSlug: "kung-fu-panda-4", type: "movie", category: "cartoon", img: "images/kung fu panda 4.jpg", isNew: true, year: "2024", description: "المحارب الأسطوري بو يواجه تحدياً جديداً في مغامرة شيقة." }
     ];
 
-    const sliderItems = cartoons.filter(c => c.isNew);
+    const sliderItems = cartoons.filter(c => c.isNew === true).slice(0, 8);
     let currentType = "all", currentSearch = "", currentSort = "default", currentSlide = 0, autoSlideInterval;
 
-    function getCategoryIcon(c) { return c === 'anime' ? '🇯🇵' : '🇺🇸'; }
+    function getCategoryIcon(c) { return c === 'anime' ? '🇯🇵' : '🇺🇸🎬'; }
     function getCategoryName(c) { return c === 'anime' ? 'أنمي' : 'كرتون'; }
     function getTypeIcon(t) { return t === 'movie' ? '🎬 فيلم' : '📺 مسلسل'; }
 
     function updateStats() {
         document.getElementById('totalCount').innerText = cartoons.length;
-        document.getElementById('animeCount').innerText = cartoons.filter(c => c.category === 'anime').length;
+        document.getElementById('animeCount').innerText = cartoons.filter(c => c.category === 'anime' || c.category === 'cartoon').length;
         document.getElementById('lastUpdate').innerText = new Date().toLocaleDateString('ar-EG');
     }
 
     function buildSlider() {
         document.getElementById('slider').innerHTML = sliderItems.map(item => `
-            <div class="slide" data-slug="${item.nameSlug}">
+            <div class="slide" data-slug="${item.nameSlug}" data-coming-soon="${item.comingSoon || false}">
                 <img src="${item.img}" alt="${item.name}">
                 <div class="slide-info">
                     <span class="slide-badge"><i class="fas fa-star"></i> جديد ${item.year}</span>
@@ -452,7 +472,13 @@
             </div>
         `).join('');
         document.querySelectorAll('.slide').forEach(slide => {
-            slide.addEventListener('click', () => window.location.href = `watch.html?name=${slide.dataset.slug}`);
+            const isComingSoon = slide.dataset.comingSoon === 'true';
+            if (isComingSoon) {
+                slide.style.opacity = '0.7';
+                slide.addEventListener('click', () => alert('🔜 هذا الفيلم قريباً سيتم إضافته!'));
+            } else {
+                slide.addEventListener('click', () => window.location.href = `watch.html?name=${slide.dataset.slug}`);
+            }
         });
         document.getElementById('sliderDots').innerHTML = sliderItems.map((_, i) => `<div class="dot ${i === 0 ? 'active' : ''}" data-dot-index="${i}"></div>`).join('');
         document.querySelectorAll('.dot').forEach(dot => dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.dotIndex)); resetAutoSlide(); }));
@@ -471,8 +497,9 @@
         else if (currentSort === "name-desc") filtered.sort((a,b) => b.name.localeCompare(a.name));
         
         document.getElementById('cartoonList').innerHTML = filtered.map(item => `
-            <li data-slug="${item.nameSlug}">
-                ${item.isNew ? '<span class="new-badge"><i class="fas fa-star"></i> جديد</span>' : ''}
+            <li data-slug="${item.nameSlug}" data-coming-soon="${item.comingSoon || false}">
+                ${item.isNew && !item.comingSoon ? '<span class="new-badge"><i class="fas fa-star"></i> جديد</span>' : ''}
+                ${item.comingSoon ? '<span class="coming-soon-badge"><i class="fas fa-clock"></i> قريباً</span>' : ''}
                 <img src="${item.img}" alt="${item.name}">
                 <h3>${item.name}</h3>
                 <div class="card-category">${getCategoryIcon(item.category)} ${getCategoryName(item.category)} • ${getTypeIcon(item.type)}</div>
@@ -480,7 +507,12 @@
         `).join('');
         
         document.querySelectorAll('.cartoon-list li').forEach(li => {
-            li.addEventListener('click', () => window.location.href = `watch.html?name=${li.dataset.slug}`);
+            const isComingSoon = li.dataset.comingSoon === 'true';
+            if (isComingSoon) {
+                li.addEventListener('click', () => alert('🔜 هذا الفيلم قريباً سيتم إضافته!'));
+            } else {
+                li.addEventListener('click', () => window.location.href = `watch.html?name=${li.dataset.slug}`);
+            }
         });
         document.getElementById('resultCount').innerText = `عرض ${filtered.length} من ${cartoons.length} عنوان`;
     }
